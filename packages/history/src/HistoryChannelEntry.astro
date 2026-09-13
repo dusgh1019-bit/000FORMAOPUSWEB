@@ -1,0 +1,514 @@
+---
+import './entry.css';
+---
+<main class="historyChannel" data-history-channel aria-label="KOREA / AXIS Korean History channel">
+  <nav class="historyChannelUtility" aria-label="History channel context">
+    <a href="/?scene=academia">FORMA OPUS / ACADEMIA</a>
+    <span>KOREAN HISTORY</span>
+  </nav>
+
+  <section class="historyEntryStage" data-history-stage data-phase="prelude">
+    <div class="historyThemeWash" aria-hidden="true"></div>
+    <div class="historyCenterAccent" aria-hidden="true"></div>
+
+    <div class="historyPrelude" aria-hidden="true">
+      <div class="historyPreludeWord">
+        <strong class="historyPreludeFallback" data-history-prelude-source>HISTORY</strong>
+      </div>
+      <small>KOREAN HISTORY / ACADEMIA</small>
+    </div>
+
+    <canvas class="historyMatterCanvas" data-history-matter-canvas aria-hidden="true"></canvas>
+
+    <div class="historyGateScene" data-history-gate-scene>
+      <div class="historyGateAtmosphere" aria-hidden="true">
+        <span class="gateAtmosphereHalo"></span>
+        <span class="gateAtmosphereFloor"></span>
+        <span class="gateAtmosphereDust dustA"></span>
+        <span class="gateAtmosphereDust dustB"></span>
+        <svg class="historyWindField" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="historyWindStroke" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#e9e2d6" stop-opacity="0"/>
+              <stop offset=".18" stop-color="#e9e2d6" stop-opacity=".16"/>
+              <stop offset=".55" stop-color="#d9e7e2" stop-opacity=".26"/>
+              <stop offset=".82" stop-color="#e7dce9" stop-opacity=".12"/>
+              <stop offset="1" stop-color="#e9e2d6" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <path class="windRibbon windOne" d="M-220 130 C170 -20 380 265 640 140 C980 -20 1240 90 1830 300"/>
+          <path class="windRibbon windTwo" d="M-160 330 C240 200 360 470 760 300 C1120 150 1350 430 1780 250"/>
+          <path class="windRibbon windThree" d="M-230 520 C140 610 430 400 690 560 C1010 750 1290 470 1810 540"/>
+          <path class="windRibbon windFour" d="M-160 700 C300 830 520 560 830 720 C1180 900 1420 600 1770 780"/>
+          <path class="windRibbon windFive" d="M110 -40 C380 190 560 10 760 160 C990 320 1160 20 1470 130"/>
+          <path class="windRibbon windSix" d="M-240 880 C220 700 480 940 820 760 C1160 580 1480 830 1840 640"/>
+        </svg>
+      </div>
+
+      <div class="historyGate" data-history-gate>
+        <div class="historyGateFrame" aria-hidden="true">
+          <span class="historyGateLintel"></span>
+          <span class="historyGatePost postLeft"></span>
+          <span class="historyGatePost postRight"></span>
+          <span class="historyGateThreshold"></span>
+          <span class="historyGateJoint jointTL"></span>
+          <span class="historyGateJoint jointTR"></span>
+          <span class="historyGateJoint jointBL"></span>
+          <span class="historyGateJoint jointBR"></span>
+          <svg class="historyFrameNacre" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="frameNacrePearl" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#f2eee3" stop-opacity=".82"/>
+                <stop offset=".2" stop-color="#94b9b5" stop-opacity=".6"/>
+                <stop offset=".4" stop-color="#d8cfdf" stop-opacity=".74"/>
+                <stop offset=".62" stop-color="#c9b99e" stop-opacity=".58"/>
+                <stop offset=".82" stop-color="#9ebfbc" stop-opacity=".7"/>
+                <stop offset="1" stop-color="#f0eadf" stop-opacity=".76"/>
+              </linearGradient>
+            </defs>
+            <g class="frameNacreBase">
+              <path d="M38 34 H962"/><path d="M38 666 H962"/><path d="M34 42 V658"/><path d="M966 42 V658"/>
+            </g>
+            <g class="frameNacreCarve frameNacreTL">
+              <path d="M36 92 C58 58 89 55 118 72 C91 82 74 101 66 132 C57 113 48 101 36 92 Z"/>
+              <path d="M45 55 C65 62 78 76 84 99 C67 86 51 85 34 92"/>
+            </g>
+            <g class="frameNacreCarve frameNacreTR">
+              <path d="M964 92 C942 58 911 55 882 72 C909 82 926 101 934 132 C943 113 952 101 964 92 Z"/>
+              <path d="M955 55 C935 62 922 76 916 99 C933 86 949 85 966 92"/>
+            </g>
+            <g class="frameNacreCarve frameNacreBL">
+              <path d="M36 608 C58 642 89 645 118 628 C91 618 74 599 66 568 C57 587 48 599 36 608 Z"/>
+              <path d="M45 645 C65 638 78 624 84 601 C67 614 51 615 34 608"/>
+            </g>
+            <g class="frameNacreCarve frameNacreBR">
+              <path d="M964 608 C942 642 911 645 882 628 C909 618 926 599 934 568 C943 587 952 599 964 608 Z"/>
+              <path d="M955 645 C935 638 922 624 916 601 C933 614 949 615 966 608"/>
+            </g>
+            <path class="frameNacreVine vineTop" d="M128 50 C186 18 236 72 290 45 C348 16 398 70 454 45 C514 18 564 70 620 45 C679 17 735 70 790 45 C842 20 884 61 928 48"/>
+            <path class="frameNacreVine vineBottom" d="M128 650 C186 682 236 628 290 655 C348 684 398 630 454 655 C514 682 564 630 620 655 C679 683 735 630 790 655 C842 680 884 639 928 652"/>
+            <g class="frameNacreMedallion medallionTop" transform="translate(500 49)">
+              <path d="M0 -28 C10 -17 12 -8 0 0 C-12 -8 -10 -17 0 -28 Z"/>
+              <path d="M28 0 C17 10 8 12 0 0 C8 -12 17 -10 28 0 Z"/>
+              <path d="M0 28 C-10 17 -12 8 0 0 C12 8 10 17 0 28 Z"/>
+              <path d="M-28 0 C-17 -10 -8 -12 0 0 C-8 12 -17 10 -28 0 Z"/>
+              <circle r="7"/>
+            </g>
+            <g class="frameNacreMedallion medallionBottom" transform="translate(500 651)">
+              <path d="M0 -24 C9 -14 10 -7 0 0 C-10 -7 -9 -14 0 -24 Z"/><path d="M24 0 C14 9 7 10 0 0 C7 -10 14 -9 24 0 Z"/><path d="M0 24 C-9 14 -10 7 0 0 C10 7 9 14 0 24 Z"/><path d="M-24 0 C-14 -9 -7 -10 0 0 C-7 10 -14 9 -24 0 Z"/><circle r="6"/>
+            </g>
+            <g class="frameNacreMedallion medallionLeft" transform="translate(36 350) rotate(90)">
+              <path d="M0 -22 C8 -13 9 -6 0 0 C-9 -6 -8 -13 0 -22 Z"/><path d="M22 0 C13 8 6 9 0 0 C6 -9 13 -8 22 0 Z"/><path d="M0 22 C-8 13 -9 6 0 0 C9 6 8 13 0 22 Z"/><path d="M-22 0 C-13 -8 -6 -9 0 0 C-6 9 -13 8 -22 0 Z"/><circle r="5"/>
+            </g>
+            <g class="frameNacreMedallion medallionRight" transform="translate(964 350) rotate(90)">
+              <path d="M0 -22 C8 -13 9 -6 0 0 C-9 -6 -8 -13 0 -22 Z"/><path d="M22 0 C13 8 6 9 0 0 C6 -9 13 -8 22 0 Z"/><path d="M0 22 C-8 13 -9 6 0 0 C9 6 8 13 0 22 Z"/><path d="M-22 0 C-13 -8 -6 -9 0 0 C-6 9 -13 8 -22 0 Z"/><circle r="5"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="historyGateLight" aria-hidden="true"></div>
+        <div class="historyGateAperture" aria-hidden="true"></div>
+
+        <div class="historyDoor doorLeft" aria-hidden="true">
+          <span class="historyDoorDepth"></span>
+          <span class="historyLacquerGrain"></span>
+          <span class="historyDoorRecess"></span>
+          <span class="historyDoorEdge edgeOuter"></span>
+          <span class="historyDoorEdge edgeInner"></span>
+
+          <div class="historyStudRow" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+
+          <svg class="historyNacre historyNacreV3 historyNacreLeft" viewBox="0 0 500 760" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="nacrePearlLeftV3" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ece7dc"/><stop offset=".13" stop-color="#9ebfbe"/><stop offset=".27" stop-color="#d9dbd0"/><stop offset=".42" stop-color="#b7aecb"/><stop offset=".58" stop-color="#8fb8ba"/><stop offset=".73" stop-color="#d7c2b1"/><stop offset=".88" stop-color="#b9d0c8"/><stop offset="1" stop-color="#eee9df"/>
+              </linearGradient>
+              <linearGradient id="nacreDimLeftV3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6f8585"/><stop offset=".5" stop-color="#a9a8b2"/><stop offset="1" stop-color="#526768"/></linearGradient>
+              <filter id="nacreOrganicLeftV3" x="-12%" y="-12%" width="124%" height="124%"><feTurbulence type="fractalNoise" baseFrequency=".018 .055" numOctaves="2" seed="19" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale=".9" xChannelSelector="R" yChannelSelector="G"/></filter>
+            </defs>
+            <g class="nacreComposition" filter="url(#nacreOrganicLeftV3)">
+              <path class="nacreBorderRail nacrePiece" style="--i:0" d="M25 34 H475 V726 H25 Z"/>
+              <path class="nacreBorderInner nacrePiece" style="--i:1" d="M42 52 H458 V708 H42 Z"/>
+              <path class="nacreBorderVine nacrePiece" style="--i:2" d="M42 64 C73 47 91 69 111 52 C131 35 151 58 173 49 C198 39 211 61 235 51 C258 42 278 61 300 51 C325 39 347 61 369 51 C392 42 413 61 458 46"/>
+              <path class="nacreBorderVine nacrePiece borderBottom" style="--i:3" d="M42 696 C71 712 92 690 113 706 C136 721 154 698 176 707 C199 716 218 696 241 706 C265 716 282 695 306 705 C330 715 350 694 374 704 C398 714 418 696 458 711"/>
+              <g class="nacreCornerMotif"><path class="nacreCorner nacrePiece" style="--i:4" d="M34 61 C52 42 76 44 91 61 C70 63 59 76 53 96 C47 82 42 70 34 61 Z"/><path class="nacreCorner nacrePiece" style="--i:5" d="M29 60 C44 62 55 74 59 91 C47 82 35 82 23 87 C26 76 28 68 29 60 Z"/></g>
+
+              <g class="nacreBamboo bambooPrimary" style="--cluster-delay:.14s">
+                <path class="nacreStemShadow" d="M92 735 C99 666 107 600 121 535 C139 449 158 369 175 291 C188 228 194 161 184 47"/>
+                <path class="nacreStem nacrePiece" style="--i:6" d="M92 735 C99 666 107 600 121 535 C139 449 158 369 175 291 C188 228 194 161 184 47"/>
+                <path class="nacreStemHighlight nacrePiece" style="--i:7" d="M96 728 C103 661 111 598 125 536 C143 451 162 371 179 293 C192 227 198 161 188 51"/>
+                <path class="nacreNode nacrePiece" style="--i:8" d="M99 660 l31 -3"/><path class="nacreNode nacrePiece" style="--i:9" d="M112 578 l32 -4"/><path class="nacreNode nacrePiece" style="--i:10" d="M129 493 l32 -5"/><path class="nacreNode nacrePiece" style="--i:11" d="M149 401 l32 -6"/><path class="nacreNode nacrePiece" style="--i:12" d="M168 312 l31 -6"/><path class="nacreNode nacrePiece" style="--i:13" d="M181 226 l29 -4"/><path class="nacreNode nacrePiece" style="--i:14" d="M187 139 l27 -2"/>
+
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.16s;transform-origin:112px 610px">
+<path class="nacreBranch nacrePiece" style="--i:15" d="M112 610 Q79.9 589.8 55 565"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(64.1 572.2) rotate(-189.7) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:15.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(64.1 572.2) rotate(-153.7) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:15.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(64.1 572.2) rotate(-113.7) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:15.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(92.0 594.2) rotate(-163.7) scale(0.82)"><path class="nacreLeaf nacrePiece" style="--i:16;--leaf-delay:0.16s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(74.4 580.3) rotate(56.3) scale(1.00)"><path class="nacreLeaf nacrePiece" style="--i:17;--leaf-delay:0.23s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(60.7 569.5) rotate(-149.7) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:18;--leaf-delay:0.30s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.25s;transform-origin:128px 535px">
+<path class="nacreBranch nacrePiece" style="--i:19" d="M128 535 Q205.6 507.0 290 492"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(264.1 498.9) rotate(-62.9) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:19.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(264.1 498.9) rotate(-26.9) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:19.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(264.1 498.9) rotate(13.1) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:19.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(184.7 520.0) rotate(-49.9) scale(0.74)"><path class="nacreLeaf nacrePiece" style="--i:20;--leaf-delay:0.25s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(222.0 510.1) rotate(179.1) scale(0.98)"><path class="nacreLeaf nacrePiece" style="--i:21;--leaf-delay:0.32s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(254.4 501.5) rotate(-26.9) scale(0.86)"><path class="nacreLeaf nacrePiece" style="--i:22;--leaf-delay:0.39s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(283.5 493.7) rotate(189.1) scale(0.68)"><path class="nacreLeaf nacrePiece" style="--i:23;--leaf-delay:0.46s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.34s;transform-origin:151px 450px">
+<path class="nacreBranch nacrePiece" style="--i:24" d="M151 450 Q103.9 424.4 66 392"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(79.6 401.3) rotate(-193.7) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:24.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(79.6 401.3) rotate(-157.7) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:24.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(79.6 401.3) rotate(-117.7) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:24.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(125.5 432.6) rotate(-123.7) scale(0.72)"><path class="nacreLeaf nacrePiece" style="--i:25;--leaf-delay:0.34s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(105.9 419.3) rotate(16.3) scale(0.92)"><path class="nacreLeaf nacrePiece" style="--i:26;--leaf-delay:0.41s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(86.4 405.9) rotate(-127.7) scale(0.82)"><path class="nacreLeaf nacrePiece" style="--i:27;--leaf-delay:0.48s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(69.4 394.3) rotate(26.3) scale(0.68)"><path class="nacreLeaf nacrePiece" style="--i:28;--leaf-delay:0.55s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.43s;transform-origin:170px 365px">
+<path class="nacreBranch nacrePiece" style="--i:29" d="M170 365 Q249.5 336.4 336 321"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(309.4 328.0) rotate(-62.8) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:29.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(309.4 328.0) rotate(-26.8) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:29.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(309.4 328.0) rotate(13.2) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:29.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(219.8 351.8) rotate(-42.8) scale(0.72)"><path class="nacreLeaf nacrePiece" style="--i:30;--leaf-delay:0.43s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(258.0 341.7) rotate(185.2) scale(0.95)"><path class="nacreLeaf nacrePiece" style="--i:31;--leaf-delay:0.50s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(294.5 332.0) rotate(-26.8) scale(0.84)"><path class="nacreLeaf nacrePiece" style="--i:32;--leaf-delay:0.57s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(329.4 322.8) rotate(191.2) scale(0.70)"><path class="nacreLeaf nacrePiece" style="--i:33;--leaf-delay:0.64s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.52s;transform-origin:181px 290px">
+<path class="nacreBranch nacrePiece" style="--i:34" d="M181 290 Q127.8 267.9 83 238"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(98.7 246.3) rotate(-200.0) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:34.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(98.7 246.3) rotate(-164.0) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:34.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(98.7 246.3) rotate(-124.0) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:34.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(153.6 275.4) rotate(-130.0) scale(0.70)"><path class="nacreLeaf nacrePiece" style="--i:35;--leaf-delay:0.52s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(130.0 263.0) rotate(10.0) scale(0.92)"><path class="nacreLeaf nacrePiece" style="--i:36;--leaf-delay:0.59s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(106.5 250.5) rotate(-136.0) scale(0.84)"><path class="nacreLeaf nacrePiece" style="--i:37;--leaf-delay:0.66s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(85.9 239.6) rotate(23.0) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:38;--leaf-delay:0.73s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.61s;transform-origin:188px 218px">
+<path class="nacreBranch nacrePiece" style="--i:39" d="M188 218 Q249.7 185.7 320 164"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(298.9 172.6) rotate(-70.2) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:39.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(298.9 172.6) rotate(-34.2) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:39.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(298.9 172.6) rotate(5.8) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:39.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(225.0 202.9) rotate(-52.2) scale(0.70)"><path class="nacreLeaf nacrePiece" style="--i:40;--leaf-delay:0.61s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(254.0 191.0) rotate(175.8) scale(0.92)"><path class="nacreLeaf nacrePiece" style="--i:41;--leaf-delay:0.68s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(284.4 178.6) rotate(-34.2) scale(0.83)"><path class="nacreLeaf nacrePiece" style="--i:42;--leaf-delay:0.75s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(314.7 166.2) rotate(181.8) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:43;--leaf-delay:0.82s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.70s;transform-origin:184px 145px">
+<path class="nacreBranch nacrePiece" style="--i:44" d="M184 145 Q126.4 120.7 78 88"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(95.0 97.1) rotate(-199.7) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:44.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(95.0 97.1) rotate(-163.7) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:44.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(95.0 97.1) rotate(-123.7) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:44.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(155.4 129.6) rotate(-131.7) scale(0.68)"><path class="nacreLeaf nacrePiece" style="--i:45;--leaf-delay:0.70s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(131.0 116.5) rotate(12.3) scale(0.90)"><path class="nacreLeaf nacrePiece" style="--i:46;--leaf-delay:0.77s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(105.6 102.8) rotate(-132.7) scale(0.80)"><path class="nacreLeaf nacrePiece" style="--i:47;--leaf-delay:0.84s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(82.2 90.3) rotate(24.3) scale(0.64)"><path class="nacreLeaf nacrePiece" style="--i:48;--leaf-delay:0.91s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.79s;transform-origin:176px 82px">
+<path class="nacreBranch nacrePiece" style="--i:49" d="M176 82 Q227.8 60.6 285 48"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(267.6 53.4) rotate(-65.3) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:49.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(267.6 53.4) rotate(-29.3) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:49.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(267.6 53.4) rotate(10.7) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:49.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(208.7 71.8) rotate(-45.3) scale(0.67)"><path class="nacreLeaf nacrePiece" style="--i:50;--leaf-delay:0.79s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(237.0 63.0) rotate(180.7) scale(0.88)"><path class="nacreLeaf nacrePiece" style="--i:51;--leaf-delay:0.86s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(265.4 54.1) rotate(-25.3) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:52;--leaf-delay:0.93s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+              </g>
+              <g class="nacreBamboo bambooSecondary" style="--cluster-delay:.52s">
+                <path class="nacreStemShadow" d="M353 731 C339 663 333 603 338 548 C343 496 360 451 386 413"/>
+                <path class="nacreStem nacrePiece" style="--i:53" d="M353 731 C339 663 333 603 338 548 C343 496 360 451 386 413"/>
+                <path class="nacreStemHighlight nacrePiece" style="--i:54" d="M357 725 C343 660 337 602 342 550 C347 499 364 454 390 417"/>
+
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.49s;transform-origin:349px 620px">
+<path class="nacreBranch nacrePiece" style="--i:55" d="M349 620 Q311.7 598.7 282 572"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(292.7 579.7) rotate(-192.4) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:55.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(292.7 579.7) rotate(-156.4) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:55.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(292.7 579.7) rotate(-116.4) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:55.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(325.6 603.2) rotate(-124.4) scale(0.70)"><path class="nacreLeaf nacrePiece" style="--i:56;--leaf-delay:0.49s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(305.4 588.8) rotate(19.6) scale(0.86)"><path class="nacreLeaf nacrePiece" style="--i:57;--leaf-delay:0.56s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(286.0 574.9) rotate(-134.4) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:58;--leaf-delay:0.63s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.60s;transform-origin:350px 545px">
+<path class="nacreBranch nacrePiece" style="--i:59" d="M350 545 Q400.9 521.2 458 506"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(440.7 512.2) rotate(-67.9) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:59.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(440.7 512.2) rotate(-31.9) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:59.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(440.7 512.2) rotate(8.1) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:59.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(386.7 531.7) rotate(-43.9) scale(0.70)"><path class="nacreLeaf nacrePiece" style="--i:60;--leaf-delay:0.60s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(417.0 520.8) rotate(176.1) scale(0.88)"><path class="nacreLeaf nacrePiece" style="--i:61;--leaf-delay:0.67s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(447.2 509.9) rotate(-27.9) scale(0.68)"><path class="nacreLeaf nacrePiece" style="--i:62;--leaf-delay:0.74s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.71s;transform-origin:363px 478px">
+<path class="nacreBranch nacrePiece" style="--i:63" d="M363 478 Q324.8 457.8 294 432"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(305.0 439.4) rotate(-194.3) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:63.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(305.0 439.4) rotate(-158.3) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:63.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(305.0 439.4) rotate(-118.3) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:63.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(339.5 462.4) rotate(-128.3) scale(0.68)"><path class="nacreLeaf nacrePiece" style="--i:64;--leaf-delay:0.71s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(320.2 449.5) rotate(18.7) scale(0.84)"><path class="nacreLeaf nacrePiece" style="--i:65;--leaf-delay:0.78s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(299.5 435.7) rotate(-134.3) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:66;--leaf-delay:0.85s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.82s;transform-origin:384px 425px">
+<path class="nacreBranch nacrePiece" style="--i:67" d="M384 425 Q420.2 404.4 462 390"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(449.5 395.6) rotate(-72.2) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:67.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(449.5 395.6) rotate(-36.2) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:67.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(449.5 395.6) rotate(3.8) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:67.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(413.6 411.7) rotate(-46.2) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:68;--leaf-delay:0.82s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(440.2 399.8) rotate(169.8) scale(0.82)"><path class="nacreLeaf nacrePiece" style="--i:69;--leaf-delay:0.89s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(458.9 391.4) rotate(-30.2) scale(0.62)"><path class="nacreLeaf nacrePiece" style="--i:70;--leaf-delay:0.96s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+              </g>
+              <path class="nacreLightSweep" d="M70 716 C107 612 128 493 163 367 C195 249 236 153 306 74"/>
+            </g>
+          </svg>
+
+          <span class="historyDoorCorner cornerTopOuter"></span>
+          <span class="historyDoorCorner cornerBottomOuter"></span>
+
+          <span class="historyDoorHandle doorHandleLeft">
+            <span class="historyEscutcheon"><i></i><i></i><i></i><i></i></span>
+            <span class="historyRingBoss"></span>
+            <span class="historyRingBracket"></span>
+            <span class="historyRing"></span>
+          </span>
+        </div>
+
+        <div class="historyDoor doorRight" aria-hidden="true">
+          <span class="historyDoorDepth"></span>
+          <span class="historyLacquerGrain"></span>
+          <span class="historyDoorRecess"></span>
+          <span class="historyDoorEdge edgeOuter"></span>
+          <span class="historyDoorEdge edgeInner"></span>
+
+          <div class="historyStudRow" aria-hidden="true">
+            <i></i><i></i><i></i><i></i><i></i>
+          </div>
+
+          <svg class="historyNacre historyNacreV3 historyNacreRight" viewBox="0 0 500 760" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="nacrePearlRightV3" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ece7dc"/><stop offset=".13" stop-color="#9ebfbe"/><stop offset=".27" stop-color="#d9dbd0"/><stop offset=".42" stop-color="#b7aecb"/><stop offset=".58" stop-color="#8fb8ba"/><stop offset=".73" stop-color="#d7c2b1"/><stop offset=".88" stop-color="#b9d0c8"/><stop offset="1" stop-color="#eee9df"/>
+              </linearGradient>
+              <linearGradient id="nacreDimRightV3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6f8585"/><stop offset=".5" stop-color="#a9a8b2"/><stop offset="1" stop-color="#526768"/></linearGradient>
+              <filter id="nacreOrganicRightV3" x="-12%" y="-12%" width="124%" height="124%"><feTurbulence type="fractalNoise" baseFrequency=".018 .055" numOctaves="2" seed="27" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale=".9" xChannelSelector="R" yChannelSelector="G"/></filter>
+            </defs>
+            <g class="nacreComposition" transform="translate(500 0) scale(-1 1)" filter="url(#nacreOrganicRightV3)">
+              <path class="nacreBorderRail nacrePiece" style="--i:0" d="M25 34 H475 V726 H25 Z"/>
+              <path class="nacreBorderInner nacrePiece" style="--i:1" d="M42 52 H458 V708 H42 Z"/>
+              <path class="nacreBorderVine nacrePiece" style="--i:2" d="M42 64 C73 47 91 69 111 52 C131 35 151 58 173 49 C198 39 211 61 235 51 C258 42 278 61 300 51 C325 39 347 61 369 51 C392 42 413 61 458 46"/>
+              <path class="nacreBorderVine nacrePiece borderBottom" style="--i:3" d="M42 696 C71 712 92 690 113 706 C136 721 154 698 176 707 C199 716 218 696 241 706 C265 716 282 695 306 705 C330 715 350 694 374 704 C398 714 418 696 458 711"/>
+              <g class="nacreCornerMotif"><path class="nacreCorner nacrePiece" style="--i:4" d="M34 61 C52 42 76 44 91 61 C70 63 59 76 53 96 C47 82 42 70 34 61 Z"/><path class="nacreCorner nacrePiece" style="--i:5" d="M29 60 C44 62 55 74 59 91 C47 82 35 82 23 87 C26 76 28 68 29 60 Z"/></g>
+
+              <g class="nacreBamboo bambooPrimary" style="--cluster-delay:.14s">
+                <path class="nacreStemShadow" d="M92 735 C99 666 107 600 121 535 C139 449 158 369 175 291 C188 228 194 161 184 47"/>
+                <path class="nacreStem nacrePiece" style="--i:6" d="M92 735 C99 666 107 600 121 535 C139 449 158 369 175 291 C188 228 194 161 184 47"/>
+                <path class="nacreStemHighlight nacrePiece" style="--i:7" d="M96 728 C103 661 111 598 125 536 C143 451 162 371 179 293 C192 227 198 161 188 51"/>
+                <path class="nacreNode nacrePiece" style="--i:8" d="M99 660 l31 -3"/><path class="nacreNode nacrePiece" style="--i:9" d="M112 578 l32 -4"/><path class="nacreNode nacrePiece" style="--i:10" d="M129 493 l32 -5"/><path class="nacreNode nacrePiece" style="--i:11" d="M149 401 l32 -6"/><path class="nacreNode nacrePiece" style="--i:12" d="M168 312 l31 -6"/><path class="nacreNode nacrePiece" style="--i:13" d="M181 226 l29 -4"/><path class="nacreNode nacrePiece" style="--i:14" d="M187 139 l27 -2"/>
+
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.16s;transform-origin:112px 610px">
+<path class="nacreBranch nacrePiece" style="--i:15" d="M112 610 Q79.9 589.8 55 565"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(64.1 572.2) rotate(-189.7) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:15.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(64.1 572.2) rotate(-153.7) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:15.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(64.1 572.2) rotate(-113.7) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:15.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(92.0 594.2) rotate(-163.7) scale(0.82)"><path class="nacreLeaf nacrePiece" style="--i:16;--leaf-delay:0.16s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(74.4 580.3) rotate(56.3) scale(1.00)"><path class="nacreLeaf nacrePiece" style="--i:17;--leaf-delay:0.23s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(60.7 569.5) rotate(-149.7) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:18;--leaf-delay:0.30s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.25s;transform-origin:128px 535px">
+<path class="nacreBranch nacrePiece" style="--i:19" d="M128 535 Q205.6 507.0 290 492"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(264.1 498.9) rotate(-62.9) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:19.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(264.1 498.9) rotate(-26.9) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:19.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(264.1 498.9) rotate(13.1) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:19.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(184.7 520.0) rotate(-49.9) scale(0.74)"><path class="nacreLeaf nacrePiece" style="--i:20;--leaf-delay:0.25s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(222.0 510.1) rotate(179.1) scale(0.98)"><path class="nacreLeaf nacrePiece" style="--i:21;--leaf-delay:0.32s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(254.4 501.5) rotate(-26.9) scale(0.86)"><path class="nacreLeaf nacrePiece" style="--i:22;--leaf-delay:0.39s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(283.5 493.7) rotate(189.1) scale(0.68)"><path class="nacreLeaf nacrePiece" style="--i:23;--leaf-delay:0.46s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.34s;transform-origin:151px 450px">
+<path class="nacreBranch nacrePiece" style="--i:24" d="M151 450 Q103.9 424.4 66 392"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(79.6 401.3) rotate(-193.7) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:24.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(79.6 401.3) rotate(-157.7) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:24.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(79.6 401.3) rotate(-117.7) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:24.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(125.5 432.6) rotate(-123.7) scale(0.72)"><path class="nacreLeaf nacrePiece" style="--i:25;--leaf-delay:0.34s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(105.9 419.3) rotate(16.3) scale(0.92)"><path class="nacreLeaf nacrePiece" style="--i:26;--leaf-delay:0.41s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(86.4 405.9) rotate(-127.7) scale(0.82)"><path class="nacreLeaf nacrePiece" style="--i:27;--leaf-delay:0.48s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(69.4 394.3) rotate(26.3) scale(0.68)"><path class="nacreLeaf nacrePiece" style="--i:28;--leaf-delay:0.55s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.43s;transform-origin:170px 365px">
+<path class="nacreBranch nacrePiece" style="--i:29" d="M170 365 Q249.5 336.4 336 321"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(309.4 328.0) rotate(-62.8) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:29.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(309.4 328.0) rotate(-26.8) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:29.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(309.4 328.0) rotate(13.2) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:29.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(219.8 351.8) rotate(-42.8) scale(0.72)"><path class="nacreLeaf nacrePiece" style="--i:30;--leaf-delay:0.43s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(258.0 341.7) rotate(185.2) scale(0.95)"><path class="nacreLeaf nacrePiece" style="--i:31;--leaf-delay:0.50s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(294.5 332.0) rotate(-26.8) scale(0.84)"><path class="nacreLeaf nacrePiece" style="--i:32;--leaf-delay:0.57s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(329.4 322.8) rotate(191.2) scale(0.70)"><path class="nacreLeaf nacrePiece" style="--i:33;--leaf-delay:0.64s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.52s;transform-origin:181px 290px">
+<path class="nacreBranch nacrePiece" style="--i:34" d="M181 290 Q127.8 267.9 83 238"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(98.7 246.3) rotate(-200.0) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:34.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(98.7 246.3) rotate(-164.0) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:34.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(98.7 246.3) rotate(-124.0) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:34.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(153.6 275.4) rotate(-130.0) scale(0.70)"><path class="nacreLeaf nacrePiece" style="--i:35;--leaf-delay:0.52s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(130.0 263.0) rotate(10.0) scale(0.92)"><path class="nacreLeaf nacrePiece" style="--i:36;--leaf-delay:0.59s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(106.5 250.5) rotate(-136.0) scale(0.84)"><path class="nacreLeaf nacrePiece" style="--i:37;--leaf-delay:0.66s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(85.9 239.6) rotate(23.0) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:38;--leaf-delay:0.73s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.61s;transform-origin:188px 218px">
+<path class="nacreBranch nacrePiece" style="--i:39" d="M188 218 Q249.7 185.7 320 164"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(298.9 172.6) rotate(-70.2) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:39.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(298.9 172.6) rotate(-34.2) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:39.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(298.9 172.6) rotate(5.8) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:39.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(225.0 202.9) rotate(-52.2) scale(0.70)"><path class="nacreLeaf nacrePiece" style="--i:40;--leaf-delay:0.61s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(254.0 191.0) rotate(175.8) scale(0.92)"><path class="nacreLeaf nacrePiece" style="--i:41;--leaf-delay:0.68s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(284.4 178.6) rotate(-34.2) scale(0.83)"><path class="nacreLeaf nacrePiece" style="--i:42;--leaf-delay:0.75s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(314.7 166.2) rotate(181.8) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:43;--leaf-delay:0.82s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.70s;transform-origin:184px 145px">
+<path class="nacreBranch nacrePiece" style="--i:44" d="M184 145 Q126.4 120.7 78 88"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(95.0 97.1) rotate(-199.7) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:44.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(95.0 97.1) rotate(-163.7) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:44.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(95.0 97.1) rotate(-123.7) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:44.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(155.4 129.6) rotate(-131.7) scale(0.68)"><path class="nacreLeaf nacrePiece" style="--i:45;--leaf-delay:0.70s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(131.0 116.5) rotate(12.3) scale(0.90)"><path class="nacreLeaf nacrePiece" style="--i:46;--leaf-delay:0.77s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(105.6 102.8) rotate(-132.7) scale(0.80)"><path class="nacreLeaf nacrePiece" style="--i:47;--leaf-delay:0.84s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(82.2 90.3) rotate(24.3) scale(0.64)"><path class="nacreLeaf nacrePiece" style="--i:48;--leaf-delay:0.91s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.79s;transform-origin:176px 82px">
+<path class="nacreBranch nacrePiece" style="--i:49" d="M176 82 Q227.8 60.6 285 48"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(267.6 53.4) rotate(-65.3) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:49.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(267.6 53.4) rotate(-29.3) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:49.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(267.6 53.4) rotate(10.7) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:49.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(208.7 71.8) rotate(-45.3) scale(0.67)"><path class="nacreLeaf nacrePiece" style="--i:50;--leaf-delay:0.79s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(237.0 63.0) rotate(180.7) scale(0.88)"><path class="nacreLeaf nacrePiece" style="--i:51;--leaf-delay:0.86s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(265.4 54.1) rotate(-25.3) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:52;--leaf-delay:0.93s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+              </g>
+              <g class="nacreBamboo bambooSecondary" style="--cluster-delay:.52s">
+                <path class="nacreStemShadow" d="M353 731 C339 663 333 603 338 548 C343 496 360 451 386 413"/>
+                <path class="nacreStem nacrePiece" style="--i:53" d="M353 731 C339 663 333 603 338 548 C343 496 360 451 386 413"/>
+                <path class="nacreStemHighlight nacrePiece" style="--i:54" d="M357 725 C343 660 337 602 342 550 C347 499 364 454 390 417"/>
+
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.49s;transform-origin:349px 620px">
+<path class="nacreBranch nacrePiece" style="--i:55" d="M349 620 Q311.7 598.7 282 572"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(292.7 579.7) rotate(-192.4) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:55.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(292.7 579.7) rotate(-156.4) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:55.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(292.7 579.7) rotate(-116.4) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:55.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(325.6 603.2) rotate(-124.4) scale(0.70)"><path class="nacreLeaf nacrePiece" style="--i:56;--leaf-delay:0.49s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(305.4 588.8) rotate(19.6) scale(0.86)"><path class="nacreLeaf nacrePiece" style="--i:57;--leaf-delay:0.56s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(286.0 574.9) rotate(-134.4) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:58;--leaf-delay:0.63s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.60s;transform-origin:350px 545px">
+<path class="nacreBranch nacrePiece" style="--i:59" d="M350 545 Q400.9 521.2 458 506"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(440.7 512.2) rotate(-67.9) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:59.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(440.7 512.2) rotate(-31.9) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:59.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(440.7 512.2) rotate(8.1) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:59.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(386.7 531.7) rotate(-43.9) scale(0.70)"><path class="nacreLeaf nacrePiece" style="--i:60;--leaf-delay:0.60s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(417.0 520.8) rotate(176.1) scale(0.88)"><path class="nacreLeaf nacrePiece" style="--i:61;--leaf-delay:0.67s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(447.2 509.9) rotate(-27.9) scale(0.68)"><path class="nacreLeaf nacrePiece" style="--i:62;--leaf-delay:0.74s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.71s;transform-origin:363px 478px">
+<path class="nacreBranch nacrePiece" style="--i:63" d="M363 478 Q324.8 457.8 294 432"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(305.0 439.4) rotate(-194.3) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:63.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(305.0 439.4) rotate(-158.3) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:63.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(305.0 439.4) rotate(-118.3) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:63.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(339.5 462.4) rotate(-128.3) scale(0.68)"><path class="nacreLeaf nacrePiece" style="--i:64;--leaf-delay:0.71s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(320.2 449.5) rotate(18.7) scale(0.84)"><path class="nacreLeaf nacrePiece" style="--i:65;--leaf-delay:0.78s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(299.5 435.7) rotate(-134.3) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:66;--leaf-delay:0.85s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+<g class="nacreBranchGroup windBranch" style="--wind-phase:0.82s;transform-origin:384px 425px">
+<path class="nacreBranch nacrePiece" style="--i:67" d="M384 425 Q420.2 404.4 462 390"/>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(449.5 395.6) rotate(-72.2) scale(0.60)"><path class="nacreLeaf nacrePiece" style="--i:67.00;--leaf-delay:0.22s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(449.5 395.6) rotate(-36.2) scale(0.76)"><path class="nacreLeaf nacrePiece" style="--i:67.18;--leaf-delay:0.29s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor nacreCanopyLeaf" transform="translate(449.5 395.6) rotate(3.8) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:67.36;--leaf-delay:0.36s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(413.6 411.7) rotate(-46.2) scale(0.66)"><path class="nacreLeaf nacrePiece" style="--i:68;--leaf-delay:0.82s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(440.2 399.8) rotate(169.8) scale(0.82)"><path class="nacreLeaf nacrePiece" style="--i:69;--leaf-delay:0.89s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+<g class="nacreLeafAnchor" transform="translate(458.9 391.4) rotate(-30.2) scale(0.62)"><path class="nacreLeaf nacrePiece" style="--i:70;--leaf-delay:0.96s" d="M0 0 C18 -11.5 47 -17.5 78 -13.2 C58 -5.8 31 4.8 0 0 Z"/></g>
+</g>
+              </g>
+              <path class="nacreLightSweep" d="M70 716 C107 612 128 493 163 367 C195 249 236 153 306 74"/>
+            </g>
+          </svg>
+
+          <span class="historyDoorCorner cornerTopOuter"></span>
+          <span class="historyDoorCorner cornerBottomOuter"></span>
+
+          <span class="historyDoorHandle doorHandleRight">
+            <span class="historyEscutcheon"><i></i><i></i><i></i><i></i></span>
+            <span class="historyRingBoss"></span>
+            <span class="historyRingBracket"></span>
+            <span class="historyRing"></span>
+          </span>
+        </div>
+
+        <div class="historyGateSeam" aria-hidden="true"></div>
+        <button class="historyGateHit" type="button" data-history-open aria-label="Open the Korean gate and enter KOREA / AXIS"></button>
+      </div>
+      <p class="historyGateInstruction" aria-hidden="true">OPEN / KOREA · AXIS</p>
+    </div>
+
+    <div class="historyExposure" aria-hidden="true"></div>
+
+    <section class="historyReady" aria-label="KOREA / AXIS master history interface">
+      <div class="historyMainCinematic" data-history-main-cinematic aria-hidden="true">
+        <canvas class="historyInkDropsCanvas" data-history-ink-drops></canvas>
+        <canvas class="historyMainStrokeCanvas" data-history-main-stroke></canvas>
+        <div class="historyHanjaReveal" data-history-hanja>基軸</div>
+      </div>
+
+      <header class="historyReadyIdentity">
+        <span>FORMA OPUS / ACADEMIA</span>
+        <h1>KOREA / AXIS</h1>
+        <small>KOREAN HISTORY</small>
+      </header>
+
+      <div class="historyAxisWrap">
+        <canvas class="historyBrushCanvas" data-history-brush aria-hidden="true"></canvas>
+        <svg class="historyAxisFallback" viewBox="0 0 112 1000" preserveAspectRatio="none" aria-hidden="true">
+          <defs>
+            <filter id="historyBrushRoughness" x="-35%" y="-5%" width="170%" height="110%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.041 0.006" numOctaves="3" seed="29" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="5.8" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+          </defs>
+          <path class="historyAxisFallbackStroke" d="M57 8 C46 108 66 205 53 312 C44 415 66 505 53 610 C46 712 63 812 50 992" filter="url(#historyBrushRoughness)"/>
+        </svg>
+
+        <button class="historyAxisNode" type="button" data-history-axis-node aria-expanded="false" aria-controls="history-axis-summary">
+          <span class="historyAxisNodeDot" aria-hidden="true"></span>
+          <span class="historyAxisNodeLabel">PROTOTYPE / 01</span>
+        </button>
+      </div>
+
+      <aside class="historyAxisSummary" id="history-axis-summary" data-history-summary aria-hidden="true">
+        <span class="historyAxisSummaryEyebrow">FIRST RESPONSE / SUMMARY</span>
+        <h2>ERA</h2>
+        <p>Historical structure will open here without replacing the master axis.</p>
+        <dl>
+          <div><dt>MODE</dt><dd>SUMMARY / STRUCTURE</dd></div>
+          <div><dt>STATUS</dt><dd>INTERACTION CONTRACT</dd></div>
+        </dl>
+        <button type="button" data-history-detail>OPEN DETAIL HOOK <span aria-hidden="true">↗</span></button>
+      </aside>
+
+      <div class="historyDetailHook" data-history-detail-hook aria-hidden="true">
+        <span>SECOND RESPONSE / DETAIL</span>
+        <strong>DETAIL FOUNDATION</strong>
+        <p>No historical detail is populated in this patch. This state only validates the transition contract.</p>
+        <button type="button" data-history-detail-close>CLOSE</button>
+      </div>
+    </section>
+
+    <div class="historyLiveRegion srOnly" aria-live="polite" data-history-live></div>
+  </section>
+</main>
+
+<script>
+  import { mountHistoryChannelEntry } from './entry-controller';
+  const channel = document.querySelector<HTMLElement>('[data-history-channel]');
+  if (channel) mountHistoryChannelEntry(channel);
+</script>

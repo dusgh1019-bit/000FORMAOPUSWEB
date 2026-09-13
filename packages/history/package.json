@@ -1,0 +1,11 @@
+{
+  "name": "@forma-opus/history",
+  "version": "2.0.0-rc.8",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./HistoryChannelEntry.astro": "./src/HistoryChannelEntry.astro",
+    "./entry.css": "./src/entry.css"
+  }
+}
