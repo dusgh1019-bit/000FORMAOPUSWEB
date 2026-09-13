@@ -38,9 +38,13 @@ Per `26_AI_COLLAB_CHARTER` (CORE, "Continuity"): this rulebook, not chat history
   diff 요약을 항상 보고에 포함 (기획 세션이 아직 규칙 준수를 확인 못했을 수 있음)
 
 ## Repo state (as of this migration)
-This repo was empty when this session started. Current contents were migrated in from a prior direct-development session ("00.0") whose full site scaffold was not available — only the rulebook and one component package were recovered:
-- `packages/history/` — the `@forma-opus/history` HISTORY-channel cinematic entry patch (RC8+, gate/nacre/dust/brush-axis sequence). See `packages/history/README.md` for its own changelog. Per the kickoff instructions, this patch's *content* is not to be silently expanded or judged as approved — the plan/spec session (00.1) has not confirmed it against `01_CONSTITUTION` yet.
-- **Missing**: the root Astro app / site scaffold (no `astro.config`, no root `package.json`, no other routes). `pnpm install && pnpm dev` (PATCH 0) cannot run until that scaffold exists or is recovered — flag this rather than fabricating one.
+This repo was empty when this session started. Current contents were migrated in from a prior direct-development session ("00.0"):
+- `packages/history/` — the `@forma-opus/history` HISTORY-channel cinematic entry patch (RC8+, gate/nacre/dust/brush-axis sequence) as its own small package (`entry-controller.ts`, `entry.css`, `HistoryChannelEntry.astro`, `index.ts`). See `packages/history/README.md` for its own changelog.
+- `site/FORMA_OPUS_FULL_REVIEW.html` — the full site as a single self-contained portable HTML file ("FORMA OPUS DEV 0.9/1.7+ Portable Preview"), hash-router SPA (`#/home`, etc.), all CSS/JS inline, no build step needed — open directly in a browser. This is what the user described as "the full code." It embeds its own HISTORY entry sequence inline (search for `HISTORY CINEMATIC QUALITY FIX`, `PATCH TBD` in the file) with a *different* revision history than `packages/history` — the two have not been reconciled or diffed against each other yet. Treat that as an open question, not a resolved merge, until the planning session says which is canonical.
+
+**Important — not an Astro source tree.** There is no `astro.config`, no root `package.json`, no separate route files. The kickoff prompt's PATCH 0 step (`pnpm install && pnpm dev`) assumes an Astro dev workflow that does not exist here; the actual current artifact is the portable HTML file above, run by opening it directly (or serving it as a static file). Do not fabricate an Astro scaffold — report this mismatch and wait for the planning session's direction on whether to (a) keep working in the single-file portable format, or (b) build out an Astro project structure around `packages/history` and migrate the portable HTML's content into it.
+
+Note: the two uploaded files `FORMA_OPUS_FULL_REVIEW_TBD.html` and `FORMA_OPUS_FULL_REVIEW_LATEST8.html` were byte-for-byte identical — only one copy was kept.
 
 ## Rules for this session
 - 값 불확실 → MISSING으로 표시, 지어내지 않음
