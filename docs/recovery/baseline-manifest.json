@@ -1,0 +1,56 @@
+{
+  "baseline_commit": "88ccaaa87afd22b40cb3212d368d7c152b5fe18e",
+  "purpose": "Preserve recovered bytes; not a canonical Architecture v2 release manifest.",
+  "files": [
+    {
+      "path": "CLAUDE.md",
+      "bytes": 6040,
+      "sha256": "85fb411d64ff0f95eccc71ac7262ad593c8c78a69125a1a4beaa23a70003008c"
+    },
+    {
+      "path": "docs/rulebook/FORMA OPUS - Brand System Master (Claude Working Copy).xlsx",
+      "bytes": 156798,
+      "sha256": "7fce1ca43f8dcc5c69758a36cc0c7d5795b892f7eccc791b0a7e1bbb09615c10"
+    },
+    {
+      "path": "docs/rulebook/RULEBOOK.md",
+      "bytes": 239470,
+      "sha256": "9f5305e7522d411a833616a2ed87b6dc48904bbfd52a2a03745d2152e78ea468"
+    },
+    {
+      "path": "packages/history/README.md",
+      "bytes": 6003,
+      "sha256": "adef9171e2a76c83361ee95aa662c300672879add5e1577b249b891a4b503320"
+    },
+    {
+      "path": "packages/history/package.json",
+      "bytes": 256,
+      "sha256": "cd94f9077e968192a48436859ec52f94ec869ec4d57c088a0d55d7f50d7796ef"
+    },
+    {
+      "path": "packages/history/src/HistoryChannelEntry.astro",
+      "bytes": 60386,
+      "sha256": "bc1b00bf943fd4aa5d219e55b53a7fdd4c405cc3f8b1c233b890b9dc4c006cdb"
+    },
+    {
+      "path": "packages/history/src/entry-controller.ts",
+      "bytes": 43674,
+      "sha256": "69feb597f019a5585dc740dc9543ac7b8e773f49b8039378dedd4464efe4f1b9"
+    },
+    {
+      "path": "packages/history/src/entry.css",
+      "bytes": 81973,
+      "sha256": "cfbeb4a575289622a41b6558d8d0490fcfcbae21c3b3db548d8a3785d1d341b2"
+    },
+    {
+      "path": "packages/history/src/index.ts",
+      "bytes": 428,
+      "sha256": "9443d3cab6af878882c1b63d45a38c344371ed6724cbf8a2049880fb93cf0d21"
+    },
+    {
+      "path": "site/FORMA_OPUS_FULL_REVIEW.html",
+      "bytes": 690481,
+      "sha256": "3592be25bd728925877d42c8192757f75496718f8ed1694451dbf5dbbfa97574"
+    }
+  ]
+}
