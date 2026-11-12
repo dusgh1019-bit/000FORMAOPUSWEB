@@ -32,7 +32,7 @@ jobs:
           pnpm verify:pre-deprecation
       - name: Astro build
         run: pnpm build
-      - name: Chromium PC and mobile smoke screenshots
+      - name: Chromium route screenshots (actual Astro URLs)
         if: success()
         run: |
           npx --yes playwright@1.56.1 install --with-deps chromium
@@ -41,11 +41,17 @@ jobs:
             if curl -fsS http://127.0.0.1:4321/ > /dev/null; then break; fi
             sleep 2
           done
+          for path in '/' '/grea/' '/parvus/' '/?scene=academia'; do
+            curl -fsS "http://127.0.0.1:4321$path" > /dev/null
+          done
           mkdir -p qa-screenshots
-          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="1440,900" --wait-for-timeout=2500 http://127.0.0.1:4321/ qa-screenshots/home-desktop.png
-          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="390,844" --wait-for-timeout=2500 http://127.0.0.1:4321/ qa-screenshots/home-mobile.png
-          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="1440,900" --wait-for-timeout=2500 'http://127.0.0.1:4321/#/parvus' qa-screenshots/parvus-desktop.png
-          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="390,844" --wait-for-timeout=2500 'http://127.0.0.1:4321/#/parvus' qa-screenshots/parvus-mobile.png
+          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="1440,900" --wait-for-timeout=4500 http://127.0.0.1:4321/ qa-screenshots/intro-desktop.png
+          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="1440,900" --wait-for-timeout=2000 'http://127.0.0.1:4321/?scene=academia' qa-screenshots/academia-desktop.png
+          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="390,844" --wait-for-timeout=2000 'http://127.0.0.1:4321/?scene=academia' qa-screenshots/academia-mobile.png
+          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="1440,900" --wait-for-timeout=5000 http://127.0.0.1:4321/parvus/ qa-screenshots/parvus-desktop.png
+          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="390,844" --wait-for-timeout=5000 http://127.0.0.1:4321/parvus/ qa-screenshots/parvus-mobile.png
+          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="1440,900" --wait-for-timeout=2500 http://127.0.0.1:4321/grea/ qa-screenshots/grea-desktop.png
+          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="390,844" --wait-for-timeout=2500 http://127.0.0.1:4321/grea/ qa-screenshots/grea-mobile.png
       - name: Attach QA evidence
         if: always()
         uses: actions/upload-artifact@v4
