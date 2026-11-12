@@ -1,0 +1,18 @@
+{
+  "name": "@forma-opus/parvus",
+  "version": "2.0.0-rc.2",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./components/*": "./src/components/*.tsx",
+    "./domain.css": "./src/domain.css",
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@forma-opus/core": "workspace:*",
+    "@forma-opus/ui": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  }
+}

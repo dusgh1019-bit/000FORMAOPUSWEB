@@ -1,0 +1,25 @@
+{
+  "name": "@forma-opus/ui",
+  "version": "2.0.0-rc.2",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./SplitPanelScene.astro": "./src/SplitPanelScene.astro",
+    "./BreadcrumbTrail.astro": "./src/BreadcrumbTrail.astro",
+    "./SectionLabel.astro": "./src/SectionLabel.astro",
+    "./HoverReveal.astro": "./src/HoverReveal.astro",
+    "./BlurOverlay.astro": "./src/BlurOverlay.astro",
+    "./ui.css": "./src/ui.css",
+    "./react/Link": "./src/react/Link.tsx",
+    "./react/router": "./src/react/router.ts",
+    "./react/BreadcrumbTrail": "./src/react/BreadcrumbTrail.tsx",
+    "./react/SiteUtility": "./src/react/SiteUtility.tsx",
+    "./react/VisualEntrySurface": "./src/react/VisualEntrySurface.tsx"
+  },
+  "dependencies": {
+    "@forma-opus/core": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0"
+  }
+}

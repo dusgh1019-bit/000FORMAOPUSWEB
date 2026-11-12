@@ -1,0 +1,30 @@
+{
+  "name": "@forma-opus/web",
+  "version": "2.0.0-rc.7",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@forma-opus/core": "workspace:*",
+    "@forma-opus/shell": "workspace:*",
+    "@forma-opus/ui": "workspace:*",
+    "astro": "^5.13.5",
+    "typescript": "^5.9.2",
+    "@astrojs/react": "^4.3.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "@forma-opus/grea": "workspace:*",
+    "@forma-opus/exercitus": "workspace:*",
+    "@forma-opus/parvus": "workspace:*",
+    "@forma-opus/machina": "workspace:*",
+    "@forma-opus/cad": "workspace:*",
+    "@forma-opus/history": "workspace:*"
+  },
+  "devDependencies": {}
+}

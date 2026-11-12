@@ -1,0 +1,7 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CleanWip from '../../../components/CleanWip.astro';
+import '@forma-opus/machina/domain.css'; import { ProjectDetail } from '@forma-opus/machina'; import { machinaSystems } from '@content/machina/index';
+export function getStaticPaths(){return machinaSystems.map((project)=>({params:{slug:project.slug},props:{project}}));} const {project}=Astro.props;
+---
+<BaseLayout title="SYSTEMS — FORMA OPUS" bodyClass="fo-clean-body"><CleanWip project="SYSTEMS" backHref="/machina" backLabel="MACHINA" /></BaseLayout>

@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CleanWip from '../../../components/CleanWip.astro';
+import { historyArchive } from '@content/history/archive';
+export function getStaticPaths(){
+  return historyArchive.map((item)=>({ params:{ slug:item.slug } }));
+}
+---
+<BaseLayout title="HISTORY — ACADEMIA / FORMA OPUS" bodyClass="fo-clean-body">
+  <main class="history-empty"><a href="/academia/history">← HISTORY</a><span>ACADEMIA / HISTORY</span></main>
+</BaseLayout>
+<style is:global>body.fo-clean-body{background:#fff!important;color:#000!important;color-scheme:light;}</style>
+<style>.history-empty{min-height:100svh;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:.12em;padding:30px clamp(24px,5vw,70px)}.history-empty a{color:inherit;text-decoration:none}.history-empty span{float:right;color:#999}</style>

@@ -1,0 +1,41 @@
+{
+  "core": [],
+  "ui": [
+    "core"
+  ],
+  "shell": [
+    "core",
+    "ui"
+  ],
+  "services": [],
+  "grea": [
+    "core",
+    "ui",
+    "services"
+  ],
+  "exercitus": [
+    "core",
+    "ui",
+    "services"
+  ],
+  "parvus": [
+    "core",
+    "ui",
+    "services"
+  ],
+  "machina": [
+    "core",
+    "ui",
+    "services"
+  ],
+  "history": [
+    "core",
+    "ui",
+    "services"
+  ],
+  "cad": [
+    "core",
+    "ui",
+    "services"
+  ]
+}

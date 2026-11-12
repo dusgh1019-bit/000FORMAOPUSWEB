@@ -1,0 +1,25 @@
+{
+  "scenes": [
+    {
+      "id": "works",
+      "index": "01",
+      "label": "WORKS",
+      "cue": "SCROLL ↓ ACADEMIA",
+      "items": [
+        { "id": "grea", "name": "GREA", "href": "/grea", "descriptor": "Identity / Apparel / Field Equipment", "visualClass": "panel-grea" },
+        { "id": "parvus", "name": "PARVUS", "href": "/parvus", "descriptor": "Affection / Brick / Build", "visualClass": "panel-parvus" },
+        { "id": "machina", "name": "MACHINA", "href": "/machina", "descriptor": "Precision / Structure / Technology", "visualClass": "panel-machina" }
+      ]
+    },
+    {
+      "id": "academia",
+      "index": "02",
+      "label": "ACADEMIA",
+      "cue": "SCROLL ↑ WORKS",
+      "items": [
+        { "id": "history", "name": "HISTORY", "href": "/academia/history", "descriptor": "History / Lecture / Research", "visualClass": "panel-academia-history" },
+        { "id": "cad", "name": "CAD", "href": "/academia/cad", "descriptor": "ARCHIVE IN PREPARATION", "visualClass": "panel-academia-cad" }
+      ]
+    }
+  ]
+}

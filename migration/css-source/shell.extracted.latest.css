@@ -1,0 +1,205 @@
+/* Architecture v2 ownership: shell. Extracted from frozen DEV 1.7 without selector/value redesign. */
+
+.rootExperience {
+  position: relative;
+  min-height: 100svh;
+  background: var(--fo-black);
+}
+.rootExperience.isEntry {
+  height: 100svh;
+  overflow: hidden;
+}
+.rootEntry {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+  transition:
+    opacity 420ms ease,
+    transform 620ms var(--ease-out),
+    visibility 0s linear 0s;
+}
+.rootBrands {
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+  transition:
+    opacity 560ms ease 110ms,
+    transform 700ms var(--ease-out) 70ms;
+}
+.rootExperience.isBrands .rootEntry {
+  opacity: 0;
+  transform: translateY(-14px);
+  visibility: hidden;
+  pointer-events: none;
+  transition-delay: 0s, 0s, 620ms;
+}
+.rootExperience.isBrands .rootBrands {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.rootExperience.isEntry .rootBrands {
+  visibility: hidden;
+}
+.rootExperience.isBrands .rootBrands {
+  visibility: visible;
+}
+.skipLink {
+  position: absolute;
+  left: -10000px;
+}
+.skipLink:focus {
+  left: 24px;
+  top: 24px;
+  z-index: 100;
+  padding: 10px 14px;
+  background: var(--fo-paper);
+  color: var(--fo-black);
+}
+.entry {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: var(--page-pad);
+  background: var(--fo-black);
+}
+.entryButton {
+  border: 0;
+  background: transparent;
+  color: var(--fo-bone);
+  cursor: pointer;
+  padding: 28px;
+  display: grid;
+  gap: 18px;
+  place-items: center;
+}
+.entryWordmark {
+  font-family: "Instrument Sans", Inter, Arial, sans-serif;
+  font-size: clamp(38px, 6vw, 92px);
+  font-weight: 520;
+  letter-spacing: -.045em;
+  line-height: .92;
+}
+.entryCue { font-size: 10px; letter-spacing: .28em; text-transform: uppercase; opacity: .55; }
+.brandSelection {
+  min-height: 100svh;
+  display: flex;
+  overflow: hidden;
+  background: var(--fo-black);
+}
+.brandPanel {
+  position: relative;
+  flex: 1 1 33.333%;
+  min-width: 0;
+  min-height: 100svh;
+  border: 0;
+  border-left: 1px solid rgba(231,228,221,.08);
+  overflow: hidden;
+  transition: flex-basis var(--motion-local) var(--ease-out), opacity var(--motion-local) ease, background var(--motion-standard) ease;
+}
+.brandPanel:first-child { border-left: 0; }
+.brandPanel:hover, .brandPanel:focus-within, .brandPanel[data-active="true"] { flex-basis: 40%; }
+.brandSelection:has(.brandPanel:hover) .brandPanel:not(:hover),
+.brandSelection:has(.brandPanel:focus-within) .brandPanel:not(:focus-within) { flex-basis: 30%; opacity: .68; }
+.panel-grea { background: linear-gradient(135deg, #10120f, #171a14 65%, #25291e); }
+.panel-parvus { background: linear-gradient(135deg, #2a2621, #3a2f26 65%, #5a402e); }
+.panel-machina { background: linear-gradient(135deg, #15191c, #1c2730 65%, #263f52); }
+@media (max-width: 900px) {
+  .brandSelection { display: block; overflow: visible; }
+  .brandPanel, .brandPanel:hover, .brandPanel:focus-within { min-height: 72svh; flex-basis: auto; border-left: 0; border-top: 1px solid rgba(231,228,221,.08); }
+  .brandSelection:has(.brandPanel:hover) .brandPanel:not(:hover), .brandSelection:has(.brandPanel:focus-within) .brandPanel:not(:focus-within) { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rootEntry, .rootBrands { transform: none !important; transition-delay: 0ms !important; }
+}
+.rootExperience.isBrands {
+  height: 100svh;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+.rootExperience.isBrands .rootBrands {
+  height: 100svh;
+  overflow: hidden;
+}
+.rootSceneUtility { z-index: 70; }
+.sceneViewport {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+.sceneTrack {
+  position: relative;
+  width: 100%;
+  height: 200svh;
+  transform: translate3d(0,0,0);
+  transition: transform 760ms cubic-bezier(.2,.78,.18,1);
+  will-change: transform;
+}
+.rootExperience.scene-academia .sceneTrack { transform: translate3d(0,-100svh,0); }
+.rootScene {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--fo-black);
+}
+.sceneAcademia { background: #121310; }
+.panel-academia-history { background: linear-gradient(135deg,#151411,#201d18 62%,#332a21); }
+.panel-academia-cad { background: linear-gradient(135deg,#111416,#192126 62%,#26323a); }
+.sceneMeta {
+  position: absolute;
+  z-index: 12;
+  right: max(var(--page-pad),28px);
+  bottom: 27px;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: baseline;
+  gap: 0 10px;
+  pointer-events: none;
+  color: rgba(231,228,221,.72);
+  text-align: right;
+}
+.sceneMeta span { font-size: 10px; letter-spacing: .18em; opacity: .55; }
+.sceneMeta strong { font-size: 11px; letter-spacing: .18em; font-weight: 520; }
+.sceneMeta small { grid-column: 1 / -1; margin-top: 6px; font-size: 8px; letter-spacing: .18em; opacity: .38; }
+.sceneMetaAcademia { bottom: auto; top: 86px; }
+.sceneRail {
+  position: fixed;
+  z-index: 72;
+  right: max(14px,calc(var(--page-pad) * .3));
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  gap: 10px;
+}
+.sceneRail button {
+  width: 30px; height: 30px; padding: 0;
+  border: 0; background: transparent; color: rgba(231,228,221,.35);
+  cursor: pointer; display: grid; place-items: center;
+  transition: color var(--motion-local) ease, transform var(--motion-local) var(--ease-out);
+}
+.sceneRail button::before {
+  content: ""; width: 3px; height: 3px; border-radius: 50%; background: currentColor;
+  transition: width var(--motion-local) var(--ease-out), border-radius var(--motion-local) ease;
+}
+.sceneRail button span { position: absolute; left: -9999px; }
+@media (max-width: 900px) {
+  .sceneMeta { display:none; }
+  .sceneRail { right:8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sceneTrack { transition: opacity 1ms linear !important; }
+  .rootExperience.scene-academia .sceneTrack { transform: translate3d(0,-100svh,0); }
+}
+.sceneMetaWorks { bottom:auto; top:86px; }
+@media (max-width:900px) {
+  .sceneMetaWorks { display:none; }
+}

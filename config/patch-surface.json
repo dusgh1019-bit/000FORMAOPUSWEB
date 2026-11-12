@@ -1,0 +1,61 @@
+{
+  "patchId": "TBD",
+  "title": "HISTORY — KOREA / AXIS Entry Experience + 基軸 Interactive Master Axis Foundation",
+  "reason": "Build the first post-reset HISTORY channel experience on Architecture v2 without reconnecting historical datasets: ACADEMIA HISTORY cell expands into the channel, HISTORY dissolves through controlled particles, a contemporary Korean lacquer/nacre gate requires user activation, light adaptation reveals KOREA / AXIS and 基軸, and a tactile vertical brush axis settles left with a minimal summary/detail interaction contract.",
+  "resetDomains": [
+    "history"
+  ],
+  "intentionalContentDrift": [
+    "content/grea/index.ts",
+    "content/history/timeline/index.ts"
+  ],
+  "intentionalComponentDrift": [
+    "packages/grea/src/components/GreaLanding.tsx",
+    "packages/parvus/src/components/ParvusProjectDetail.tsx",
+    "packages/parvus/src/components/ParvusProjectsIndex.tsx",
+    "packages/parvus/src/components/ParvusThemePanel.tsx",
+    "packages/machina/src/components/MachinaLanding.tsx"
+  ],
+  "historyEntryFiles": [
+    "packages/history/src/HistoryChannelEntry.astro",
+    "packages/history/src/entry-controller.ts",
+    "packages/history/src/entry.css",
+    "packages/history/src/index.ts",
+    "apps/web/src/pages/academia/history/index.astro"
+  ],
+  "limitedShellIntegration": [
+    "packages/shell/src/scene-controller.ts"
+  ],
+  "historicalContentStillDisconnected": true,
+  "prototypeFixturesOnly": true,
+  "nonTargets": [
+    "packages/core",
+    "packages/ui",
+    "packages/cad",
+    "packages/grea",
+    "packages/exercitus",
+    "packages/parvus",
+    "packages/machina",
+    "packages/services",
+    "content/history",
+    "content/cad",
+    "content/grea",
+    "content/parvus",
+    "content/machina"
+  ],
+  "reviewArtifacts": [
+    "review/FORMA_OPUS_FULL_REVIEW_UX_PARITY_RC9.html",
+    "review/FORMA_OPUS_HISTORY_KOREA_AXIS_RC9.html",
+    "review/FORMA_OPUS_FULL_REVIEW_LATEST.html"
+  ],
+  "newSharedFiles": [
+    "packages/ui/src/react/VisualEntrySurface.tsx"
+  ],
+  "styleOwnersChanged": [
+    "packages/ui/src/ui.css",
+    "packages/grea/src/domain.css",
+    "packages/parvus/src/domain.css",
+    "packages/machina/src/domain.css",
+    "packages/history/src/entry.css"
+  ]
+}

@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RootExperience from '@forma-opus/shell/RootExperience.astro';
+import { brands, academia } from '@content/site/model';
+const scenes=[
+ {id:'works',index:'01',label:'WORKS',cue:'SCROLL ↓ ACADEMIA',items:brands.map((b)=>({id:b.slug,name:b.name,href:`/${b.slug}`,descriptor:b.previewLabel,visualClass:`panel-${b.slug}`,ariaLabel:`Enter ${b.name}`}))},
+ {id:'academia',index:'02',label:'ACADEMIA',cue:'SCROLL ↑ WORKS',items:academia.map((a)=>({id:a.slug,name:a.name,href:`/academia/${a.slug}`,descriptor:a.previewLabel,visualClass:`panel-academia-${a.slug}`,ariaLabel:`Enter ACADEMIA ${a.name}`}))}
+] as any;
+---
+<BaseLayout><RootExperience scenes={scenes}/></BaseLayout>

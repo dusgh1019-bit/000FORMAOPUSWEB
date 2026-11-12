@@ -1,0 +1,9 @@
+---
+interface Props { project:string; backHref?:string; backLabel?:string }
+const {project,backHref='/projects',backLabel='PROJECTS'}=Astro.props;
+---
+<main class="fo-wip"><header><a href={backHref}>← {backLabel}</a><span>FORMA OPUS / PROJECT</span></header><div><small>{project}</small><strong>WORK IN PROGRESS</strong></div></main>
+<style is:global>body.fo-clean-body{background:#fff!important;color:#000!important;color-scheme:light;}</style>
+<style>
+.fo-wip{min-height:100svh;min-height:100dvh;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif}.fo-wip header{display:flex;justify-content:space-between;gap:12px;padding:26px clamp(22px,5vw,70px);border-bottom:1px solid #e8e8e8;font-size:11px;letter-spacing:.1em;font-weight:650}.fo-wip header span{color:#888}.fo-wip a{color:inherit;text-decoration:none}.fo-wip div{min-height:calc(100svh - 80px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;gap:24px}.fo-wip strong{font-size:clamp(40px,9vw,130px);letter-spacing:-.09em;line-height:1}.fo-wip small{font-size:11px;color:#999;letter-spacing:.22em}
+</style>

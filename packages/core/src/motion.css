@@ -1,0 +1,11 @@
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --fo-motion-micro: 1ms;
+    --fo-motion-local: 1ms;
+    --fo-motion-state: 1ms;
+    --fo-motion-panel: 1ms;
+    --fo-motion-standard: 1ms;
+    --fo-motion-scene: 1ms;
+    --fo-motion-deep: 1ms;
+  }
+}

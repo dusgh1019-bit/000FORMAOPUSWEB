@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CleanDirectory from '../../../components/CleanDirectory.astro';
+import { projectGroups } from '../../../data/catalog';
+---
+<BaseLayout title="PARVUS — FORMA OPUS" bodyClass="fo-clean-body">
+  <CleanDirectory section="PARVUS" parentText="PARVUS" parentHref="/parvus" entries={projectGroups.PARVUS} />
+</BaseLayout>

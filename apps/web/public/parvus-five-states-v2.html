@@ -1,0 +1,737 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ceeaf0"><title>PARVUS — FIVE STATES v2 / FORMA OPUS</title><style>
+/* PARVUS FIVE STATES — namespaced, isolated integration surface */
+#parvus-five {--pv-ink:#223b4d;--pv-bg:#ceeaf0;--pv-anim:1150ms;position:relative;display:block;width:100%;height:100svh;height:100dvh;overflow:hidden;background:var(--pv-bg);color:var(--pv-ink);font-family:Arial,Helvetica,sans-serif;font-weight:400;isolation:isolate;transition:background 850ms ease,color 850ms ease;touch-action:pan-y;-webkit-tap-highlight-color:transparent}
+#parvus-five *{box-sizing:border-box}
+#parvus-five button, #parvus-five a {font:inherit;color:inherit}
+#parvus-five button{cursor:pointer}
+#parvus-five button:focus-visible,#parvus-five a:focus-visible{outline:2px solid currentColor;outline-offset:5px}
+#parvus-five [hidden]{display:none!important}
+#parvus-five .pv-gallery{position:absolute;inset:0;overflow:hidden;isolation:isolate}
+#parvus-five .pv-scene{position:absolute;inset:0;opacity:0;z-index:0;pointer-events:none;transform:scale(1.025);transition:opacity var(--pv-anim) cubic-bezier(.21,.72,.25,1),transform 1800ms cubic-bezier(.2,.72,.3,1);will-change:opacity,transform;overflow:hidden}
+#parvus-five .pv-scene.is-active{z-index:3;opacity:1;transform:scale(1)}
+#parvus-five .pv-scene.is-outgoing{z-index:2;opacity:1;transform:scale(1)}
+#parvus-five .pv-scene:not(.is-active):not(.is-outgoing):not(.is-primed) .pv-stage *{animation-play-state:paused!important}
+#parvus-five .pv-stage{position:absolute;inset:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;--mx:0;--my:0}
+#parvus-five .pv-header{position:absolute;left:0;right:0;top:0;z-index:15;display:flex;justify-content:space-between;align-items:flex-start;gap:18px;padding:clamp(22px,3.1vw,48px) clamp(22px,4.1vw,68px);font:700 10px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.17em;pointer-events:none}
+#parvus-five .pv-header>*{pointer-events:auto}
+#parvus-five .pv-breadcrumb{display:flex;gap:16px;align-items:center;text-decoration:none}
+#parvus-five .pv-rule{width:24px;height:1px;background:currentColor;opacity:.4;display:block}
+#parvus-five .pv-masthead{text-align:right;opacity:.7}
+#parvus-five .pv-masthead b{display:block;letter-spacing:.1em}
+#parvus-five .pv-masthead small{display:block;letter-spacing:.2em;margin-top:7px;font-size:9px;font-weight:500}
+#parvus-five .pv-footer{position:absolute;left:0;right:0;bottom:0;z-index:16;padding:0 clamp(22px,4.1vw,68px) clamp(24px,3.1vw,48px);display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:24px;align-items:end;pointer-events:none}
+#parvus-five .pv-footer>*{pointer-events:auto}
+#parvus-five .pv-study-meta{min-width:0}
+#parvus-five .pv-study-meta small{display:block;font-size:9px;font-weight:700;letter-spacing:.2em;opacity:.56;margin-bottom:8px}
+#parvus-five .pv-study-meta strong{display:block;font-size:clamp(16px,1.75vw,24px);letter-spacing:-.04em;font-weight:650;line-height:1.2}
+#parvus-five .pv-player{display:flex;align-items:center;gap:15px;min-height:52px;padding:7px 12px;border:1px solid currentColor;border-color:color-mix(in srgb,currentColor 26%,transparent);background:color-mix(in srgb,var(--pv-bg) 82%,transparent);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-radius:999px}
+#parvus-five .pv-transport{border:0;background:transparent;display:grid;place-items:center;width:33px;height:33px;padding:0;opacity:.8;transition:opacity .2s,transform .2s;line-height:1;font-size:18px}
+#parvus-five .pv-transport:hover{opacity:1;transform:scale(1.13)}
+#parvus-five .pv-transport[data-action="toggle"]{font-size:14px}
+#parvus-five .pv-divider{width:1px;height:18px;background:currentColor;opacity:.18}
+#parvus-five .pv-steps{display:flex;gap:5px;align-items:center}
+#parvus-five .pv-step{position:relative;border:0;background:transparent;min-width:32px;height:38px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;letter-spacing:.06em;opacity:.38;transition:opacity .3s,transform .3s}
+#parvus-five .pv-step:after{content:"";position:absolute;bottom:3px;left:6px;right:6px;height:1px;background:currentColor;opacity:0;transform:scaleX(.25);transition:opacity .3s,transform .5s}
+#parvus-five .pv-step[aria-current="true"]{opacity:1}
+#parvus-five .pv-step[aria-current="true"]:after{opacity:.9;transform:scaleX(1)}
+#parvus-five .pv-step:hover{opacity:1}
+#parvus-five .pv-end-actions{display:flex;justify-content:flex-end;gap:20px;align-items:center;flex-wrap:wrap}
+#parvus-five .pv-auto{display:flex;align-items:center;gap:8px;font:700 9px Arial,sans-serif;letter-spacing:.15em;white-space:nowrap;opacity:.58}
+#parvus-five .pv-auto:before{content:"";display:block;width:5px;height:5px;border-radius:50%;background:currentColor;opacity:1}
+#parvus-five[data-playing="false"] .pv-auto:before{background:transparent;outline:1px solid currentColor}
+#parvus-five .pv-enter{min-width:175px;height:49px;border:1px solid currentColor;border-radius:2px;background:transparent;padding:0 15px;font:700 10px Arial,sans-serif;letter-spacing:.16em;transition:color .3s,background .3s,transform .3s;display:flex;align-items:center;justify-content:space-between;gap:15px}
+#parvus-five .pv-enter:hover{background:var(--pv-ink);color:var(--pv-bg);transform:translateY(-2px)}
+#parvus-five .pv-enter span:last-child{font-size:19px;line-height:1;font-weight:400}
+#parvus-five .pv-progress{position:absolute;bottom:0;left:0;width:100%;height:2px;background:currentColor;opacity:.23;transform-origin:left;transform:scaleX(0);transition:transform .1s linear}
+#parvus-five .pv-index,#parvus-five .pv-wip{position:absolute;inset:0;z-index:40;background:#fff;color:#111;overflow-y:auto;overscroll-behavior:contain;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(14px);transition:opacity .65s cubic-bezier(.22,.7,.2,1),transform .65s cubic-bezier(.22,.7,.2,1),visibility 0s .65s}
+#parvus-five .pv-index.is-visible,#parvus-five .pv-wip.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:none;transition-delay:0s}
+#parvus-five .pv-index-inner{max-width:1450px;margin:auto;padding:clamp(28px,5vw,72px);padding-bottom:15vh}
+#parvus-five .pv-topline{display:flex;justify-content:space-between;gap:16px;align-items:center}
+#parvus-five .pv-back{border:0;background:none;padding:10px 0;font:700 10px Arial,sans-serif;letter-spacing:.15em}
+#parvus-five .pv-overline{font:10px monospace;letter-spacing:.2em;opacity:.48}
+#parvus-five .pv-index h2{font-size:clamp(80px,14vw,195px);letter-spacing:-.105em;line-height:.9;font-weight:800;margin:clamp(75px,11vh,145px) 0 clamp(40px,6vw,95px)}
+#parvus-five .pv-index-table{border-top:1px solid #d7d7d7}
+#parvus-five .pv-index-row{min-height:92px;display:grid;grid-template-columns:60px minmax(0,1.15fr) minmax(0,1fr) 40px;gap:14px;align-items:center;border-bottom:1px solid #d7d7d7;text-decoration:none;transition:background .2s;padding:18px 4px}
+#parvus-five .pv-index-row:hover{background:#f6f6f6}
+#parvus-five .pv-index-row em{font:10px monospace;opacity:.5;font-style:normal}
+#parvus-five .pv-index-row strong{font-size:clamp(22px,3vw,35px);font-weight:650;letter-spacing:-.045em}
+#parvus-five .pv-index-row span{font-size:12px;line-height:1.4;opacity:.62}
+#parvus-five .pv-index-row i{font:20px Arial,sans-serif;text-align:right;font-style:normal}
+#parvus-five .pv-index-footer{margin-top:46px;font:10px Arial,sans-serif;letter-spacing:.14em;opacity:.4}
+#parvus-five .pv-wip{z-index:41;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+#parvus-five .pv-wip .pv-back{position:absolute;top:clamp(24px,4vw,60px);left:clamp(24px,4vw,60px)}
+#parvus-five .pv-wip small{font:11px Arial,sans-serif;letter-spacing:.23em}
+#parvus-five .pv-wip strong{font-size:clamp(42px,8vw,125px);letter-spacing:-.08em;text-align:center;line-height:1.02}
+@media(max-width:980px){
+ #parvus-five .pv-footer{grid-template-columns:1fr auto;gap:14px}
+ #parvus-five .pv-study-meta{grid-column:1}
+ #parvus-five .pv-player{grid-row:2;grid-column:1 / -1;justify-self:center}
+ #parvus-five .pv-end-actions{grid-column:2;grid-row:1}
+ #parvus-five .pv-auto{display:none}
+ #parvus-five .pv-enter{min-width:140px}
+}
+@media(max-width:620px){
+ #parvus-five .pv-header{padding:22px 20px;font-size:9px;letter-spacing:.06em;gap:8px}
+ #parvus-five .pv-breadcrumb{gap:8px;white-space:nowrap}
+ #parvus-five .pv-rule{width:14px}
+ #parvus-five .pv-masthead b{font-size:8px;letter-spacing:.09em;white-space:nowrap}
+ #parvus-five .pv-masthead small{display:none}
+ #parvus-five .pv-footer{padding:0 18px 25px;grid-template-columns:1fr auto;gap:12px}
+ #parvus-five .pv-study-meta small{font-size:8px;margin-bottom:4px}
+ #parvus-five .pv-study-meta strong{font-size:15px}
+ #parvus-five .pv-enter{min-width:122px;height:44px;font-size:9px;letter-spacing:.08em;padding:0 9px;white-space:nowrap}
+ #parvus-five .pv-player{gap:7px;min-height:46px;padding:4px 6px;max-width:100%}
+ #parvus-five .pv-transport{width:28px;height:30px;font-size:16px}
+ #parvus-five .pv-step{min-width:28px;height:32px;font-size:9px}
+ #parvus-five .pv-index h2{font-size:clamp(63px,18vw,120px)}
+ #parvus-five .pv-index-row{grid-template-columns:30px 1fr 24px;gap:9px;padding:17px 2px}
+ #parvus-five .pv-index-row strong{font-size:23px}
+ #parvus-five .pv-index-row span{grid-column:2;grid-row:2}
+ #parvus-five .pv-index-row i{grid-column:3;grid-row:1/3}
+ #parvus-five .pv-index-inner{padding:26px 20px 60px}
+ #parvus-five #pv-slide-01 .playtype strong{font-size:min(18vw,100px)}
+ #parvus-five #pv-slide-01 .playtype p{font-size:8px;letter-spacing:.12em}
+ #parvus-five #pv-slide-02 .aperture{padding:8vw 5vw;max-width:95vw}
+ #parvus-five #pv-slide-02 .aperture strong{font-size:clamp(55px,17vw,90px)}
+ #parvus-five #pv-slide-03 .specname strong{font-size:17vw}
+ #parvus-five #pv-slide-03 .specimen{width:77vmin;height:77vmin}
+ #parvus-five #pv-slide-04 .pxname{padding:18px 15px;max-width:94vw}
+ #parvus-five #pv-slide-04 .pxname strong{font-size:16vw}
+ #parvus-five #pv-slide-04 .pixelgrid{inset:-9%}
+ #parvus-five #pv-slide-05 .cabinet{inset:16% 6% 23%;gap:4px}
+ #parvus-five #pv-slide-05 .drawer{border-width:4px}
+ #parvus-five #pv-slide-05 .drawer span{font-size:7px;left:5px;top:7px}
+ #parvus-five #pv-slide-05 .drawername{max-width:96vw;padding:18px 14px}
+ #parvus-five #pv-slide-05 .drawername strong{font-size:16vw}
+ #parvus-five #pv-slide-05 .drawername span{font-size:8px}
+}
+@media(max-height:600px){
+ #parvus-five .pv-header{padding-top:16px}
+ #parvus-five .pv-footer{padding-bottom:12px}
+ #parvus-five .pv-study-meta{display:none}
+ #parvus-five .pv-index h2{margin:70px 0 35px}
+}
+@media(prefers-reduced-motion:reduce){
+ #parvus-five *,#parvus-five *:before,#parvus-five *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+
+/* Original study artwork preserved, with namespaced scene rules */
+#pv-slide-01{background:#d5ecf1;color:#223b4d}
+#pv-slide-01 .pv-stage{background:#ceeaf0}
+#pv-slide-01 .orbital{position:absolute;border-radius:50%;box-shadow:inset -12px -21px 25px #0002,12px 25px 22px #0001;animation:bob 6s ease-in-out infinite alternate}
+#pv-slide-01 .o1{width:clamp(110px,20vw,270px);aspect-ratio:1;background:#f16e59;left:12%;top:16%}
+#pv-slide-01 .o2{width:clamp(50px,11vw,160px);aspect-ratio:1;background:#ffd769;right:16%;top:18%;animation-delay:-2s}
+#pv-slide-01 .o3{width:clamp(100px,16vw,225px);aspect-ratio:1;background:#578fb2;right:11%;bottom:14%;animation-delay:-3s}
+#pv-slide-01 .o4{width:clamp(45px,8vw,105px);aspect-ratio:1;background:#f6acb4;left:18%;bottom:19%;animation-delay:-1s}
+@keyframes  bob{to{transform:translate(calc(var(--mx)*30px),-42px) rotate(12deg)}}
+#pv-slide-01 .orbitline{position:absolute;border:1px dashed #2a536740;border-radius:50%;width:85vmin;height:75vmin;transform:rotate(-21deg)}
+#pv-slide-01 .playtype{position:relative;text-align:center;z-index:2;mix-blend-mode:multiply}
+#pv-slide-01 .playtype small,#pv-slide-01 .playtype p{font-size:11px;letter-spacing:.2em}
+#pv-slide-01 .playtype strong{display:block;font-weight:950;font-size:clamp(76px,16vw,240px);letter-spacing:-.1em;line-height:1;animation:parvusbloom 1.3s .15s backwards}
+#pv-slide-01 .playtype p{margin-top:20px}
+@keyframes  parvusbloom{from{transform:scale(.82) rotate(-3deg);filter:blur(15px);opacity:0}to{opacity:1;transform:scale(1);filter:none}}
+#pv-slide-02{background:#f0e8d7;color:#413c49}
+#pv-slide-02 .pv-stage{background:#e7ddcb;perspective:1000px;overflow:hidden}
+#pv-slide-02 .paper{position:absolute;width:110vw;height:110vh;left:-5vw;top:-5vh;transform-origin:bottom center;animation:sheetlift 1.8s cubic-bezier(.2,.9,.15,1) backwards;box-shadow:0 0 55px #2b161724}
+#pv-slide-02 .p1{background:#a4b9ae;clip-path:polygon(0 0,100% 0,100% 45%,50% 66%,0 38%);animation-delay:0s}
+#pv-slide-02 .p2{background:#dca97f;clip-path:polygon(0 18%,100% 40%,100% 75%,47% 81%,0 61%);animation-delay:.25s}
+#pv-slide-02 .p3{background:#e6cee1;clip-path:polygon(0 62%,50% 52%,100% 74%,100% 100%,0 100%);animation-delay:.55s}
+#pv-slide-02 .p4{background:#6f8d8c;clip-path:circle(25% at 80% 20%);animation-delay:.8s}
+#pv-slide-02 .aperture{position:relative;text-align:center;background:#f9f6eaa8;padding:5vw;clip-path:polygon(6% 0,100% 5%,93% 100%,0 94%);backdrop-filter:blur(6px)}
+#pv-slide-02 .aperture span{font-size:10px;letter-spacing:.28em}
+#pv-slide-02 .aperture strong{display:block;font-size:clamp(80px,16vw,225px);font-family:Georgia,serif;font-weight:400;letter-spacing:-.095em}
+@keyframes  sheetlift{from{opacity:0;transform:translateY(90vh) rotate(15deg)}to{opacity:1;transform:translateY(0) rotate(0)}}
+#pv-slide-03{background:#f5f8ed;color:#2d3d2c}
+#pv-slide-03 .pv-stage{background:#f1f5e8}
+#pv-slide-03 .specimen{position:absolute;width:min(68vmin,570px);height:min(68vmin,570px);border:1px solid #46694a3c;border-radius:50%;display:grid;place-items:center;transform:translate(calc(var(--mx)*-15px),calc(var(--my)*-15px))}
+#pv-slide-03 .specimen span{position:absolute;top:16px;font:10px monospace;letter-spacing:.12em}
+#pv-slide-03 .nucleus{width:32%;height:32%;background:#97ba4e;border-radius:47% 53% 58% 42%;transform:rotate(45deg);animation:blobturn 8s linear infinite}
+#pv-slide-03 .bloom{position:absolute;border:26px solid #d1dcb0;border-radius:50% 40% 50% 45%;width:55%;height:55%;animation:blobturn 13s linear infinite reverse;mix-blend-mode:multiply}
+#pv-slide-03 .axis{position:absolute;width:95%;height:1px;background:#527b454c;transform:rotate(-35deg)}
+#pv-slide-03 .lens{position:absolute;width:clamp(150px,30vw,430px);aspect-ratio:1;border:1px solid #d4e7c5;border-radius:50%;background:#ffffff12;backdrop-filter:blur(10px) saturate(1.25);box-shadow:inset 0 0 45px #fff8,0 17px 40px #597b5722;left:calc(50% + var(--mx)*150px);top:calc(50% + var(--my)*90px);transform:translate(-50%,-50%);pointer-events:none}
+#pv-slide-03 .specname{position:relative;text-align:center;z-index:3;mix-blend-mode:multiply}
+#pv-slide-03 .specname span,#pv-slide-03 .specname p{font:10px monospace;letter-spacing:.2em}
+#pv-slide-03 .specname strong{display:block;font-size:clamp(80px,16vw,238px);letter-spacing:-.095em;line-height:1;font-weight:800;opacity:0;animation:pop 1.8s .4s forwards}
+@keyframes  blobturn{to{transform:rotate(405deg)}}
+#pv-slide-04{background:#151a62;color:#f7ed9e}
+#pv-slide-04 .pv-stage{background:#181d74}
+#pv-slide-04 .pixelgrid{position:absolute;inset:-5%;display:grid;grid-template-columns:repeat(16,1fr);grid-template-rows:repeat(10,1fr);gap:1px;opacity:.7;transform:rotate(-6deg) scale(1.12);pointer-events:none}
+#pv-slide-04 .pixelgrid i{background:var(--c);opacity:0;transform:scale(.1) rotate(130deg);animation:pixelin 850ms var(--delay) cubic-bezier(.2,1.3,.2,1) forwards}
+@keyframes  pixelin{to{opacity:1;transform:scale(1) rotate(0)}}
+#pv-slide-04 .pxname{position:relative;text-align:center;z-index:2;background:#131852c9;border:1px solid #f7ed9e38;padding:clamp(22px,4vw,54px);box-shadow:20px 20px 0 #e89b5938}
+#pv-slide-04 .pxname strong{display:block;font-size:clamp(73px,15vw,217px);letter-spacing:-.095em;font-weight:930;clip-path:inset(0 100% 0 0);animation:pxreveal .6s 1.5s steps(9,end) forwards}
+#pv-slide-04 .pxname small,#pv-slide-04 .pxname p{font:10px monospace;letter-spacing:.21em}
+@keyframes  pxreveal{to{clip-path:inset(0)}}
+#pv-slide-05{background:#e9e1d1;color:#3b312b}
+#pv-slide-05 .pv-stage{background:repeating-linear-gradient(90deg,#e7dcc9 0 3px,#e8decf 3px 6px)}
+#pv-slide-05 .cabinet{position:absolute;inset:12% 11%;display:flex;gap:1.4%;perspective:1300px}
+#pv-slide-05 .drawer{position:relative;flex:1;background:#d1b895;border:8px solid #927c5b;box-shadow:inset 0 0 0 2px #d8c6ac,12px 23px 25px #46341d27;transform:translateZ(-200px) rotateY(25deg);opacity:0;animation:drawerslide 1.4s cubic-bezier(.2,1,.15,1) forwards;display:flex;justify-content:center;align-items:center}
+#pv-slide-05 .drawer span{position:absolute;top:13px;left:15px;font:10px monospace;letter-spacing:.08em}
+#pv-slide-05 .drawer.d2{animation-delay:.24s;background:#c7a984}
+#pv-slide-05 .drawer.d3{animation-delay:.45s;background:#c5af90}
+#pv-slide-05 .mini{display:block;box-shadow:16px 17px 0 #402c2233}
+#pv-slide-05 .cube{width:30%;aspect-ratio:1;background:#d85e45;transform:rotate(-15deg)}
+#pv-slide-05 .ball{width:35%;aspect-ratio:1;border-radius:50%;background:#86a8a0}
+#pv-slide-05 .bar{height:55%;width:20%;background:#536c9c;transform:rotate(24deg)}
+#pv-slide-05 .drawername{position:relative;background:#f4eee1e8;text-align:center;padding:23px 35px;box-shadow:0 10px 30px #624b3523;transform:translateY(65px);animation:drawername 1.3s 1.1s both}
+#pv-slide-05 .drawername span{font:10px monospace;letter-spacing:.15em}
+#pv-slide-05 .drawername strong{display:block;font-size:clamp(76px,14vw,200px);letter-spacing:-.09em;font-family:Georgia,serif;font-weight:400}
+@keyframes  drawerslide{to{opacity:1;transform:translateZ(0) rotateY(0)}}
+@keyframes  drawername{to{transform:translateY(0)}}
+@keyframes pop{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
+/* Viewport-safe alignment and pointer responsiveness */
+#parvus-five #pv-slide-01 .orbital{will-change:transform}
+#parvus-five #pv-slide-03 .specimen{transform:translate(var(--pv-micro-x,0px),var(--pv-micro-y,0px))}
+#parvus-five #pv-slide-03 .lens{left:calc(50% + var(--pv-pointer-x,0px));top:calc(50% + var(--pv-pointer-y,0px));transition:left .45s cubic-bezier(.2,.8,.2,1),top .45s cubic-bezier(.2,.8,.2,1)}
+#parvus-five #pv-slide-05 .drawername{z-index:2}
+#parvus-five[data-current="04"] .pv-header{background:linear-gradient(180deg,rgba(15,19,71,.24),transparent)}
+#parvus-five[data-current="04"] .pv-enter{background:rgba(20,25,81,.8)}
+#parvus-five #pv-slide-04 .pxname strong{animation:pxreveal .7s .85s steps(9,end) forwards}
+
+
+/* PARVUS FIVE STATES v2.1 — per-study kinetic pointer system.
+   CSS individual translate/rotate remains independent from original keyframes and WAAPI transform scatter. */
+#parvus-five .pv-scene {--pv-dx:0px;--pv-dy:0px;--pv-theta:0deg;--pv-cursor-x:50%;--pv-cursor-y:50%}
+#parvus-five #pv-slide-01 .o1 {translate:calc(var(--pv-dx) * 1.08) calc(var(--pv-dy) * .82)}
+#parvus-five #pv-slide-01 .o2 {translate:calc(var(--pv-dx) * -.88) calc(var(--pv-dy) * -.7)}
+#parvus-five #pv-slide-01 .o3 {translate:calc(var(--pv-dx) * .72) calc(var(--pv-dy) * -1.05)}
+#parvus-five #pv-slide-01 .o4 {translate:calc(var(--pv-dx) * -.82) calc(var(--pv-dy) * .85)}
+#parvus-five #pv-slide-01 .orbitline {translate:calc(var(--pv-dx) * -.52) calc(var(--pv-dy) * -.4)}
+#parvus-five #pv-slide-01 .playtype {translate:calc(var(--pv-dx) * .32) calc(var(--pv-dy) * .26)}
+#parvus-five #pv-slide-02 .p1 {translate:calc(var(--pv-dx) * .47) calc(var(--pv-dy) * .38)}
+#parvus-five #pv-slide-02 .p2 {translate:calc(var(--pv-dx) * -.74) calc(var(--pv-dy) * .6)}
+#parvus-five #pv-slide-02 .p3 {translate:calc(var(--pv-dx) * .56) calc(var(--pv-dy) * -.68)}
+#parvus-five #pv-slide-02 .p4 {translate:calc(var(--pv-dx) * -1.02) calc(var(--pv-dy) * -.82)}
+#parvus-five #pv-slide-02 .aperture {translate:calc(var(--pv-dx) * -.34) calc(var(--pv-dy) * -.3);rotate:calc(var(--pv-theta) * -.18)}
+#parvus-five #pv-slide-03 .specimen {translate:calc(var(--pv-dx) * -.48) calc(var(--pv-dy) * -.58)}
+#parvus-five #pv-slide-03 .specname {translate:calc(var(--pv-dx) * .28) calc(var(--pv-dy) * .2)}
+#parvus-five #pv-slide-03 .lens {translate:calc(var(--pv-dx) * .2) calc(var(--pv-dy) * .16)}
+#parvus-five #pv-slide-04 .pixelgrid {translate:calc(var(--pv-dx) * .5) calc(var(--pv-dy) * .43)}
+#parvus-five #pv-slide-04 .pixelgrid i {translate:calc(var(--pv-dx) * var(--pv-cell-x,0)) calc(var(--pv-dy) * var(--pv-cell-y,0))}
+#parvus-five #pv-slide-04 .pixelgrid::after {content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--pv-cursor-x) var(--pv-cursor-y),rgba(255,255,255,.24),transparent 23%);mix-blend-mode:screen;opacity:.8}
+#parvus-five #pv-slide-04 .pxname {translate:calc(var(--pv-dx) * -.38) calc(var(--pv-dy) * -.32)}
+#parvus-five #pv-slide-05 .cabinet {translate:calc(var(--pv-dx) * .35) calc(var(--pv-dy) * .26)}
+#parvus-five #pv-slide-05 .d1 {translate:calc(var(--pv-dx) * -.55) calc(var(--pv-dy) * .32)}
+#parvus-five #pv-slide-05 .d2 {translate:calc(var(--pv-dx) * .22) calc(var(--pv-dy) * -.46)}
+#parvus-five #pv-slide-05 .d3 {translate:calc(var(--pv-dx) * .66) calc(var(--pv-dy) * .3)}
+#parvus-five #pv-slide-05 .d1 .mini {rotate:calc(var(--pv-theta) * -.75)}
+#parvus-five #pv-slide-05 .d2 .mini {rotate:calc(var(--pv-theta) * .88)}
+#parvus-five #pv-slide-05 .d3 .mini {rotate:calc(var(--pv-theta) * -.52)}
+#parvus-five #pv-slide-05 .drawername {translate:calc(var(--pv-dx) * -.34) calc(var(--pv-dy) * -.28)}
+@media(prefers-reduced-motion:reduce){
+ #parvus-five .pv-scene .pv-stage * {translate:none!important;rotate:none!important}
+}
+
+/* FIVE STATES v2 — full-bleed exhibition, single interaction, no gallery chrome */
+#parvus-five { --pv-cycle:4000ms; --pv-shift:820ms; cursor:default; touch-action:manipulation; }
+#parvus-five .pv-scene { transition:none!important; transform:none!important; }
+#parvus-five .pv-scene.is-active { opacity:1; }
+#parvus-five .pv-scene.is-outgoing { opacity:1; }
+#parvus-five .pv-gallery { z-index:1; }
+#parvus-five .pv-hit {position:absolute;inset:0;display:block;z-index:24;width:100%;height:100%;border:0!important;border-radius:0;background:transparent;color:transparent;cursor:pointer;outline:0;appearance:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+#parvus-five .pv-hit:focus-visible{outline:2px solid rgba(18,23,38,.45)!important;outline-offset:-9px}
+#parvus-five .pv-hit:active { background:rgba(255,255,255,.025); }
+#parvus-five[data-mode="index"] .pv-hit,#parvus-five[data-mode="wip"] .pv-hit{pointer-events:none;visibility:hidden}
+#parvus-five .pv-index,#parvus-five .pv-wip {z-index:50}
+#parvus-five .pv-index {transform:none;transition:opacity .52s cubic-bezier(.19,.7,.2,1), visibility 0s .52s}
+#parvus-five .pv-index.is-visible {transform:none;transition-delay:0s}
+#parvus-five .pv-wip {transform:none;transition:opacity .5s ease, visibility 0s .5s}
+#parvus-five .pv-wip.is-visible {transform:none;transition-delay:0s}
+#parvus-five .pv-stage{pointer-events:none}
+#parvus-five .pv-scene { contain:paint; }
+/* The incoming study must read instantly, including when 04 or 05 is the random first view. */
+#parvus-five #pv-slide-01 .playtype strong{animation:parvusbloom 1.05s .07s backwards}
+#parvus-five #pv-slide-03 .specname strong{animation:pop 1.05s .18s forwards}
+#parvus-five #pv-slide-04 .pxname strong{animation:pxreveal .60s .26s steps(9,end) forwards}
+#parvus-five #pv-slide-05 .drawername{animation:drawername .95s .46s both}
+#parvus-five .pv-sr {position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){
+  #parvus-five .pv-scene{transition:none!important}
+  #parvus-five .pv-index,#parvus-five .pv-wip{transition:opacity .18s ease,visibility 0s .18s}
+}
+/* When embedding a full viewport gallery, keep routing chrome and body scroll out of the experience. */
+[data-page="parvus"] {height:100dvh;min-height:100svh;overflow:hidden}
+/* Route handoff, isolated from FORMA OPUS existing scenes. */
+#fo-parvus-portal{position:fixed;inset:0;z-index:9999;background:#0a0d13;pointer-events:none;opacity:0;will-change:opacity}
+
+/* V10 paper-mesh BUILD. Standalone animation is sandboxed in srcdoc; the existing
+   PARVUS gallery overlay remains the sole click target and route controller. */
+#parvus-five #pv-slide-04 .pv-build-frame{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;background:#181d74;pointer-events:none;will-change:transform,opacity}
+#parvus-five #pv-slide-04 .pv-build-frame{translate:none!important}
+</style></head><body style="margin:0"><!-- PARVUS Five States v2: preserved original art studies and sequenced motion. --><div id="parvus-five" data-current="01" data-playing="true" data-mode="gallery" role="region" aria-label="PARVUS interactive motion gallery">
+<div class="pv-gallery" aria-hidden="true">
+<section id="pv-slide-01" class="pv-scene" data-study="01" aria-hidden="true"><div class="pv-stage"><div class="orbital o1"></div><div class="orbital o2"></div><div class="orbital o3"></div><div class="orbital o4"></div><div class="orbitline"></div><div class="playtype"><small>STUDY 01 / LITTLE UNIVERSES</small><strong>PARVUS</strong><p>SMALL SCALE, INFINITE POSSIBILITIES.</p></div></div></section><section id="pv-slide-02" class="pv-scene" data-study="02" aria-hidden="true"><div class="pv-stage"><div class="paper p1"></div><div class="paper p2"></div><div class="paper p3"></div><div class="paper p4"></div><div class="aperture"><span>MADE OF LITTLE THINGS</span><strong>PARVUS</strong></div></div></section><section id="pv-slide-03" class="pv-scene" data-study="03" aria-hidden="true"><div class="pv-stage"><div class="specimen"><span>OBJECT 004</span><i class="nucleus"></i><i class="bloom"></i><i class="axis"></i></div><div class="lens"></div><div class="specname"><span>SPECIMEN / 003</span><strong>PARVUS</strong><p>CURIOUS BY DESIGN.</p></div></div></section><section id="pv-slide-04" class="pv-scene" data-study="04" aria-hidden="true"><div class="pv-stage"><iframe id="pv-build-frame" class="pv-build-frame" title="BUILD kinetic paper mesh" aria-hidden="true" tabindex="-1" loading="eager" srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, viewport-fit=cover&quot;&gt;
+&lt;meta name=&quot;theme-color&quot; content=&quot;#181d74&quot;&gt;
+&lt;title&gt;PARVUS / BUILD · The Paper Grid&lt;/title&gt;
+&lt;style&gt;
+:root{color-scheme:dark;--navy:#181d74;--cream:#f7ed9e}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--navy)}
+body{font-family:Inter,&quot;Arial Black&quot;,Arial,sans-serif;color:var(--cream);-webkit-font-smoothing:antialiased}
+#grid{position:fixed;inset:0;width:100vw;height:100dvh;display:block;touch-action:none;cursor:crosshair}
+.scene-vignette{position:fixed;inset:0;pointer-events:none;background:linear-gradient(110deg,rgba(14,20,72,.07),transparent 42%,rgba(11,13,58,.10));mix-blend-mode:multiply}body:after{content:&quot;&quot;;position:fixed;inset:0;pointer-events:none;background:#181d74;opacity:var(--scene-fade,0);z-index:1}
+.nameplate{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);max-width:calc(100vw - 36px);background:rgba(19,24,82,.79);border:1px solid rgba(247,237,158,.22);padding:clamp(22px,4vw,55px) clamp(28px,3.5vw,57px);box-shadow:20px 20px 0 rgba(232,155,89,.22);text-align:center;z-index:2;pointer-events:none;user-select:none;will-change:transform,opacity}
+.nameplate small,.nameplate p{font:10px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.21em}
+.nameplate small{display:block;margin:0 0 clamp(16px,3vh,32px)}
+.nameplate strong{display:block;font-size:clamp(72px,14vw,205px);font-weight:950;letter-spacing:-.096em;line-height:.95;white-space:nowrap}
+.nameplate p{margin:clamp(18px,3vh,35px) 0 0}
+.nameplate{animation:plateIn 900ms cubic-bezier(.17,.75,.2,1) both}
+@keyframes plateIn{from{opacity:0;filter:blur(4px);transform:translate(-50%,-46%) scale(.975)}to{opacity:1;filter:none;transform:translate(-50%,-50%) scale(1)}}
+@media(max-width:700px){
+ .nameplate{padding:25px 18px;max-width:94vw;box-shadow:9px 11px 0 rgba(232,155,89,.22)}
+ .nameplate strong{font-size:min(16.8vw,104px)}
+ .nameplate small,.nameplate p{font-size:8px;letter-spacing:.14em}
+}
+@media(prefers-reduced-motion:reduce){.nameplate{animation:none}}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;canvas id=&quot;grid&quot; role=&quot;img&quot; aria-label=&quot;PARVUS BUILD. 컬러 포스트잇 160개가 화면을 채웁니다. 포인터가 가까워지면 윗부분이 고정된 채 아래쪽 종이가 입체적으로 들리고, 클릭하면 바람이 지나갑니다.&quot;&gt;&lt;/canvas&gt;
+&lt;div class=&quot;scene-vignette&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
+&lt;div class=&quot;nameplate&quot; aria-hidden=&quot;true&quot;&gt;&lt;small&gt;BUILD / 0004&lt;/small&gt;&lt;strong&gt;PARVUS&lt;/strong&gt;&lt;p&gt;EVERY PIECE MATTERS&lt;/p&gt;&lt;/div&gt;
+&lt;script&gt;
+(()=&gt;{
+&#x27;use strict&#x27;;
+const canvas=document.querySelector(&#x27;#grid&#x27;),ctx=canvas.getContext(&#x27;2d&#x27;,{alpha:false});
+if(!ctx)return;
+const embedded=window.self!==window.top;const reduced=window.matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;).matches;let buildActive=!embedded;
+const BG=&#x27;#181d74&#x27;,INK=&#x27;#121759&#x27;,palette=[&#x27;#f4a261&#x27;,&#x27;#f6e8a7&#x27;,&#x27;#5074b9&#x27;,&#x27;#eebbd6&#x27;,&#x27;#9fc0b3&#x27;,&#x27;#ffffff&#x27;];
+const shapes={cols:16,rows:10,notes:[],w:0,h:0,dpr:1,cellW:0,cellH:0,gap:1,transform:1,angle:-6*Math.PI/180};
+const pointer={x:-10000,y:-10000,tx:-10000,ty:-10000,px:-10000,py:-10000,vx:0,vy:0,inside:false,lastMove:0};
+const wind={start:-10000,duration:2060,active:false,count:0};
+let time=performance.now(),lastTime=time,lastPaint=time,raf=0,baseLayer=null,grain=[],phase=&#x27;rest&#x27;,renderMs=0;
+let activeCount=0,frameCount=0,frameSamples=[],lastAutoWind=performance.now();
+let spriteCache=new Map(), spriteSchedule=[],spritePad=0,spriteDpr=1;
+const clamp=(v,a,b)=&gt;Math.min(b,Math.max(a,v));
+const ease=(a,b,t)=&gt;a+(b-a)*t;
+const smooth=t=&gt;{t=clamp(t,0,1);return t*t*(3-2*t)};
+const rng=n=&gt;{const x=Math.sin(n*127.1+78.233)*43758.5453;return x-Math.floor(x)};
+const TAU=Math.PI*2;
+let flatTextures=[],reverseTextures=[];
+function textTexture(color,back=false){
+ const tex=document.createElement(&#x27;canvas&#x27;);tex.width=tex.height=192;
+ const c=tex.getContext(&#x27;2d&#x27;,{willReadFrequently:true});
+ c.fillStyle=color;c.fillRect(0,0,192,192);
+ const im=c.getImageData(0,0,192,192);let k=17+palette.indexOf(color)*101+(back?220:0);
+ for(let i=0;i&lt;im.data.length;i+=4){k=(1664525*k+1013904223)&gt;&gt;&gt;0;const z=(((k&gt;&gt;&gt;9)/8388608)-.5)*18;
+ im.data[i]=clamp(im.data[i]+z,0,255);im.data[i+1]=clamp(im.data[i+1]+z,0,255);im.data[i+2]=clamp(im.data[i+2]+z*.86,0,255);}
+ c.putImageData(im,0,0);
+ const light=c.createLinearGradient(0,0,0,192);light.addColorStop(0,back?&#x27;rgba(255,255,255,.035)&#x27;:&#x27;rgba(255,255,255,.13)&#x27;);light.addColorStop(.6,&#x27;rgba(255,255,255,0)&#x27;);light.addColorStop(1,back?&#x27;rgba(0,0,0,.12)&#x27;:&#x27;rgba(14,13,26,.045)&#x27;);c.fillStyle=light;c.fillRect(0,0,192,192);
+ if(!back){c.fillStyle=&#x27;rgba(255,255,255,.115)&#x27;;c.fillRect(0,0,192,25);c.fillStyle=&#x27;rgba(15,14,27,.085)&#x27;;c.fillRect(0,25,192,1)}
+ return tex;
+}
+flatTextures=palette.map(col=&gt;textTexture(col));
+reverseTextures=palette.map(col=&gt;textTexture(col,true));
+function resize(){
+ const w=innerWidth,h=innerHeight,d=Math.min(devicePixelRatio||1,2);
+ if(w===shapes.w&amp;&amp;h===shapes.h&amp;&amp;d===shapes.dpr)return;
+ shapes.w=w;shapes.h=h;shapes.dpr=d;
+ canvas.width=Math.round(w*d);canvas.height=Math.round(h*d);canvas.style.width=w+&#x27;px&#x27;;canvas.style.height=h+&#x27;px&#x27;;
+ if(w&lt;650&amp;&amp;h&gt;w*1.25){shapes.cols=8;shapes.rows=20}
+ else if(w&gt;h*1.6){shapes.cols=20;shapes.rows=8}
+ else{shapes.cols=16;shapes.rows=10}
+ const c=shapes.cols,r=shapes.rows;
+ // Extend past the viewport so that the original -6 degree angle reveals no empty edge.
+ const fullW=w*1.16,fullH=h*1.2;
+ shapes.cellW=fullW/c;shapes.cellH=fullH/r;
+ shapes.gap=Math.max(.75,Math.min(1.3,w/1500));
+ const sx=-(fullW-w)/2,sy=-(fullH-h)/2;
+ shapes.notes=[];for(let j=0;j&lt;r;j++)for(let i=0;i&lt;c;i++){
+ const index=j*c+i,colIdx=(i*7+j*3)%palette.length;
+ shapes.notes.push({i,j,index,colIdx,x:sx+i*shapes.cellW+shapes.gap/2,y:sy+j*shapes.cellH+shapes.gap/2,w:shapes.cellW-shapes.gap,h:shapes.cellH-shapes.gap,phase:rng(index*1.31),dir:rng(index*1.71),lift:0,vel:0,tilt:0,tiltVel:0,roll:0,rollVel:0,rot:0,rotVel:0});
+ }
+ spriteCache.clear();spriteSchedule=[];
+ spritePad=Math.ceil(Math.max(shapes.cellW,shapes.cellH)*.34);spriteDpr=d;
+ for(let col=0;col&lt;palette.length;col++)for(let step=1;step&lt;=32;step++)spriteSchedule.push([col,step]);
+ baseLayer=document.createElement(&#x27;canvas&#x27;);baseLayer.width=canvas.width;baseLayer.height=canvas.height;
+ const bctx=baseLayer.getContext(&#x27;2d&#x27;,{alpha:false});bctx.setTransform(d,0,0,d,0,0);
+ bctx.fillStyle=BG;bctx.fillRect(0,0,w,h);applyGridTransform(bctx);
+ for(const note of shapes.notes){bctx.fillStyle=INK;bctx.fillRect(note.x-.6,note.y-.6,note.w+1.2,note.h+1.2);bctx.drawImage(flatTextures[note.colIdx],note.x,note.y,note.w,note.h)}
+}
+function applyGridTransform(c){const{w,h,angle}=shapes;c.translate(w/2,h/2);c.rotate(angle);c.scale(1.07,1.07);c.translate(-w/2,-h/2)}
+function unrotate(x,y){const dx=(x-shapes.w/2)/1.07,dy=(y-shapes.h/2)/1.07;
+ const a=-shapes.angle,co=Math.cos(a),si=Math.sin(a);
+ return {x:shapes.w/2+dx*co-dy*si,y:shapes.h/2+dx*si+dy*co};}
+function move(e){const p=unrotate(e.clientX,e.clientY);pointer.tx=p.x;pointer.ty=p.y;pointer.inside=true;pointer.lastMove=performance.now()}
+canvas.addEventListener(&#x27;pointermove&#x27;,move,{passive:true});canvas.addEventListener(&#x27;pointerdown&#x27;,e=&gt;{move(e);if(e.pointerType===&#x27;touch&#x27;)canvas.setPointerCapture?.(e.pointerId)},{passive:true});
+canvas.addEventListener(&#x27;pointerup&#x27;,e=&gt;{if(e.pointerType===&#x27;touch&#x27;)pointer.inside=false},{passive:true});
+canvas.addEventListener(&#x27;pointercancel&#x27;,()=&gt;pointer.inside=false,{passive:true});
+canvas.addEventListener(&#x27;pointerleave&#x27;,()=&gt;pointer.inside=false,{passive:true});
+window.addEventListener(&#x27;blur&#x27;,()=&gt;pointer.inside=false,{passive:true});
+// Standalone study: click/touch invokes the scene&#x27;s wind-out/wind-in cycle, without adding UI or changing the nameplate.
+if(!embedded)canvas.addEventListener(&#x27;click&#x27;,()=&gt;beginWind(),{passive:true});
+function beginWind(){if(reduced)return;wind.start=performance.now();lastAutoWind=wind.start;wind.active=true;wind.count++}
+function shadowPath(c,n,vertices,lift,tilt,roll){
+ const zshift=Math.max(.5,n.lift*n.h*.28);
+ const path=[];
+ for(let k=0;k&lt;vertices.length;k++){
+  const v=vertices[k],p=screen(v.u,v.v,v.lift,lift+(v.tilt||0),roll+(v.roll||0),n);
+  path.push([p.x+zshift*.56,p.y+zshift*.5]);
+ }
+ c.beginPath();c.moveTo(path[0][0],path[0][1]);for(let k=1;k&lt;path.length;k++)c.lineTo(path[k][0],path[k][1]);c.closePath();
+}
+// x/y/z live surface, not a detached folded corner. The upper 17% remains attached.
+function surface(u,v,lift,tilt,roll,n){
+ const anchor=.44,run=1-anchor;
+ if(v&lt;=anchor)return {x:u*n.w,y:v*n.h,z:0,theta:0};
+ const t=(v-anchor)/run;
+ const edge=(u-.5)*2;
+ const sideBias=1+tilt*edge*.36;
+ const verticalBias=1-roll*(1-Math.abs(edge))*.22;
+ const localLift=Math.max(.00001,lift*sideBias*verticalBias);
+ const leftRight=.88+.12*Math.cos((u-.5)*Math.PI);
+ const ang=.00001+localLift*2.58*leftRight;
+ const theta=ang*t;
+ const projectedY=anchor*n.h+run*n.h*Math.sin(theta)/ang;
+ let z=run*n.h*(1-Math.cos(theta))/ang;
+ const twist=tilt*Math.sin(Math.PI*u)*Math.pow(t,1.28)*n.w*.085;
+ const shear=roll*edge*Math.pow(t,1.06)*n.h*.18;
+ const liftShift=(roll*Math.pow(t,1.3)*(1-Math.abs(edge)))*n.h*.06;
+ z += Math.abs(shear)*.18 + Math.max(0,liftShift);
+ return {x:u*n.w+twist,y:projectedY+shear*.38-liftShift*.15,z,theta};
+}
+function screen(u,v,lift,tilt,roll,n){const p=surface(u,v,lift,tilt,roll,n);return {x:n.x+p.x+p.z*.10,y:n.y+p.y-p.z*.22,z:p.z,theta:p.theta};}
+function drawMeshBand(c,n,lift,tilt,roll,band,total){
+ const v0=band/total,v1=(band+1)/total,vm=(v0+v1)*.5;
+ const A=screen(0,v0,lift,tilt,roll,n),B=screen(1,v0,lift,tilt,roll,n),C=screen(1,v1,lift,tilt,roll,n),D=screen(0,v1,lift,tilt,roll,n);
+ const tt0=v0*192,tt1=v1*192;
+ const a=(B.x-A.x)/192,b=(B.y-A.y)/192,cc=(D.x-A.x)/(tt1-tt0),dd=(D.y-A.y)/(tt1-tt0);
+ const tx=A.x-cc*tt0,ty=A.y-dd*tt0;
+ const mid=surface(.5,vm,lift,tilt,roll,n);
+ const back=mid.theta&gt;Math.PI*.51;
+ const tex=(back?reverseTextures:flatTextures)[n.colIdx];
+ c.save();c.beginPath();c.moveTo(A.x-.25,A.y-.25);c.lineTo(B.x+.25,B.y-.25);c.lineTo(C.x+.25,C.y+.45);c.lineTo(D.x-.25,D.y+.45);c.closePath();c.clip();
+ c.transform(a,b,cc,dd,tx,ty);c.drawImage(tex,0,0);c.restore();
+ if(lift&gt;.01){
+  // Light across real mesh bands follows the local surface normal&#x27;s rotation.
+  const tone=(back?-.16:(-.035-.16*(1-Math.cos(mid.theta))));
+  c.fillStyle=`rgba(30,24,38,${Math.abs(tone)})`;
+  c.beginPath();c.moveTo(A.x,A.y);c.lineTo(B.x,B.y);c.lineTo(C.x,C.y);c.lineTo(D.x,D.y);c.closePath();c.fill();
+ }
+}
+function drawNote(c,n,lift,tilt,roll,clearStatic=true){
+ const {x,y,w,h}=n;
+ // Remove the cached, flat note in this cell before drawing its live deformed surface.
+ if(clearStatic){c.fillStyle=BG;c.fillRect(x-1,y-1,w+2,h+2);}
+ // Cast a contact shadow beneath the anchored edge, then a widening shadow below the curl.
+ c.save();const under=c.createLinearGradient(x,y+h*.48,x,y+h);under.addColorStop(0,&#x27;rgba(8,9,33,.08)&#x27;);under.addColorStop(1,&#x27;rgba(7,8,28,.31)&#x27;);c.fillStyle=under;c.fillRect(x+1,y+h*.46,w-2,h*.54);c.restore();
+ c.save();c.globalAlpha=.13+.20*lift;c.filter=`blur(${1.3+lift*3.9}px)`;
+ c.fillStyle=&#x27;#000416&#x27;;
+ const a=screen(0,0,lift,tilt,roll,n),b=screen(1,0,lift,tilt,roll,n),d=screen(0,1,lift,tilt,roll,n),e=screen(1,1,lift,tilt,roll,n);
+ c.beginPath();c.moveTo(a.x+.5,a.y+.7);c.lineTo(b.x+.5,b.y+.7);c.lineTo(e.x+lift*w*.12,e.y+lift*h*.46);c.lineTo(d.x+lift*w*.12,d.y+lift*h*.46);c.closePath();c.fill();c.restore();
+ // Back-to-front rendering allows genuinely lifted sections to reveal the underside.
+ const bands=lift&gt;.5?24:16;
+ const order=[];for(let i=0;i&lt;bands;i++)order.push(i);
+ if(lift&gt;.65){order.sort((i,j)=&gt;{
+  const zi=screen(.5,(i+.5)/bands,lift,tilt,roll,n).z,zj=screen(.5,(j+.5)/bands,lift,tilt,roll,n).z;
+  return zi-zj;
+ });}
+ for(const band of order)drawMeshBand(c,n,lift,tilt,roll,band,bands);
+ c.strokeStyle=&#x27;rgba(255,247,205,.4)&#x27;;c.lineWidth=.7;c.beginPath();const left=screen(0,1,lift,tilt,roll,n);c.moveTo(left.x,left.y);
+ for(let i=1;i&lt;=14;i++){const p=screen(i/14,1,lift,tilt,roll,n);c.lineTo(p.x,p.y)}c.stroke();
+}
+function buildSprite(colIdx,step){
+ const key=colIdx*100+step;if(spriteCache.has(key))return spriteCache.get(key);
+ const pad=spritePad,w=shapes.cellW-shapes.gap,h=shapes.cellH-shapes.gap;
+ const im=document.createElement(&#x27;canvas&#x27;); im.width=Math.ceil((w+pad*2)*spriteDpr);im.height=Math.ceil((h+pad*2)*spriteDpr);
+ const c=im.getContext(&#x27;2d&#x27;,{alpha:true});c.setTransform(spriteDpr,0,0,spriteDpr,0,0);
+ const note={x:pad,y:pad,w,h,colIdx};drawNote(c,note,step/32,0,0,false);
+ spriteCache.set(key,im);return im;
+}
+function warmSprites(){
+ if(!spriteSchedule.length)return;
+ const tick=performance.now();while(spriteSchedule.length&amp;&amp;performance.now()-tick&lt;3){const [col,step]=spriteSchedule.pop();buildSprite(col,step)}
+}
+function windValue(n,now){
+ if(!wind.active)return 0;
+ const elapsed=now-wind.start;
+ const xphase=n.i/Math.max(1,shapes.cols-1), jitter=n.phase;
+ // First pass sweeps left to right. Second arrives from the opposite side.
+ let at=elapsed-(xphase*910+jitter*150+n.j*17);
+ let blow=at&gt;0&amp;&amp;at&lt;490?Math.pow(Math.sin(Math.PI*at/490),1.65):0;
+ let bt=elapsed-1040-((1-xphase)*470+jitter*100+n.j*9);
+ let settle=bt&gt;0&amp;&amp;bt&lt;400?Math.sin(Math.PI*bt/400)*.34:0;
+ return Math.max(blow,settle)*(0.43+.48*n.dir);
+}
+function draw(now){
+ if(!buildActive){lastTime=now;raf=requestAnimationFrame(draw);return;}
+ const begin=performance.now();resize();
+ const dt=Math.min(56,now-lastTime);lastTime=now;time=now;
+ const prevX=pointer.x,prevY=pointer.y;
+ pointer.x=ease(pointer.x,pointer.tx,1-Math.exp(-dt/63));pointer.y=ease(pointer.y,pointer.ty,1-Math.exp(-dt/63));
+ pointer.vx=ease(pointer.vx,pointer.x-prevX,.28); pointer.vy=ease(pointer.vy,pointer.y-prevY,.28);
+ warmSprites();
+ if(now-wind.start&gt;wind.duration){wind.active=false}
+ if(!embedded&amp;&amp;!wind.active&amp;&amp;!reduced&amp;&amp;now-lastAutoWind&gt;7200){lastAutoWind=now;beginWind()}
+ const fade=wind.active?Math.pow(Math.sin(Math.PI*clamp((now-wind.start)/wind.duration,0,1)),6)*.24:0;
+ document.documentElement.style.setProperty(&#x27;--scene-fade&#x27;,fade.toFixed(3));
+ ctx.setTransform(1,0,0,1,0,0);ctx.drawImage(baseLayer,0,0);
+ ctx.setTransform(shapes.dpr,0,0,shapes.dpr,0,0);applyGridTransform(ctx);
+ activeCount=0;
+ for(const note of shapes.notes){
+  const cx=note.x+note.w/2,cy=note.y+note.h/2;
+  const dx=pointer.x-cx,dy=pointer.y-cy;
+  const dist=Math.hypot(dx,dy);
+  const radius=Math.max(note.w,note.h)*1.75;
+  const proximity=pointer.inside&amp;&amp;!reduced?Math.pow(Math.max(0,1-dist/radius),1.2)*1.84:0;
+  const gust=(!reduced)?windValue(note,now):0;
+  const target=clamp(Math.max(proximity,gust),0,.99);
+  // Spring-damped follow-through with restrained overshoot.
+  const accel=(target-note.lift)*.028 - note.vel*.19;
+  note.vel+=accel*(dt/16.67);
+  note.lift=clamp(note.lift+note.vel*(dt/16.67),0,1.03);
+  const lift=note.lift;
+  if(lift&lt;.014)continue;
+  activeCount++;
+  const relx=clamp(dx/(radius||1),-1,1), rely=clamp(dy/(radius||1),-1,1);
+  const flowx=clamp(pointer.vx/24,-1,1), flowy=clamp(pointer.vy/24,-1,1);
+  const gustTilt=Math.sin(now*.0105+note.phase*9+note.i*.19-note.j*.13)*(.14+.46*gust) + (note.dir-.5)*gust*.62;
+  const gustRoll=Math.cos(now*.012+note.phase*8-note.i*.11+note.j*.17)*(.10+.34*gust) + (note.phase-.5)*gust*.46;
+  const targetTilt=clamp(relx*.58 + flowx*.34 + gustTilt,-1,1);
+  const targetRoll=clamp(rely*.44 + flowy*.32 + gustRoll,-1,1);
+  note.tiltVel += ((targetTilt-note.tilt)*.056 - note.tiltVel*.23)*(dt/16.67);
+  note.rollVel += ((targetRoll-note.roll)*.056 - note.rollVel*.23)*(dt/16.67);
+  note.tilt = clamp(note.tilt + note.tiltVel*(dt/16.67),-1.1,1.1);
+  note.roll = clamp(note.roll + note.rollVel*(dt/16.67),-1.1,1.1);
+  const targetRot=(note.tilt*.95 + note.roll*.55 + gust*.65*Math.sin(now*.008+note.phase*11))*Math.PI/180*4.6;
+  note.rotVel += ((targetRot-note.rot)*.052 - note.rotVel*.22)*(dt/16.67);
+  note.rot += note.rotVel*(dt/16.67);
+  ctx.fillStyle=BG;ctx.fillRect(note.x-.9,note.y-.9,note.w+1.8,note.h+1.8);
+  const live = proximity &gt; Math.max(.11, gust + .02);
+  if(live){
+    ctx.save();
+    ctx.translate(note.x+note.w*.5,note.y+note.h*.12);
+    ctx.rotate(note.rot);
+    ctx.translate(-(note.x+note.w*.5),-(note.y+note.h*.12));
+    drawNote(ctx,note,Math.min(.995,lift),note.tilt*.86,note.roll*.82,false);
+    ctx.restore();
+  }else{
+    // The live curvature is kept for nearby notes; farther notes use cached mesh frames for performance.
+    const scaled=clamp(lift*32,1,32),lo=Math.max(1,Math.min(32,Math.floor(scaled))),hi=Math.min(32,lo+1),fraction=scaled-lo;
+    const sprite=buildSprite(note.colIdx,lo);
+    ctx.save();ctx.translate(note.x+note.w*.5,note.y+note.h*.1);ctx.rotate(note.rot*.55);ctx.translate(-(note.x+note.w*.5),-(note.y+note.h*.1));
+    ctx.drawImage(sprite,note.x-spritePad,note.y-spritePad,sprite.width/spriteDpr,sprite.height/spriteDpr);
+    if(fraction&gt;.05&amp;&amp;fraction&lt;.95&amp;&amp;proximity&gt;gust){ctx.globalAlpha=fraction;const next=buildSprite(note.colIdx,hi);ctx.drawImage(next,note.x-spritePad,note.y-spritePad,next.width/spriteDpr,next.height/spriteDpr);ctx.globalAlpha=1;}
+    ctx.restore();
+  }
+ }
+ ctx.setTransform(shapes.dpr,0,0,shapes.dpr,0,0);
+ const ms=performance.now()-begin;renderMs=ease(renderMs,ms,.05);
+ frameCount++;
+ if(now-lastPaint&gt;400){lastPaint=now;frameSamples.push({at:Math.round(now),frameMs:+renderMs.toFixed(1),active:activeCount});if(frameSamples.length&gt;40)frameSamples.shift()}
+ window.PARVUS_BUILD_DEBUG={notes:shapes.notes.length,columns:shapes.cols,rows:shapes.rows,active:activeCount,renderMs:+renderMs.toFixed(2),wind:wind.active,windCount:wind.count,frames:frameCount,reduced,cached:spriteCache.size,cachePending:spriteSchedule.length};
+ raf=requestAnimationFrame(draw);
+}
+window.addEventListener(&#x27;resize&#x27;,resize,{passive:true});
+resize();
+requestAnimationFrame(draw);
+window.PARVUS_BUILD_CONTROL={setActive:(on)=&gt;{const was=buildActive;buildActive=!!on;if(buildActive&amp;&amp;!was){lastTime=performance.now();lastAutoWind=lastTime;}if(!buildActive){pointer.inside=false;}},gust:beginWind,pointer:(x,y)=&gt;{const p=unrotate(x,y);pointer.tx=p.x;pointer.ty=p.y;pointer.inside=true},leave:()=&gt;pointer.inside=false,samples:()=&gt;frameSamples};
+})();
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe></div></section><section id="pv-slide-05" class="pv-scene" data-study="05" aria-hidden="true"><div class="pv-stage"><div class="cabinet"><div class="drawer d1"><span>CAT. 04–01</span><i class="mini cube"></i></div><div class="drawer d2"><span>CAT. 04–02</span><i class="mini ball"></i></div><div class="drawer d3"><span>CAT. 04–03</span><i class="mini bar"></i></div></div><div class="drawername"><span>AN ARCHIVE OF SMALL WONDERS</span><strong>PARVUS</strong></div></div></section>
+</div>
+
+<button type="button" class="pv-hit" id="pv-open-explore" aria-label="PARVUS 프로젝트 목록 보기"></button>
+<section class="pv-index" id="pv-index" aria-hidden="true" aria-label="PARVUS project index"><div class="pv-index-inner"><div class="pv-topline"><button class="pv-back" id="pv-return" type="button">← &nbsp; BACK TO GALLERY</button><span class="pv-overline">FORMA OPUS / WORKS / 02</span></div><h2>PARVUS</h2><div class="pv-index-table"><a class="pv-index-row" href="#/wip?project=domus&amp;parent=parvus" data-project="PJT.DOMUS"><em>01</em><strong>PJT.DOMUS</strong><span>Architectural and commercial dioramas.</span><i>↗</i></a><a class="pv-index-row" href="#/wip?project=persona&amp;parent=parvus" data-project="PJT.PERSONA"><em>02</em><strong>PJT.PERSONA</strong><span>Personalized figures and miniatures.</span><i>↗</i></a><a class="pv-index-row" href="#/wip?project=armatura&amp;parent=parvus" data-project="PJT.ARMATURA"><em>03</em><strong>PJT.ARMATURA</strong><span>Tracked RC models and mechanical toys.</span><i>↗</i></a><a class="pv-index-row" href="#/wip?project=vecta&amp;parent=parvus" data-project="PJT.VECTA"><em>04</em><strong>PJT.VECTA</strong><span>Mobile workshop and on-site CAD platform.</span><i>↗</i></a></div><div class="pv-index-footer">FO / PARVUS · DESIGN IN PROGRESS</div></div></section>
+<section class="pv-wip" id="pv-local-wip" aria-hidden="true" aria-label="Work in progress"><button type="button" class="pv-back" id="pv-wip-back">← &nbsp; PROJECT INDEX</button><small id="pv-wip-label">PROJECT</small><strong>WORK IN PROGRESS</strong></section>
+</div><script>(function(){
+'use strict';
+const app=document.getElementById('parvus-five');
+if(!app || app.dataset.initialized==='v2')return;
+app.dataset.initialized='v2';
+const slides=Array.from(app.querySelectorAll('.pv-scene'));
+const index=app.querySelector('#pv-index'), wip=app.querySelector('#pv-local-wip');
+const hit=app.querySelector('#pv-open-explore');
+
+const buildFrame=app.querySelector('#pv-build-frame');
+function buildController(){try{return buildFrame?.contentWindow?.PARVUS_BUILD_CONTROL||null;}catch(e){return null;}}
+function syncBuildFrame(){const c=buildController();if(!c)return;const s=slides[3];const awake=moving()&&!!s&&(s.classList.contains('is-active')||s.classList.contains('is-outgoing')||s.classList.contains('is-primed'));c.setActive(awake);}
+if(buildFrame)buildFrame.addEventListener('load',()=>{syncBuildFrame();},{once:false});
+function buildPointerAt(e){const c=buildController();if(!c||!moving()||!slides[3].classList.contains('is-active'))return;
+ const r=buildFrame.getBoundingClientRect();if(!r.width||!r.height)return;
+ const x=(e.clientX-r.left)/r.width*buildFrame.contentWindow.innerWidth;
+ const y=(e.clientY-r.top)/r.height*buildFrame.contentWindow.innerHeight;
+ c.pointer(x,y);
+}
+function buildLeave(){const c=buildController();if(c)c.leave();}
+
+const palettes=[['#223b4d','#ceeaf0'],['#413c49','#e7ddcb'],['#2d3d2c','#f1f5e8'],['#f7ed9e','#181d74'],['#3b312b','#e8decf']];
+const prefersReduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const hostPage=app.closest('[data-page="parvus"]');
+const integrated=Boolean(hostPage);
+const qp=new URLSearchParams(location.search);
+const requested=Number(qp.get('study'));
+const hasRequested=Number.isInteger(requested)&&requested>=1&&requested<=5;
+const nextRandom=()=>Math.floor(Math.random()*slides.length);
+let current=hasRequested?requested-1:nextRandom();
+let previous=null, switching=false, indexOpen=false, wipOpen=false, switchCount=0, primed=-1;
+let due=0, lastActive=false, lastTick=0;
+let transitionSet=[], cleanTimer=0;
+let debugEnabled=qp.has('debug');
+const CYCLE=4000;
+const SHIFT=prefersReduced?170:820;
+const SCATTER=prefersReduced?0:520;
+const scatterTargets=[
+  '.orbital,.orbitline,.playtype',
+  '.paper,.aperture',
+  '.specimen,.lens,.specname',
+  '.pv-build-frame',
+  '.drawer,.drawername'
+];
+function visible(){ return document.visibilityState!=='hidden'&&(!integrated||!hostPage.hidden); }
+function moving(){return visible()&&!indexOpen&&!wipOpen;}
+function resetAnimations(){slides.forEach(s=>s.classList.remove('is-primed'));primed=-1;transitionSet.forEach(a=>{try{a.cancel()}catch(e){}});transitionSet=[];clearTimeout(cleanTimer);switching=false;previous=null;slides.forEach(s=>s.classList.remove('is-outgoing'));}
+function buildPixels(){const p=app.querySelector('#pv-pixelgrid');if(!p)return;const cs=['#f4a261','#f6e8a7','#5074b9','#eebbd6','#9fc0b3','#ffffff'];const f=document.createDocumentFragment();for(let i=0;i<160;i++){const x=document.createElement('i');x.style.setProperty('--c',cs[(i*7+Math.floor(i/16)*3)%cs.length]);x.style.setProperty('--delay',(((i*17)%41)/40*1.1).toFixed(3)+'s');x.style.setProperty('--pv-cell-x',((((i%16)-7.5)/7.5)*.28).toFixed(3));x.style.setProperty('--pv-cell-y',(((Math.floor(i/16)-4.5)/4.5)*.28).toFixed(3));f.append(x);}p.replaceChildren(f);}
+function restart(n){if(n===3)return;const stage=slides[n].querySelector('.pv-stage');stage.innerHTML=stage.innerHTML;}
+function prepare(n){
+ n=(n+slides.length)%slides.length;
+ if(primed===n||n===current||switching)return;
+ if(primed>=0)slides[primed].classList.remove('is-primed');
+ primed=n;restart(n);
+ slides[n].classList.add('is-primed');
+ slides[n].style.zIndex='0';slides[n].style.opacity='0';syncBuildFrame();
+}
+function palette(n){app.dataset.current=String(n+1).padStart(2,'0');app.style.setProperty('--pv-ink',palettes[n][0]);app.style.setProperty('--pv-bg',palettes[n][1]);}
+function safeAnimate(el,keyframes,options){try{const a=el.animate(keyframes,options);transitionSet.push(a);return a;}catch(e){if(debugEnabled)console.warn('Motion fallback',e);return null;}}
+function parts(scene,i){let list=[...scene.querySelectorAll(scatterTargets[i])];if(i===3)list=list.filter((e,n)=>!e.matches('i')||n%(innerWidth<700?6:3)===0);return list;}
+function transformOf(el){const t=getComputedStyle(el).transform;return (t&&t!=='none')?t:'translate3d(0px,0px,0px)';}
+function movement(el,n,rank,count){
+ const r=el.getBoundingClientRect();
+ const mx=r.left+r.width/2-innerWidth/2, my=r.top+r.height/2-innerHeight/2;
+ const angle=(n*2.39996322972865)+(rank*1.57079632679)+(mx*.0007)+(my*.0008);
+ let ux=Math.cos(angle),uy=Math.sin(angle);
+ if(rank%4===0){ux=-.86;uy=-.72;}else if(rank%4===1){ux=.92;uy=-.78;}else if(rank%4===2){ux=-.88;uy=.84;}else if(rank%4===3){ux=.92;uy=.86;}
+ const v=Math.min(innerWidth,innerHeight);
+ const distance=Math.min(300,Math.max(125,v*.235)) * (0.74+(rank%6)*.062);
+ return {x:(ux*distance).toFixed(2),y:(uy*distance).toFixed(2),rotate:(rank%2?1:-1)*(1.7+rank%5*1.9)};
+}
+function scatter(scene,i,incoming){
+ if(prefersReduced)return;
+ const arr=parts(scene,i);
+ arr.forEach((el,n)=>{
+  // Keep block movement restrained and readable; title block stays intact.
+  const geo=movement(el,i,n,arr.length),base=transformOf(el);
+  const atRest={transform:base,opacity:1};
+  const displaced={transform:`${base} translate3d(${geo.x}px,${geo.y}px,0) rotate(${geo.rotate}deg) scale(.92)`,opacity:0};
+  const titlePart=el.matches('.playtype,.aperture,.specname,.pxname,.drawername');
+  const smallDelay=titlePart?0:(arr.length>40?(n%8)*14:(n%4)*23);
+  safeAnimate(el,incoming?[displaced,atRest]:[atRest,displaced],{
+   duration:incoming?(titlePart?460:610):(titlePart?260:520),delay:smallDelay+(incoming?(titlePart?265:75):0),
+   easing:incoming?'cubic-bezier(.16,.82,.22,1)':'cubic-bezier(.38,0,.75,.25)',
+   fill:'both'
+  });
+ });
+}
+function display(n){slides.forEach((s,i)=>{s.classList.toggle('is-active',i===n);s.classList.remove('is-outgoing');s.style.opacity=i===n?'1':'0';s.setAttribute('aria-hidden',String(i!==n));});palette(n);syncBuildFrame();}
+function transition(n,instant=false){
+ if(!moving()&& !instant)return;
+ if(switching){return;}
+ n=(n+slides.length)%slides.length;
+ if(n===current&&!instant)return;
+ if(instant){resetAnimations();current=n;restart(n);display(n);pvPointer.lastPaintX=99;due=performance.now()+CYCLE;return;}
+ switching=true;clearTimeout(cleanTimer);
+ const prior=current,old=slides[prior];
+ const next=slides[n];
+ if(primed!==n)restart(n);
+ next.classList.remove('is-primed');primed=-1;
+ old.classList.remove('is-active');old.classList.add('is-outgoing');old.style.opacity='1';old.style.zIndex='3';
+ next.style.opacity='0';next.style.zIndex='4';next.classList.add('is-active');next.setAttribute('aria-hidden','false');
+ // Crossfade background and foreground, while the actual original graphic blocks scatter/reassemble.
+ safeAnimate(old,[{opacity:1},{opacity:.92,offset:.32},{opacity:0}],{duration:SHIFT,easing:'cubic-bezier(.35,0,.35,1)',fill:'both'});
+ safeAnimate(next,[{opacity:0},{opacity:.18,offset:.2},{opacity:.82,offset:.7},{opacity:1}],{duration:SHIFT,easing:'cubic-bezier(.33,.02,.25,1)',fill:'both'});
+ scatter(old,prior,false);scatter(next,n,true);syncBuildFrame();if(prior===3||n===3){const c=buildController();if(c)c.gust();}
+ current=n;palette(n);switchCount++;pvPointer.lastPaintX=99;
+ cleanTimer=setTimeout(()=>{
+  transitionSet.forEach(a=>{try{a.cancel()}catch(e){}});transitionSet=[];
+  old.classList.remove('is-outgoing');old.style.opacity='0';old.style.zIndex='0';old.setAttribute('aria-hidden','true');
+  next.style.opacity='1';next.style.zIndex='3';
+  slides.forEach((s,i)=>{if(i!==current){s.classList.remove('is-active','is-outgoing');s.style.opacity='0';s.style.zIndex='0';}});
+  previous=null;switching=false;syncBuildFrame();
+ },SHIFT+160);
+ due=performance.now()+CYCLE;
+}
+function switchNext(){transition((current+1)%5);}
+function showIndex(){if(indexOpen||wipOpen)return;indexOpen=true;app.dataset.mode='index';index.classList.add('is-visible');index.setAttribute('aria-hidden','false');hit.blur();index.querySelector('button').focus({preventScroll:true});buildLeave();syncBuildFrame();}
+function hideIndex(){if(!indexOpen)return;indexOpen=false;app.dataset.mode='gallery';index.classList.remove('is-visible');index.setAttribute('aria-hidden','true');due=performance.now()+CYCLE;hit.focus({preventScroll:true});syncBuildFrame();}
+function showWip(name){wipOpen=true;app.dataset.mode='wip';wip.classList.add('is-visible');wip.setAttribute('aria-hidden','false');app.querySelector('#pv-wip-label').textContent=name;}
+function hideWip(){wipOpen=false;app.dataset.mode='index';wip.classList.remove('is-visible');wip.setAttribute('aria-hidden','true');index.querySelector('button').focus({preventScroll:true});}
+hit.addEventListener('click',showIndex);
+app.querySelector('#pv-return').addEventListener('click',hideIndex);
+app.querySelector('#pv-wip-back').addEventListener('click',hideWip);
+app.querySelectorAll('[data-project]').forEach(a=>a.addEventListener('click',e=>{if(!integrated){e.preventDefault();showWip(a.dataset.project);} }));
+app.addEventListener('keydown',e=>{if(e.key==='Escape'){if(wipOpen)hideWip();else if(indexOpen)hideIndex();}});
+// Independent parallax for all five studies, frame-smoothed so it does not fight transition WAAPI.
+const pvPointer={x:0,y:0,targetX:0,targetY:0,frameAt:0,lastPaintX:99,lastPaintY:99};
+function pvInput(e){
+ if(prefersReduced||!moving())return;
+ const r=app.getBoundingClientRect();
+ if(!r.width||!r.height)return;
+ pvPointer.targetX=Math.max(-1,Math.min(1,((e.clientX-r.left)/r.width-.5)*2));
+ pvPointer.targetY=Math.max(-1,Math.min(1,((e.clientY-r.top)/r.height-.5)*2));
+ buildPointerAt(e);
+}
+app.addEventListener('pointermove',pvInput,{passive:true});
+app.addEventListener('pointerdown',e=>{if(e.pointerType==='touch')pvInput(e);},{passive:true});
+app.addEventListener('pointerleave',()=>{pvPointer.targetX=0;pvPointer.targetY=0;buildLeave();},{passive:true});
+function pvMotionFrame(now){
+ if(prefersReduced)return;
+ const dt=pvPointer.frameAt?Math.min(60,now-pvPointer.frameAt):16.7;
+ pvPointer.frameAt=now;
+ if(!moving()){pvPointer.targetX=0;pvPointer.targetY=0;}
+ const alpha=1-Math.exp(-dt/115);
+ pvPointer.x+=(pvPointer.targetX-pvPointer.x)*alpha;
+ pvPointer.y+=(pvPointer.targetY-pvPointer.y)*alpha;
+ if(Math.abs(pvPointer.x-pvPointer.lastPaintX)<.0008&&Math.abs(pvPointer.y-pvPointer.lastPaintY)<.0008)return;
+ pvPointer.lastPaintX=pvPointer.x;pvPointer.lastPaintY=pvPointer.y;
+ const x=pvPointer.x,y=pvPointer.y;
+ const live=switching?slides.filter(s=>s.classList.contains('is-active')||s.classList.contains('is-outgoing')):[slides[current]];
+ for(const s of live){
+  s.style.setProperty('--pv-dx',(x*27).toFixed(2)+'px');
+  s.style.setProperty('--pv-dy',(y*22).toFixed(2)+'px');
+  s.style.setProperty('--pv-theta',(x*4.8).toFixed(2)+'deg');
+  s.style.setProperty('--pv-cursor-x',(50+x*35).toFixed(1)+'%');
+  s.style.setProperty('--pv-cursor-y',(50+y*34).toFixed(1)+'%');
+  // Preserve the lens positioning and original floating motion of the studies.
+  s.style.setProperty('--mx',(x*.5).toFixed(4));
+  s.style.setProperty('--my',(y*.5).toFixed(4));
+  s.style.setProperty('--pv-pointer-x',(x*58).toFixed(2)+'px');
+  s.style.setProperty('--pv-pointer-y',(y*42).toFixed(2)+'px');
+  s.style.setProperty('--pv-micro-x','0px');
+  s.style.setProperty('--pv-micro-y','0px');
+ }
+}
+function reactToRoute(){
+ if(!integrated)return;
+ const show=!hostPage.hidden;
+ if(show&&!lastActive){lastActive=true;if(!indexOpen&&!wipOpen){transition(hasRequested?requested-1:nextRandom(),true);}due=performance.now()+CYCLE;}
+ else if(!show){lastActive=false;resetAnimations();buildLeave();syncBuildFrame();}
+}
+window.addEventListener('hashchange',()=>requestAnimationFrame(reactToRoute));
+document.addEventListener('visibilitychange',()=>{due=performance.now()+CYCLE;});
+let lastBuildSync=0;
+function frame(now){
+ pvMotionFrame(now);
+ if(now-lastBuildSync>350){lastBuildSync=now;syncBuildFrame();}
+ if(moving()){
+  if(!lastActive){lastActive=true;due=now+CYCLE;}
+  if(!due)due=now+CYCLE;
+  if(!switching && now>=due-1900 && now<due)prepare((current+1)%slides.length);
+  if(now>=due&&!switching)transition((current+1)%slides.length);
+ }else{
+  if(!integrated || hostPage.hidden)lastActive=false;
+  due=now+CYCLE;
+ }
+ requestAnimationFrame(frame);
+}
+restart(current);display(current);due=performance.now()+CYCLE;
+if(integrated){lastActive=!hostPage.hidden; if(!lastActive)due=0;}
+requestAnimationFrame(frame);
+window.PARVUS_FIVE_STATES=Object.freeze({getStudy:()=>current+1,getSwitchCount:()=>switchCount,isTransitioning:()=>switching,showStudy(n){let target=(Number(n)|0)-1;if(target<0||target>4)return;transition(target,true);},openProjects:showIndex,closeProjects:hideIndex,getMode:()=>app.dataset.mode});
+})();</script></body></html>

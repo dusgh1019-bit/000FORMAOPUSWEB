@@ -1,0 +1,74 @@
+{
+  "root-scenes": [
+    "packages/shell/src/RootExperience.astro",
+    "packages/shell/src/scene-controller.ts",
+    "packages/shell/src/shell.css",
+    "content/site/model.ts"
+  ],
+  "grea": [
+    "packages/grea/src/components/",
+    "packages/grea/src/domain.css",
+    "content/grea/index.ts",
+    "packages/ui/src/react/VisualEntrySurface.tsx"
+  ],
+  "exercitus-entry-collection": [
+    "packages/exercitus/src/components/ExercitusEntry.tsx",
+    "packages/exercitus/src/components/CollectionIndex.tsx",
+    "packages/exercitus/src/components/CollectionProduct.tsx",
+    "packages/exercitus/src/domain.css",
+    "content/grea/exercitus.ts"
+  ],
+  "exercitus-customizer": [
+    "packages/exercitus/src/components/CustomizerWorkspace.tsx",
+    "packages/exercitus/src/components/TShirtStage.tsx",
+    "packages/exercitus/src/components/EquipmentCaptureModal.tsx",
+    "packages/exercitus/src/domain.css",
+    "content/grea/exercitus.ts",
+    "packages/services/src/index.ts"
+  ],
+  "parvus": [
+    "packages/parvus/src/components/",
+    "packages/parvus/src/domain.css",
+    "content/parvus/index.ts",
+    "packages/ui/src/react/VisualEntrySurface.tsx"
+  ],
+  "machina": [
+    "packages/machina/src/components/",
+    "packages/machina/src/domain.css",
+    "content/machina/index.ts",
+    "packages/services/src/index.ts",
+    "packages/ui/src/react/VisualEntrySurface.tsx"
+  ],
+  "history-timeline": [
+    "packages/history/src/components/HistoryTimelineExperience.tsx",
+    "packages/history/src/domain.css",
+    "content/history/timeline/index.ts"
+  ],
+  "history-archive": [
+    "packages/history/src/components/HistoryArchiveIndex.tsx",
+    "packages/history/src/components/AuthorsNote.tsx",
+    "packages/history/src/domain.css",
+    "content/history/archive.ts"
+  ],
+  "cad": [
+    "packages/cad/src/CadHold.astro",
+    "packages/cad/src/domain.css",
+    "content/cad/"
+  ],
+  "design-tokens": [
+    "packages/core/src/tokens.css",
+    "packages/core/src/motion.css",
+    "packages/core/src/breakpoints.css"
+  ],
+  "shared-ui": [
+    "packages/ui/src/",
+    "packages/ui/src/ui.css"
+  ],
+  "service-boundaries": [
+    "packages/services/src/index.ts"
+  ],
+  "shared-entry-surface": [
+    "packages/ui/src/react/VisualEntrySurface.tsx",
+    "packages/ui/src/ui.css"
+  ]
+}

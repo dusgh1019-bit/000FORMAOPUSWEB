@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CleanWip from '../../components/CleanWip.astro';
+import { projectItems } from '../../data/catalog';
+export function getStaticPaths(){return projectItems.filter(x=>x.slug!=='history').map(x=>({params:{slug:x.slug},props:{name:x.title}}));}
+const {name}=Astro.props;
+---
+<BaseLayout title={`${name} — FORMA OPUS`} bodyClass="fo-clean-body"><CleanWip project={name} /></BaseLayout>

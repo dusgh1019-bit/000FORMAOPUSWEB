@@ -1,0 +1,1803 @@
+{
+  "source": "DEV 1.7",
+  "files": [
+    {
+      "file": "tsconfig.json",
+      "domain": "CONFIG",
+      "bytes": 564,
+      "lines": 21,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "next.config.ts",
+      "domain": "CONFIG",
+      "bytes": 154,
+      "lines": 6,
+      "client": false,
+      "imports": [
+        "next"
+      ]
+    },
+    {
+      "file": "package.json",
+      "domain": "CONFIG",
+      "bytes": 440,
+      "lines": 22,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "next-env.d.ts",
+      "domain": "CONFIG",
+      "bytes": 81,
+      "lines": 2,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "README.md",
+      "domain": "CONFIG",
+      "bytes": 10965,
+      "lines": 130,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "components/BreadcrumbTrail.tsx",
+      "domain": "SHELL/SHARED",
+      "bytes": 891,
+      "lines": 30,
+      "client": true,
+      "imports": [
+        "next/link"
+      ]
+    },
+    {
+      "file": "components/SiteUtility.tsx",
+      "domain": "SHELL/SHARED",
+      "bytes": 1401,
+      "lines": 39,
+      "client": true,
+      "imports": [
+        "next/link",
+        "./BreadcrumbTrail"
+      ]
+    },
+    {
+      "file": "components/SplitPanelScene.tsx",
+      "domain": "SHELL/SHARED",
+      "bytes": 1189,
+      "lines": 49,
+      "client": true,
+      "imports": [
+        "next/link"
+      ]
+    },
+    {
+      "file": "components/RootExperience.tsx",
+      "domain": "SHELL/SHARED",
+      "bytes": 7516,
+      "lines": 178,
+      "client": true,
+      "imports": [
+        "react",
+        "next/link",
+        "./BreadcrumbTrail",
+        "./SplitPanelScene",
+        "@/content/model"
+      ]
+    },
+    {
+      "file": "content/history-timeline.ts",
+      "domain": "HISTORY",
+      "bytes": 20166,
+      "lines": 221,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "content/grea.ts",
+      "domain": "GREA",
+      "bytes": 5788,
+      "lines": 94,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "content/exercitus.ts",
+      "domain": "EXERCITUS",
+      "bytes": 7166,
+      "lines": 205,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "content/model.ts",
+      "domain": "SHELL/SHARED",
+      "bytes": 2046,
+      "lines": 66,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "content/parvus.ts",
+      "domain": "PARVUS",
+      "bytes": 8708,
+      "lines": 129,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "content/machina.ts",
+      "domain": "MACHINA",
+      "bytes": 11061,
+      "lines": 301,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "content/history.ts",
+      "domain": "HISTORY",
+      "bytes": 23889,
+      "lines": 285,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "app/sitemap.ts",
+      "domain": "SHELL/SHARED",
+      "bytes": 1426,
+      "lines": 15,
+      "client": false,
+      "imports": [
+        "next",
+        "@/content/exercitus",
+        "@/content/history",
+        "@/content/machina",
+        "@/content/parvus"
+      ]
+    },
+    {
+      "file": "app/globals.css",
+      "domain": "SHELL/SHARED",
+      "bytes": 247602,
+      "lines": 1361,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "app/layout.tsx",
+      "domain": "SHELL/SHARED",
+      "bytes": 426,
+      "lines": 15,
+      "client": false,
+      "imports": [
+        "next"
+      ]
+    },
+    {
+      "file": "app/robots.ts",
+      "domain": "SHELL/SHARED",
+      "bytes": 196,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "next"
+      ]
+    },
+    {
+      "file": "app/not-found.tsx",
+      "domain": "SHELL/SHARED",
+      "bytes": 284,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "next/link"
+      ]
+    },
+    {
+      "file": "app/page.tsx",
+      "domain": "SHELL/SHARED",
+      "bytes": 124,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/RootExperience"
+      ]
+    },
+    {
+      "file": "public/assets/exercitus/README.md",
+      "domain": "CONFIG",
+      "bytes": 673,
+      "lines": 11,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "app/contact/page.tsx",
+      "domain": "SHELL/SHARED",
+      "bytes": 386,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/SiteUtility"
+      ]
+    },
+    {
+      "file": "app/about/page.tsx",
+      "domain": "SHELL/SHARED",
+      "bytes": 382,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/SiteUtility"
+      ]
+    },
+    {
+      "file": "app/archive/page.tsx",
+      "domain": "SHELL/SHARED",
+      "bytes": 386,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/SiteUtility"
+      ]
+    },
+    {
+      "file": "app/grea/page.tsx",
+      "domain": "GREA",
+      "bytes": 295,
+      "lines": 4,
+      "client": false,
+      "imports": [
+        "next",
+        "@/components/grea/GreaLanding"
+      ]
+    },
+    {
+      "file": "app/machina/page.tsx",
+      "domain": "MACHINA",
+      "bytes": 126,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/machina/MachinaLanding"
+      ]
+    },
+    {
+      "file": "app/parvus/page.tsx",
+      "domain": "PARVUS",
+      "bytes": 123,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/parvus/ParvusLanding"
+      ]
+    },
+    {
+      "file": "app/parvus/contact/page.tsx",
+      "domain": "PARVUS",
+      "bytes": 123,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/parvus/ParvusInquiry"
+      ]
+    },
+    {
+      "file": "app/parvus/projects/page.tsx",
+      "domain": "PARVUS",
+      "bytes": 141,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/parvus/ParvusProjectsIndex"
+      ]
+    },
+    {
+      "file": "app/parvus/projects/[slug]/page.tsx",
+      "domain": "PARVUS",
+      "bytes": 496,
+      "lines": 5,
+      "client": false,
+      "imports": [
+        "next/navigation",
+        "@/components/parvus/ParvusProjectDetail",
+        "@/content/parvus"
+      ]
+    },
+    {
+      "file": "app/machina/contact/page.tsx",
+      "domain": "MACHINA",
+      "bytes": 117,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/machina/ContactPage"
+      ]
+    },
+    {
+      "file": "app/machina/capabilities/page.tsx",
+      "domain": "MACHINA",
+      "bytes": 132,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/machina/CapabilitiesPage"
+      ]
+    },
+    {
+      "file": "app/machina/systems/page.tsx",
+      "domain": "MACHINA",
+      "bytes": 120,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/machina/SystemsIndex"
+      ]
+    },
+    {
+      "file": "app/machina/objects/page.tsx",
+      "domain": "MACHINA",
+      "bytes": 120,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/machina/ObjectsIndex"
+      ]
+    },
+    {
+      "file": "app/machina/objects/[slug]/page.tsx",
+      "domain": "MACHINA",
+      "bytes": 489,
+      "lines": 5,
+      "client": false,
+      "imports": [
+        "next/navigation",
+        "@/components/machina/ObjectDetail",
+        "@/content/machina"
+      ]
+    },
+    {
+      "file": "app/machina/systems/[slug]/page.tsx",
+      "domain": "MACHINA",
+      "bytes": 504,
+      "lines": 5,
+      "client": false,
+      "imports": [
+        "next/navigation",
+        "@/components/machina/ProjectDetail",
+        "@/content/machina"
+      ]
+    },
+    {
+      "file": "app/academia/history/page.tsx",
+      "domain": "HISTORY",
+      "bytes": 695,
+      "lines": 14,
+      "client": false,
+      "imports": [
+        "@/components/BreadcrumbTrail",
+        "@/components/history/HistoryArchiveIndex",
+        "@/components/history/HistoryTimelineExperience"
+      ]
+    },
+    {
+      "file": "app/academia/cad/page.tsx",
+      "domain": "CAD",
+      "bytes": 618,
+      "lines": 10,
+      "client": false,
+      "imports": [
+        "@/components/BreadcrumbTrail"
+      ]
+    },
+    {
+      "file": "app/academia/history/[slug]/page.tsx",
+      "domain": "HISTORY",
+      "bytes": 4220,
+      "lines": 33,
+      "client": false,
+      "imports": [
+        "next/link",
+        "next/navigation",
+        "@/components/BreadcrumbTrail",
+        "@/components/history/AuthorsNote",
+        "@/content/history"
+      ]
+    },
+    {
+      "file": "app/grea/exercitus/page.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 351,
+      "lines": 11,
+      "client": false,
+      "imports": [
+        "next",
+        "@/components/exercitus/ExercitusEntry"
+      ]
+    },
+    {
+      "file": "app/grea/archive/page.tsx",
+      "domain": "GREA",
+      "bytes": 866,
+      "lines": 6,
+      "client": false,
+      "imports": [
+        "next",
+        "next/link",
+        "@/components/SiteUtility",
+        "@/content/model"
+      ]
+    },
+    {
+      "file": "app/grea/faber/page.tsx",
+      "domain": "GREA",
+      "bytes": 289,
+      "lines": 4,
+      "client": false,
+      "imports": [
+        "next",
+        "@/components/grea/FaberLanding"
+      ]
+    },
+    {
+      "file": "app/grea/insignia/page.tsx",
+      "domain": "GREA",
+      "bytes": 124,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/grea/InsigniaLanding"
+      ]
+    },
+    {
+      "file": "app/grea/vestis/page.tsx",
+      "domain": "GREA",
+      "bytes": 118,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/grea/VestisLanding"
+      ]
+    },
+    {
+      "file": "app/grea/projects/page.tsx",
+      "domain": "GREA",
+      "bytes": 742,
+      "lines": 6,
+      "client": false,
+      "imports": [
+        "next",
+        "next/link",
+        "@/components/grea/GreaNav",
+        "@/content/grea"
+      ]
+    },
+    {
+      "file": "app/grea/custom/page.tsx",
+      "domain": "GREA",
+      "bytes": 127,
+      "lines": 2,
+      "client": false,
+      "imports": [
+        "@/components/grea/GreaCustomSystem"
+      ]
+    },
+    {
+      "file": "app/grea/projects/[slug]/page.tsx",
+      "domain": "GREA",
+      "bytes": 496,
+      "lines": 11,
+      "client": false,
+      "imports": [
+        "next/navigation",
+        "@/content/model"
+      ]
+    },
+    {
+      "file": "app/grea/faber/[slug]/page.tsx",
+      "domain": "GREA",
+      "bytes": 481,
+      "lines": 5,
+      "client": false,
+      "imports": [
+        "next/navigation",
+        "@/components/grea/GreaNav",
+        "@/components/grea/FaberStudy",
+        "@/content/grea"
+      ]
+    },
+    {
+      "file": "app/grea/exercitus/customize/page.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 426,
+      "lines": 12,
+      "client": false,
+      "imports": [
+        "next",
+        "@/components/exercitus/CustomizerWorkspace"
+      ]
+    },
+    {
+      "file": "app/grea/exercitus/collection/page.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 281,
+      "lines": 4,
+      "client": false,
+      "imports": [
+        "next",
+        "@/components/exercitus/CollectionIndex"
+      ]
+    },
+    {
+      "file": "app/grea/exercitus/order/page.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 257,
+      "lines": 4,
+      "client": false,
+      "imports": [
+        "next",
+        "@/components/exercitus/OrderStatus"
+      ]
+    },
+    {
+      "file": "app/grea/exercitus/custom/confirm/page.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 271,
+      "lines": 4,
+      "client": false,
+      "imports": [
+        "next",
+        "@/components/exercitus/CustomFinalProof"
+      ]
+    },
+    {
+      "file": "app/grea/exercitus/collection/[slug]/page.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 489,
+      "lines": 5,
+      "client": false,
+      "imports": [
+        "next/navigation",
+        "@/components/exercitus/CollectionProduct",
+        "@/content/exercitus"
+      ]
+    },
+    {
+      "file": "components/history/HistoryTimelineExperience.tsx",
+      "domain": "HISTORY",
+      "bytes": 17132,
+      "lines": 169,
+      "client": true,
+      "imports": [
+        "next/link",
+        "react",
+        "@/content/history-timeline"
+      ]
+    },
+    {
+      "file": "components/history/HistoryArchiveIndex.tsx",
+      "domain": "HISTORY",
+      "bytes": 11599,
+      "lines": 125,
+      "client": true,
+      "imports": [
+        "next/link",
+        "react",
+        "@/content/history"
+      ]
+    },
+    {
+      "file": "components/history/AuthorsNote.tsx",
+      "domain": "HISTORY",
+      "bytes": 714,
+      "lines": 16,
+      "client": true,
+      "imports": [
+        "react"
+      ]
+    },
+    {
+      "file": "components/exercitus/CollectionProduct.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 2957,
+      "lines": 27,
+      "client": true,
+      "imports": [
+        "react",
+        "@/components/BreadcrumbTrail",
+        "@/content/exercitus"
+      ]
+    },
+    {
+      "file": "components/exercitus/CustomFinalProof.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 4141,
+      "lines": 23,
+      "client": true,
+      "imports": [
+        "react",
+        "next/navigation",
+        "@/components/BreadcrumbTrail",
+        "@/content/exercitus"
+      ]
+    },
+    {
+      "file": "components/exercitus/CollectionIndex.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 7832,
+      "lines": 132,
+      "client": true,
+      "imports": [
+        "react",
+        "next/link",
+        "@/components/BreadcrumbTrail",
+        "@/content/exercitus"
+      ]
+    },
+    {
+      "file": "components/exercitus/CustomizerWorkspace.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 20568,
+      "lines": 358,
+      "client": true,
+      "imports": [
+        "react",
+        "next/navigation",
+        "@/components/BreadcrumbTrail",
+        "./TShirtStage",
+        "./EquipmentCaptureModal",
+        "@/content/exercitus"
+      ]
+    },
+    {
+      "file": "components/exercitus/OrderStatus.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 1934,
+      "lines": 5,
+      "client": true,
+      "imports": [
+        "react",
+        "@/components/BreadcrumbTrail"
+      ]
+    },
+    {
+      "file": "components/exercitus/TShirtStage.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 10959,
+      "lines": 234,
+      "client": true,
+      "imports": [
+        "react",
+        "@/content/exercitus"
+      ]
+    },
+    {
+      "file": "components/exercitus/PurchaseModeModal.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 5957,
+      "lines": 133,
+      "client": true,
+      "imports": [
+        "react",
+        "next/navigation",
+        "@/content/exercitus"
+      ]
+    },
+    {
+      "file": "components/exercitus/ExercitusEntry.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 2900,
+      "lines": 68,
+      "client": true,
+      "imports": [
+        "react",
+        "next/link",
+        "@/components/BreadcrumbTrail",
+        "./TShirtStage",
+        "./PurchaseModeModal"
+      ]
+    },
+    {
+      "file": "components/exercitus/EquipmentCaptureModal.tsx",
+      "domain": "EXERCITUS",
+      "bytes": 3777,
+      "lines": 65,
+      "client": true,
+      "imports": [
+        "react",
+        "@/content/exercitus"
+      ]
+    },
+    {
+      "file": "components/grea/FaberLanding.tsx",
+      "domain": "GREA",
+      "bytes": 1194,
+      "lines": 15,
+      "client": false,
+      "imports": [
+        "next/link",
+        "./GreaNav",
+        "./FaberStudy",
+        "@/content/grea"
+      ]
+    },
+    {
+      "file": "components/grea/GreaNav.tsx",
+      "domain": "GREA",
+      "bytes": 666,
+      "lines": 17,
+      "client": false,
+      "imports": [
+        "next/link"
+      ]
+    },
+    {
+      "file": "components/grea/FaberStudy.tsx",
+      "domain": "GREA",
+      "bytes": 5863,
+      "lines": 65,
+      "client": true,
+      "imports": [
+        "react",
+        "next/link",
+        "@/content/grea",
+        "@/content/grea"
+      ]
+    },
+    {
+      "file": "components/grea/GreaLanding.tsx",
+      "domain": "GREA",
+      "bytes": 2974,
+      "lines": 31,
+      "client": false,
+      "imports": [
+        "next/link",
+        "./GreaNav",
+        "@/content/grea"
+      ]
+    },
+    {
+      "file": "components/grea/VestisLanding.tsx",
+      "domain": "GREA",
+      "bytes": 2873,
+      "lines": 28,
+      "client": true,
+      "imports": [
+        "react",
+        "next/link",
+        "./GreaNav",
+        "@/content/grea"
+      ]
+    },
+    {
+      "file": "components/grea/InsigniaLanding.tsx",
+      "domain": "GREA",
+      "bytes": 2555,
+      "lines": 19,
+      "client": true,
+      "imports": [
+        "react",
+        "next/link",
+        "./GreaNav"
+      ]
+    },
+    {
+      "file": "components/grea/GreaCustomSystem.tsx",
+      "domain": "GREA",
+      "bytes": 1680,
+      "lines": 7,
+      "client": false,
+      "imports": [
+        "next/link",
+        "./GreaNav"
+      ]
+    },
+    {
+      "file": "components/machina/TechnicalVisual.tsx",
+      "domain": "MACHINA",
+      "bytes": 1714,
+      "lines": 51,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "components/machina/MachinaNav.tsx",
+      "domain": "MACHINA",
+      "bytes": 1665,
+      "lines": 40,
+      "client": true,
+      "imports": [
+        "next/link"
+      ]
+    },
+    {
+      "file": "components/machina/ObjectStudyCard.tsx",
+      "domain": "MACHINA",
+      "bytes": 1834,
+      "lines": 38,
+      "client": true,
+      "imports": [
+        "next/link",
+        "react",
+        "@/content/machina",
+        "./TechnicalVisual"
+      ]
+    },
+    {
+      "file": "components/machina/SystemsIndex.tsx",
+      "domain": "MACHINA",
+      "bytes": 5286,
+      "lines": 60,
+      "client": false,
+      "imports": [
+        "next/link",
+        "./MachinaNav",
+        "./TechnicalVisual",
+        "@/content/machina"
+      ]
+    },
+    {
+      "file": "components/machina/ProjectDetail.tsx",
+      "domain": "MACHINA",
+      "bytes": 5005,
+      "lines": 63,
+      "client": false,
+      "imports": [
+        "next/link",
+        "./MachinaNav",
+        "./TechnicalMeta",
+        "./TechnicalVisual",
+        "@/content/machina"
+      ]
+    },
+    {
+      "file": "components/machina/TechnicalMeta.tsx",
+      "domain": "MACHINA",
+      "bytes": 217,
+      "lines": 3,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "components/machina/ObjectDetail.tsx",
+      "domain": "MACHINA",
+      "bytes": 3094,
+      "lines": 53,
+      "client": true,
+      "imports": [
+        "next/link",
+        "react",
+        "./MachinaNav",
+        "./TechnicalMeta",
+        "./TechnicalVisual",
+        "@/content/machina"
+      ]
+    },
+    {
+      "file": "components/machina/InquiryForm.tsx",
+      "domain": "MACHINA",
+      "bytes": 2111,
+      "lines": 22,
+      "client": true,
+      "imports": [
+        "react"
+      ]
+    },
+    {
+      "file": "components/machina/ContactPage.tsx",
+      "domain": "MACHINA",
+      "bytes": 1251,
+      "lines": 6,
+      "client": false,
+      "imports": [
+        "./MachinaNav",
+        "./InquiryForm"
+      ]
+    },
+    {
+      "file": "components/machina/CapabilitiesPage.tsx",
+      "domain": "MACHINA",
+      "bytes": 1359,
+      "lines": 7,
+      "client": false,
+      "imports": [
+        "next/link",
+        "./MachinaNav",
+        "@/content/machina"
+      ]
+    },
+    {
+      "file": "components/machina/MachinaLanding.tsx",
+      "domain": "MACHINA",
+      "bytes": 4261,
+      "lines": 80,
+      "client": true,
+      "imports": [
+        "next/link",
+        "react",
+        "./MachinaNav",
+        "./TechnicalVisual"
+      ]
+    },
+    {
+      "file": "components/machina/ObjectsIndex.tsx",
+      "domain": "MACHINA",
+      "bytes": 2113,
+      "lines": 34,
+      "client": false,
+      "imports": [
+        "./MachinaNav",
+        "./ObjectStudyCard",
+        "@/content/machina"
+      ]
+    },
+    {
+      "file": "components/parvus/ParvusLanding.tsx",
+      "domain": "PARVUS",
+      "bytes": 4474,
+      "lines": 57,
+      "client": false,
+      "imports": [
+        "next/link",
+        "react",
+        "./ParvusNav",
+        "./ParvusThemePanel",
+        "@/content/parvus"
+      ]
+    },
+    {
+      "file": "components/parvus/ParvusProjectsIndex.tsx",
+      "domain": "PARVUS",
+      "bytes": 1946,
+      "lines": 15,
+      "client": false,
+      "imports": [
+        "next/link",
+        "./ParvusNav",
+        "./ParvusVisual",
+        "@/content/parvus"
+      ]
+    },
+    {
+      "file": "components/parvus/ParvusNav.tsx",
+      "domain": "PARVUS",
+      "bytes": 963,
+      "lines": 26,
+      "client": true,
+      "imports": [
+        "next/link"
+      ]
+    },
+    {
+      "file": "components/parvus/ParvusProjectDetail.tsx",
+      "domain": "PARVUS",
+      "bytes": 4093,
+      "lines": 32,
+      "client": true,
+      "imports": [
+        "react",
+        "next/link",
+        "./ParvusNav",
+        "./ParvusVisual",
+        "@/content/parvus"
+      ]
+    },
+    {
+      "file": "components/parvus/ParvusThemePanel.tsx",
+      "domain": "PARVUS",
+      "bytes": 2199,
+      "lines": 68,
+      "client": true,
+      "imports": [
+        "react",
+        "next/link",
+        "./ParvusVisual",
+        "@/content/parvus"
+      ]
+    },
+    {
+      "file": "components/parvus/ParvusVisual.tsx",
+      "domain": "PARVUS",
+      "bytes": 668,
+      "lines": 10,
+      "client": false,
+      "imports": []
+    },
+    {
+      "file": "components/parvus/ParvusInquiry.tsx",
+      "domain": "PARVUS",
+      "bytes": 3166,
+      "lines": 22,
+      "client": true,
+      "imports": [
+        "react",
+        "./ParvusNav"
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "from": "next.config.ts",
+      "to": "next"
+    },
+    {
+      "from": "components/BreadcrumbTrail.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/SiteUtility.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/SiteUtility.tsx",
+      "to": "./BreadcrumbTrail"
+    },
+    {
+      "from": "components/SplitPanelScene.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/RootExperience.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/RootExperience.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/RootExperience.tsx",
+      "to": "./BreadcrumbTrail"
+    },
+    {
+      "from": "components/RootExperience.tsx",
+      "to": "./SplitPanelScene"
+    },
+    {
+      "from": "components/RootExperience.tsx",
+      "to": "@/content/model"
+    },
+    {
+      "from": "app/sitemap.ts",
+      "to": "next"
+    },
+    {
+      "from": "app/sitemap.ts",
+      "to": "@/content/exercitus"
+    },
+    {
+      "from": "app/sitemap.ts",
+      "to": "@/content/history"
+    },
+    {
+      "from": "app/sitemap.ts",
+      "to": "@/content/machina"
+    },
+    {
+      "from": "app/sitemap.ts",
+      "to": "@/content/parvus"
+    },
+    {
+      "from": "app/layout.tsx",
+      "to": "next"
+    },
+    {
+      "from": "app/robots.ts",
+      "to": "next"
+    },
+    {
+      "from": "app/not-found.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "app/page.tsx",
+      "to": "@/components/RootExperience"
+    },
+    {
+      "from": "app/contact/page.tsx",
+      "to": "@/components/SiteUtility"
+    },
+    {
+      "from": "app/about/page.tsx",
+      "to": "@/components/SiteUtility"
+    },
+    {
+      "from": "app/archive/page.tsx",
+      "to": "@/components/SiteUtility"
+    },
+    {
+      "from": "app/grea/page.tsx",
+      "to": "next"
+    },
+    {
+      "from": "app/grea/page.tsx",
+      "to": "@/components/grea/GreaLanding"
+    },
+    {
+      "from": "app/machina/page.tsx",
+      "to": "@/components/machina/MachinaLanding"
+    },
+    {
+      "from": "app/parvus/page.tsx",
+      "to": "@/components/parvus/ParvusLanding"
+    },
+    {
+      "from": "app/parvus/contact/page.tsx",
+      "to": "@/components/parvus/ParvusInquiry"
+    },
+    {
+      "from": "app/parvus/projects/page.tsx",
+      "to": "@/components/parvus/ParvusProjectsIndex"
+    },
+    {
+      "from": "app/parvus/projects/[slug]/page.tsx",
+      "to": "next/navigation"
+    },
+    {
+      "from": "app/parvus/projects/[slug]/page.tsx",
+      "to": "@/components/parvus/ParvusProjectDetail"
+    },
+    {
+      "from": "app/parvus/projects/[slug]/page.tsx",
+      "to": "@/content/parvus"
+    },
+    {
+      "from": "app/machina/contact/page.tsx",
+      "to": "@/components/machina/ContactPage"
+    },
+    {
+      "from": "app/machina/capabilities/page.tsx",
+      "to": "@/components/machina/CapabilitiesPage"
+    },
+    {
+      "from": "app/machina/systems/page.tsx",
+      "to": "@/components/machina/SystemsIndex"
+    },
+    {
+      "from": "app/machina/objects/page.tsx",
+      "to": "@/components/machina/ObjectsIndex"
+    },
+    {
+      "from": "app/machina/objects/[slug]/page.tsx",
+      "to": "next/navigation"
+    },
+    {
+      "from": "app/machina/objects/[slug]/page.tsx",
+      "to": "@/components/machina/ObjectDetail"
+    },
+    {
+      "from": "app/machina/objects/[slug]/page.tsx",
+      "to": "@/content/machina"
+    },
+    {
+      "from": "app/machina/systems/[slug]/page.tsx",
+      "to": "next/navigation"
+    },
+    {
+      "from": "app/machina/systems/[slug]/page.tsx",
+      "to": "@/components/machina/ProjectDetail"
+    },
+    {
+      "from": "app/machina/systems/[slug]/page.tsx",
+      "to": "@/content/machina"
+    },
+    {
+      "from": "app/academia/history/page.tsx",
+      "to": "@/components/BreadcrumbTrail"
+    },
+    {
+      "from": "app/academia/history/page.tsx",
+      "to": "@/components/history/HistoryArchiveIndex"
+    },
+    {
+      "from": "app/academia/history/page.tsx",
+      "to": "@/components/history/HistoryTimelineExperience"
+    },
+    {
+      "from": "app/academia/cad/page.tsx",
+      "to": "@/components/BreadcrumbTrail"
+    },
+    {
+      "from": "app/academia/history/[slug]/page.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "app/academia/history/[slug]/page.tsx",
+      "to": "next/navigation"
+    },
+    {
+      "from": "app/academia/history/[slug]/page.tsx",
+      "to": "@/components/BreadcrumbTrail"
+    },
+    {
+      "from": "app/academia/history/[slug]/page.tsx",
+      "to": "@/components/history/AuthorsNote"
+    },
+    {
+      "from": "app/academia/history/[slug]/page.tsx",
+      "to": "@/content/history"
+    },
+    {
+      "from": "app/grea/exercitus/page.tsx",
+      "to": "next"
+    },
+    {
+      "from": "app/grea/exercitus/page.tsx",
+      "to": "@/components/exercitus/ExercitusEntry"
+    },
+    {
+      "from": "app/grea/archive/page.tsx",
+      "to": "next"
+    },
+    {
+      "from": "app/grea/archive/page.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "app/grea/archive/page.tsx",
+      "to": "@/components/SiteUtility"
+    },
+    {
+      "from": "app/grea/archive/page.tsx",
+      "to": "@/content/model"
+    },
+    {
+      "from": "app/grea/faber/page.tsx",
+      "to": "next"
+    },
+    {
+      "from": "app/grea/faber/page.tsx",
+      "to": "@/components/grea/FaberLanding"
+    },
+    {
+      "from": "app/grea/insignia/page.tsx",
+      "to": "@/components/grea/InsigniaLanding"
+    },
+    {
+      "from": "app/grea/vestis/page.tsx",
+      "to": "@/components/grea/VestisLanding"
+    },
+    {
+      "from": "app/grea/projects/page.tsx",
+      "to": "next"
+    },
+    {
+      "from": "app/grea/projects/page.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "app/grea/projects/page.tsx",
+      "to": "@/components/grea/GreaNav"
+    },
+    {
+      "from": "app/grea/projects/page.tsx",
+      "to": "@/content/grea"
+    },
+    {
+      "from": "app/grea/custom/page.tsx",
+      "to": "@/components/grea/GreaCustomSystem"
+    },
+    {
+      "from": "app/grea/projects/[slug]/page.tsx",
+      "to": "next/navigation"
+    },
+    {
+      "from": "app/grea/projects/[slug]/page.tsx",
+      "to": "@/content/model"
+    },
+    {
+      "from": "app/grea/faber/[slug]/page.tsx",
+      "to": "next/navigation"
+    },
+    {
+      "from": "app/grea/faber/[slug]/page.tsx",
+      "to": "@/components/grea/GreaNav"
+    },
+    {
+      "from": "app/grea/faber/[slug]/page.tsx",
+      "to": "@/components/grea/FaberStudy"
+    },
+    {
+      "from": "app/grea/faber/[slug]/page.tsx",
+      "to": "@/content/grea"
+    },
+    {
+      "from": "app/grea/exercitus/customize/page.tsx",
+      "to": "next"
+    },
+    {
+      "from": "app/grea/exercitus/customize/page.tsx",
+      "to": "@/components/exercitus/CustomizerWorkspace"
+    },
+    {
+      "from": "app/grea/exercitus/collection/page.tsx",
+      "to": "next"
+    },
+    {
+      "from": "app/grea/exercitus/collection/page.tsx",
+      "to": "@/components/exercitus/CollectionIndex"
+    },
+    {
+      "from": "app/grea/exercitus/order/page.tsx",
+      "to": "next"
+    },
+    {
+      "from": "app/grea/exercitus/order/page.tsx",
+      "to": "@/components/exercitus/OrderStatus"
+    },
+    {
+      "from": "app/grea/exercitus/custom/confirm/page.tsx",
+      "to": "next"
+    },
+    {
+      "from": "app/grea/exercitus/custom/confirm/page.tsx",
+      "to": "@/components/exercitus/CustomFinalProof"
+    },
+    {
+      "from": "app/grea/exercitus/collection/[slug]/page.tsx",
+      "to": "next/navigation"
+    },
+    {
+      "from": "app/grea/exercitus/collection/[slug]/page.tsx",
+      "to": "@/components/exercitus/CollectionProduct"
+    },
+    {
+      "from": "app/grea/exercitus/collection/[slug]/page.tsx",
+      "to": "@/content/exercitus"
+    },
+    {
+      "from": "components/history/HistoryTimelineExperience.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/history/HistoryTimelineExperience.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/history/HistoryTimelineExperience.tsx",
+      "to": "@/content/history-timeline"
+    },
+    {
+      "from": "components/history/HistoryArchiveIndex.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/history/HistoryArchiveIndex.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/history/HistoryArchiveIndex.tsx",
+      "to": "@/content/history"
+    },
+    {
+      "from": "components/history/AuthorsNote.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/exercitus/CollectionProduct.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/exercitus/CollectionProduct.tsx",
+      "to": "@/components/BreadcrumbTrail"
+    },
+    {
+      "from": "components/exercitus/CollectionProduct.tsx",
+      "to": "@/content/exercitus"
+    },
+    {
+      "from": "components/exercitus/CustomFinalProof.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/exercitus/CustomFinalProof.tsx",
+      "to": "next/navigation"
+    },
+    {
+      "from": "components/exercitus/CustomFinalProof.tsx",
+      "to": "@/components/BreadcrumbTrail"
+    },
+    {
+      "from": "components/exercitus/CustomFinalProof.tsx",
+      "to": "@/content/exercitus"
+    },
+    {
+      "from": "components/exercitus/CollectionIndex.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/exercitus/CollectionIndex.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/exercitus/CollectionIndex.tsx",
+      "to": "@/components/BreadcrumbTrail"
+    },
+    {
+      "from": "components/exercitus/CollectionIndex.tsx",
+      "to": "@/content/exercitus"
+    },
+    {
+      "from": "components/exercitus/CustomizerWorkspace.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/exercitus/CustomizerWorkspace.tsx",
+      "to": "next/navigation"
+    },
+    {
+      "from": "components/exercitus/CustomizerWorkspace.tsx",
+      "to": "@/components/BreadcrumbTrail"
+    },
+    {
+      "from": "components/exercitus/CustomizerWorkspace.tsx",
+      "to": "./TShirtStage"
+    },
+    {
+      "from": "components/exercitus/CustomizerWorkspace.tsx",
+      "to": "./EquipmentCaptureModal"
+    },
+    {
+      "from": "components/exercitus/CustomizerWorkspace.tsx",
+      "to": "@/content/exercitus"
+    },
+    {
+      "from": "components/exercitus/OrderStatus.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/exercitus/OrderStatus.tsx",
+      "to": "@/components/BreadcrumbTrail"
+    },
+    {
+      "from": "components/exercitus/TShirtStage.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/exercitus/TShirtStage.tsx",
+      "to": "@/content/exercitus"
+    },
+    {
+      "from": "components/exercitus/PurchaseModeModal.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/exercitus/PurchaseModeModal.tsx",
+      "to": "next/navigation"
+    },
+    {
+      "from": "components/exercitus/PurchaseModeModal.tsx",
+      "to": "@/content/exercitus"
+    },
+    {
+      "from": "components/exercitus/ExercitusEntry.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/exercitus/ExercitusEntry.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/exercitus/ExercitusEntry.tsx",
+      "to": "@/components/BreadcrumbTrail"
+    },
+    {
+      "from": "components/exercitus/ExercitusEntry.tsx",
+      "to": "./TShirtStage"
+    },
+    {
+      "from": "components/exercitus/ExercitusEntry.tsx",
+      "to": "./PurchaseModeModal"
+    },
+    {
+      "from": "components/exercitus/EquipmentCaptureModal.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/exercitus/EquipmentCaptureModal.tsx",
+      "to": "@/content/exercitus"
+    },
+    {
+      "from": "components/grea/FaberLanding.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/grea/FaberLanding.tsx",
+      "to": "./GreaNav"
+    },
+    {
+      "from": "components/grea/FaberLanding.tsx",
+      "to": "./FaberStudy"
+    },
+    {
+      "from": "components/grea/FaberLanding.tsx",
+      "to": "@/content/grea"
+    },
+    {
+      "from": "components/grea/GreaNav.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/grea/FaberStudy.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/grea/FaberStudy.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/grea/FaberStudy.tsx",
+      "to": "@/content/grea"
+    },
+    {
+      "from": "components/grea/FaberStudy.tsx",
+      "to": "@/content/grea"
+    },
+    {
+      "from": "components/grea/GreaLanding.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/grea/GreaLanding.tsx",
+      "to": "./GreaNav"
+    },
+    {
+      "from": "components/grea/GreaLanding.tsx",
+      "to": "@/content/grea"
+    },
+    {
+      "from": "components/grea/VestisLanding.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/grea/VestisLanding.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/grea/VestisLanding.tsx",
+      "to": "./GreaNav"
+    },
+    {
+      "from": "components/grea/VestisLanding.tsx",
+      "to": "@/content/grea"
+    },
+    {
+      "from": "components/grea/InsigniaLanding.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/grea/InsigniaLanding.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/grea/InsigniaLanding.tsx",
+      "to": "./GreaNav"
+    },
+    {
+      "from": "components/grea/GreaCustomSystem.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/grea/GreaCustomSystem.tsx",
+      "to": "./GreaNav"
+    },
+    {
+      "from": "components/machina/MachinaNav.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/machina/ObjectStudyCard.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/machina/ObjectStudyCard.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/machina/ObjectStudyCard.tsx",
+      "to": "@/content/machina"
+    },
+    {
+      "from": "components/machina/ObjectStudyCard.tsx",
+      "to": "./TechnicalVisual"
+    },
+    {
+      "from": "components/machina/SystemsIndex.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/machina/SystemsIndex.tsx",
+      "to": "./MachinaNav"
+    },
+    {
+      "from": "components/machina/SystemsIndex.tsx",
+      "to": "./TechnicalVisual"
+    },
+    {
+      "from": "components/machina/SystemsIndex.tsx",
+      "to": "@/content/machina"
+    },
+    {
+      "from": "components/machina/ProjectDetail.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/machina/ProjectDetail.tsx",
+      "to": "./MachinaNav"
+    },
+    {
+      "from": "components/machina/ProjectDetail.tsx",
+      "to": "./TechnicalMeta"
+    },
+    {
+      "from": "components/machina/ProjectDetail.tsx",
+      "to": "./TechnicalVisual"
+    },
+    {
+      "from": "components/machina/ProjectDetail.tsx",
+      "to": "@/content/machina"
+    },
+    {
+      "from": "components/machina/ObjectDetail.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/machina/ObjectDetail.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/machina/ObjectDetail.tsx",
+      "to": "./MachinaNav"
+    },
+    {
+      "from": "components/machina/ObjectDetail.tsx",
+      "to": "./TechnicalMeta"
+    },
+    {
+      "from": "components/machina/ObjectDetail.tsx",
+      "to": "./TechnicalVisual"
+    },
+    {
+      "from": "components/machina/ObjectDetail.tsx",
+      "to": "@/content/machina"
+    },
+    {
+      "from": "components/machina/InquiryForm.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/machina/ContactPage.tsx",
+      "to": "./MachinaNav"
+    },
+    {
+      "from": "components/machina/ContactPage.tsx",
+      "to": "./InquiryForm"
+    },
+    {
+      "from": "components/machina/CapabilitiesPage.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/machina/CapabilitiesPage.tsx",
+      "to": "./MachinaNav"
+    },
+    {
+      "from": "components/machina/CapabilitiesPage.tsx",
+      "to": "@/content/machina"
+    },
+    {
+      "from": "components/machina/MachinaLanding.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/machina/MachinaLanding.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/machina/MachinaLanding.tsx",
+      "to": "./MachinaNav"
+    },
+    {
+      "from": "components/machina/MachinaLanding.tsx",
+      "to": "./TechnicalVisual"
+    },
+    {
+      "from": "components/machina/ObjectsIndex.tsx",
+      "to": "./MachinaNav"
+    },
+    {
+      "from": "components/machina/ObjectsIndex.tsx",
+      "to": "./ObjectStudyCard"
+    },
+    {
+      "from": "components/machina/ObjectsIndex.tsx",
+      "to": "@/content/machina"
+    },
+    {
+      "from": "components/parvus/ParvusLanding.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/parvus/ParvusLanding.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/parvus/ParvusLanding.tsx",
+      "to": "./ParvusNav"
+    },
+    {
+      "from": "components/parvus/ParvusLanding.tsx",
+      "to": "./ParvusThemePanel"
+    },
+    {
+      "from": "components/parvus/ParvusLanding.tsx",
+      "to": "@/content/parvus"
+    },
+    {
+      "from": "components/parvus/ParvusProjectsIndex.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/parvus/ParvusProjectsIndex.tsx",
+      "to": "./ParvusNav"
+    },
+    {
+      "from": "components/parvus/ParvusProjectsIndex.tsx",
+      "to": "./ParvusVisual"
+    },
+    {
+      "from": "components/parvus/ParvusProjectsIndex.tsx",
+      "to": "@/content/parvus"
+    },
+    {
+      "from": "components/parvus/ParvusNav.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/parvus/ParvusProjectDetail.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/parvus/ParvusProjectDetail.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/parvus/ParvusProjectDetail.tsx",
+      "to": "./ParvusNav"
+    },
+    {
+      "from": "components/parvus/ParvusProjectDetail.tsx",
+      "to": "./ParvusVisual"
+    },
+    {
+      "from": "components/parvus/ParvusProjectDetail.tsx",
+      "to": "@/content/parvus"
+    },
+    {
+      "from": "components/parvus/ParvusThemePanel.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/parvus/ParvusThemePanel.tsx",
+      "to": "next/link"
+    },
+    {
+      "from": "components/parvus/ParvusThemePanel.tsx",
+      "to": "./ParvusVisual"
+    },
+    {
+      "from": "components/parvus/ParvusThemePanel.tsx",
+      "to": "@/content/parvus"
+    },
+    {
+      "from": "components/parvus/ParvusInquiry.tsx",
+      "to": "react"
+    },
+    {
+      "from": "components/parvus/ParvusInquiry.tsx",
+      "to": "./ParvusNav"
+    }
+  ]
+}

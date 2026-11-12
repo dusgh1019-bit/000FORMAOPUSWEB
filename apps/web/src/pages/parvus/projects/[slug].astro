@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CleanWip from '../../../components/CleanWip.astro';
+import '@forma-opus/parvus/domain.css';
+import { ParvusProjectDetail } from '@forma-opus/parvus'; import { parvusProjects } from '@content/parvus/index';
+export function getStaticPaths(){return parvusProjects.map((project)=>({params:{slug:project.slug},props:{project}}));} const {project}=Astro.props;
+---
+<BaseLayout title="PROJECTS — FORMA OPUS" bodyClass="fo-clean-body"><CleanWip project="PROJECTS" backHref="/parvus" backLabel="PARVUS" /></BaseLayout>

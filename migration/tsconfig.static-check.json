@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": false,
+    "skipLibCheck": true,
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "baseUrl": "..",
+    "paths": {
+      "@content/*": [
+        "content/*"
+      ],
+      "@forma-opus/ui/react/Link": [
+        "packages/ui/src/react/Link.tsx"
+      ],
+      "@forma-opus/ui/react/router": [
+        "packages/ui/src/react/router.ts"
+      ],
+      "@forma-opus/ui/react/BreadcrumbTrail": [
+        "packages/ui/src/react/BreadcrumbTrail.tsx"
+      ],
+      "@forma-opus/ui/react/SiteUtility": [
+        "packages/ui/src/react/SiteUtility.tsx"
+      ],
+      "@forma-opus/ui/react/VisualEntrySurface": [
+        "packages/ui/src/react/VisualEntrySurface.tsx"
+      ]
+    }
+  },
+  "files": [
+    "type-stubs.d.ts"
+  ],
+  "include": [
+    "../packages/*/src/**/*.ts",
+    "../packages/*/src/**/*.tsx",
+    "../content/**/*.ts"
+  ]
+}

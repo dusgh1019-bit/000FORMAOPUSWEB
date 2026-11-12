@@ -1,0 +1,76 @@
+:root {
+  /* FORMA OPUS — constitutional neutrals */
+  --fo-black: #111210;
+  --fo-charcoal: #1c1d1b;
+  --fo-graphite: #353735;
+  --fo-gray: #898b86;
+  --fo-bone: #e7e4dd;
+  --fo-paper: #f4f1eb;
+
+  /* GREA */
+  --grea-bg: #10120f;
+  --grea-gunmetal: #292d28;
+  --grea-olive: #414832;
+  --grea-field: #60684a;
+  --grea-khaki: #aaa58f;
+
+  /* PARVUS */
+  --parvus-bg: #f3eee6;
+  --parvus-warm: #d8c9b7;
+  --parvus-muted: #b8a794;
+  --parvus-brown: #493f35;
+  --parvus-orange: #d67842;
+  --parvus-neon: #ff5f1f;
+
+  /* MACHINA */
+  --machina-bg: #f1f3f4;
+  --machina-steel: #879199;
+  --machina-navy: #20364a;
+
+  /* HISTORY semantic colors — meaning, not polity branding */
+  --history-conflict: #8d4a3c;
+  --history-power: #687255;
+  --history-contest: #a68a4d;
+
+  /* Typography */
+  --fo-font-ko: Pretendard, "Noto Sans KR", Inter, Arial, sans-serif;
+  --fo-font-ui: "Instrument Sans", Inter, Arial, sans-serif;
+  --fo-font-grea: "Barlow Condensed", Impact, sans-serif;
+  --fo-font-parvus: Manrope, var(--fo-font-ko);
+  --fo-font-machina: "IBM Plex Sans", var(--fo-font-ko);
+
+  /* Spacing / grid */
+  --fo-page-pad: clamp(20px, 4vw, 64px);
+  --fo-grid-columns: 12;
+  --fo-section-space: clamp(96px, 12vw, 180px);
+  --fo-touch-min: 44px;
+
+  /* Motion */
+  --fo-motion-micro: 160ms;
+  --fo-motion-local: 190ms;
+  --fo-motion-state: 240ms;
+  --fo-motion-panel: 420ms;
+  --fo-motion-standard: 520ms;
+  --fo-motion-scene: 760ms;
+  --fo-motion-deep: 780ms;
+  --fo-ease-out: cubic-bezier(.2,.8,.2,1);
+
+
+  /* Legacy-compatible aliases during Architecture v2 parity migration.
+     New modules use --fo-*; migrated DEV 1.7 selectors resolve through these aliases. */
+  --motion-local: var(--fo-motion-local);
+  --motion-standard: var(--fo-motion-standard);
+  --motion-deep: var(--fo-motion-deep);
+  --ease-out: var(--fo-ease-out);
+  --page-pad: var(--fo-page-pad);
+  --focus: var(--fo-focus);
+
+  /* Shared state */
+  --fo-opacity-muted: .55;
+  --fo-opacity-secondary: .72;
+  --fo-focus: 2px solid currentColor;
+  --fo-z-base: 0;
+  --fo-z-overlay: 50;
+  --fo-z-transition: 80;
+  --fo-z-modal: 200;
+}

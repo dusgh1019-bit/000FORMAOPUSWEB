@@ -1,0 +1,7 @@
+---
+interface Props { class?: string; hidden?: boolean }
+const { class: className = '', hidden = true } = Astro.props;
+---
+<div class:list={["blurOverlay", className]} data-blur-overlay aria-hidden={hidden}>
+  <slot />
+</div>

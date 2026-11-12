@@ -1,0 +1,24 @@
+/* shared ownership; extracted from DEV 1.7 parity CSS. */
+
+.historyPath { text-transform:uppercase; }
+.historySeriesField {
+  display:grid; grid-template-columns:110px minmax(230px,.7fr) minmax(280px,1.3fr) auto; gap:28px; align-items:center;
+  padding:28px var(--page-pad); border-bottom:1px solid rgba(231,228,221,.08); background:#11120f;
+}
+.historySeriesCode { color:#666a63; font-size:8px; letter-spacing:.16em; }
+.historySeriesField>div:nth-child(2){display:grid;gap:3px}
+.historySeriesField strong{font-family:"Barlow Condensed",Arial Narrow,sans-serif;font-size:29px;font-weight:520;letter-spacing:-.02em}
+.historySeriesField em{font-style:normal;color:#a6a79f;font-size:12px}
+.historySeriesField small{color:#5f635b;font-size:7px;letter-spacing:.14em}
+.historySeriesField p{margin:0;color:#8e9189;line-height:1.75;font-size:12px;max-width:68ch}
+.historySeriesField button{justify-self:end;border:0;border-bottom:1px solid rgba(170,165,143,.42);background:transparent;color:#c9c6bd;padding:9px 0;font-size:8px;letter-spacing:.13em;cursor:pointer}
+@media (max-width:760px) {.historySeriesField{grid-template-columns:1fr;gap:12px;padding:22px 18px}.historySeriesField button{justify-self:start} }
+.semanticConflict{color:var(--history-red)!important}
+.semanticPower{color:var(--history-green)!important}
+.semanticContest{color:var(--history-yellow)!important}
+.parallelTimeline{position:relative;padding:18px 0 24px}
+.parallelAxis{height:26px;margin-left:154px;display:flex;align-items:center;color:rgba(231,228,221,.28);font:500 7px/1 var(--font-ui);letter-spacing:.08em}
+.parallelAxis i{flex:1;border-top:1px dotted rgba(231,228,221,.14);margin:0 6px}
+.lateSillaMarkers{position:absolute;right:10%;bottom:10px;display:flex;gap:5px}
+.lateSillaMarkers b{font:500 7px/1 var(--font-ui);letter-spacing:.08em;color:var(--history-yellow)}
+@media (max-width:900px) {.parallelAxis{margin-left:106px}.parallelTimeline{overflow-x:auto}.parallelTimeline>*{min-width:720px} }

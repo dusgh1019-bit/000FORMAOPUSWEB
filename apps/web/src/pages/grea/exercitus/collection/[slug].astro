@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import CleanWip from '../../../../components/CleanWip.astro';
+import '@forma-opus/grea/domain.css'; import '@forma-opus/exercitus/domain.css';
+import { CollectionProduct } from '@forma-opus/exercitus';
+import { exercitusCollection } from '@content/grea/exercitus';
+export function getStaticPaths(){ return exercitusCollection.map((item)=>({params:{slug:item.slug},props:{item}})); }
+const {item}=Astro.props;
+---
+<BaseLayout title="COLLECTION — FORMA OPUS" bodyClass="fo-clean-body"><CleanWip project="COLLECTION" backHref="/grea" backLabel="GREA" /></BaseLayout>

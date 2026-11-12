@@ -1,0 +1,19 @@
+---
+import '@forma-opus/core/tokens.css';
+import '@forma-opus/core/reset.css';
+import '@forma-opus/core/motion.css';
+import '@forma-opus/ui/ui.css';
+import '@forma-opus/shell/shell.css';
+interface Props { title?: string; description?: string; bodyClass?: string; noindex?: boolean }
+const { title='FORMA OPUS', description='FORMA OPUS — WORKS / ACADEMIA', bodyClass='', noindex=false }=Astro.props;
+---
+<!doctype html><html lang="ko"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="description" content={description}/>{noindex && <meta name="robots" content="noindex,nofollow"/>}<title>{title}</title></head><body class={bodyClass}><slot/><script is:inline>
+(() => {
+  document.addEventListener('click', (event) => {
+    const a = event.target instanceof Element ? event.target.closest('a') : null;
+    if (!a) return;
+    const href = a.getAttribute('href') || '';
+    if (href === '/' || href.startsWith('/?scene=')) sessionStorage.setItem('forma-opus-root-state','brands');
+  });
+})();
+</script></body></html>

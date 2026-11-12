@@ -1,0 +1,7 @@
+---
+interface Props { class?: string; label?: string }
+const { class: className = '', label = 'Preview' } = Astro.props;
+---
+<div class:list={["hoverReveal", className]} data-hover-reveal aria-label={label}>
+  <slot />
+</div>

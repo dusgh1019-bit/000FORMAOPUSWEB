@@ -1,0 +1,7 @@
+/* Canonical breakpoint policy for new Architecture v2 code.
+   Legacy rules remain untouched until each domain is migrated and regression-tested. */
+@custom-media --fo-wide (min-width: 1440px);
+@custom-media --fo-desktop (min-width: 1280px);
+@custom-media --fo-compact (max-width: 1024px);
+@custom-media --fo-tablet (max-width: 780px);
+@custom-media --fo-mobile (max-width: 620px);

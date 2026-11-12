@@ -1,0 +1,15 @@
+{
+  "name": "@forma-opus/shell",
+  "version": "2.0.0-rc.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./RootExperience.astro": "./src/RootExperience.astro",
+    "./shell.css": "./src/shell.css",
+    "./scene-controller.ts": "./src/scene-controller.ts"
+  },
+  "dependencies": {
+    "@forma-opus/core": "workspace:*",
+    "@forma-opus/ui": "workspace:*"
+  }
+}

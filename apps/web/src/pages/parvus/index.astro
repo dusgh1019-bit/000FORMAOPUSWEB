@@ -1,0 +1,40 @@
+---
+// RC9 -> approved PARVUS FIVE STATES v2. Self-contained visual study is preserved verbatim.
+// The canonical source is apps/web/public/parvus-five-states-v2.html.
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0d13" />
+    <title>PARVUS — FORMA OPUS</title>
+    <style is:global>
+      *,*::before,*::after { box-sizing:border-box; }
+      html,body { margin:0; width:100%; height:100%; overflow:hidden; background:#0a0d13; }
+      .parvus-experience { display:block; width:100vw; height:100svh; height:100dvh; border:0; background:#0a0d13; }
+      .parvus-arrival { position:fixed; inset:0; z-index:100; pointer-events:none; background:#0a0d13; opacity:1; }
+      @media (prefers-reduced-motion:reduce) { .parvus-arrival{transition:none} }
+    </style>
+  </head>
+  <body>
+    <iframe class="parvus-experience" id="parvus-experience" title="PARVUS interactive exhibition and project index" src="/parvus-five-states-v2.html" allow="fullscreen" loading="eager"></iframe>
+    <div class="parvus-arrival" id="parvus-arrival" aria-hidden="true"></div>
+    <script is:inline>
+      (()=>{
+        const frame=document.getElementById('parvus-experience');
+        const cover=document.getElementById('parvus-arrival');
+        let done=false;
+        function reveal(){
+          if(done)return;done=true;
+          const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+          const a=cover.animate([{opacity:1},{opacity:0}],{duration:reduced?80:620,easing:'cubic-bezier(.22,.6,.18,1)',fill:'forwards'});
+          a.finished.then(()=>cover.remove()).catch(()=>cover.remove());
+        }
+        frame.addEventListener('load',()=>requestAnimationFrame(()=>requestAnimationFrame(reveal)),{once:true});
+        // Avoid indefinite masking if a browser prevents the embedded frame from loading.
+        frame.addEventListener('error',()=>{cover.remove();done=true;},{once:true});
+      })();
+    </script>
+  </body>
+</html>

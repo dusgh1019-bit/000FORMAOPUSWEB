@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CleanWip from '../../../components/CleanWip.astro';
+export function getStaticPaths(){
+  return [
+    {params:{slug:'exercitus'},props:{target:'/grea/exercitus'}},
+    {params:{slug:'faber'},props:{target:'/grea/faber'}},
+    {params:{slug:'vestis'},props:{target:'/grea/vestis'}},
+  ];
+}
+const { target } = Astro.props;
+---
+<BaseLayout title="PROJECTS — FORMA OPUS" bodyClass="fo-clean-body"><CleanWip project="PROJECTS" backHref="/grea" backLabel="GREA" /></BaseLayout>

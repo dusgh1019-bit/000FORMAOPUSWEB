@@ -1,0 +1,30 @@
+---
+export type SplitPanelItem = {
+  id: string;
+  name: string;
+  href: string;
+  descriptor: string;
+  visualClass: string;
+  ariaLabel?: string;
+};
+
+interface Props {
+  sceneId: string;
+  sceneLabel: string;
+  items: SplitPanelItem[];
+  active?: boolean;
+}
+const { sceneId, sceneLabel, items, active = true } = Astro.props;
+---
+<section class={`splitPanelScene panelCount-${items.length}`} aria-label={sceneLabel} aria-hidden={!active} data-scene-id={sceneId}>
+  {items.map((item) => (
+    <article class={`splitPanel ${item.visualClass}`} data-panel-id={item.id}>
+      <div class="panelVisual" aria-hidden="true"><div class="abstractMass"></div></div>
+      <a class="panelLink" href={item.href} aria-label={item.ariaLabel ?? `Enter ${item.name}`} tabindex={active ? 0 : -1}></a>
+      <div class="panelLabel">
+        <div class="panelName">{item.name}</div>
+        <div class="panelDescriptor">{item.descriptor}</div>
+      </div>
+    </article>
+  ))}
+</section>

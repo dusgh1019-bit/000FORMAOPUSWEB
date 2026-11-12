@@ -1,0 +1,15 @@
+{
+  "name": "@forma-opus/cad",
+  "version": "2.0.0-rc.1",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./CadHold.astro": "./src/CadHold.astro",
+    "./domain.css": "./src/domain.css"
+  },
+  "dependencies": {
+    "@forma-opus/ui": "workspace:*",
+    "@forma-opus/core": "workspace:*"
+  }
+}

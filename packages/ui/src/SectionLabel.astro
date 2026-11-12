@@ -1,0 +1,9 @@
+---
+interface Props { index?: string; title: string; cue?: string; class?: string }
+const { index, title, cue, class: className = '' } = Astro.props;
+---
+<div class:list={["sectionLabel", className]}>
+  {index && <span>{index}</span>}
+  <strong>{title}</strong>
+  {cue && <small>{cue}</small>}
+</div>

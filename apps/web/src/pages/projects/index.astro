@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CleanDirectory from '../../components/CleanDirectory.astro';
+import { projectGroups } from '../../data/catalog';
+---
+<BaseLayout title="PROJECT INDEX — FORMA OPUS" bodyClass="fo-clean-body">
+  {Object.entries(projectGroups).map(([section, entries]) => <CleanDirectory section={section} parentText="FORMA OPUS" parentHref="/" entries={entries}/>) }
+</BaseLayout>

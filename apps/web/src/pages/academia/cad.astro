@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CleanDirectory from '../../components/CleanDirectory.astro';
+import { projectGroups } from '../../data/catalog';
+---
+<BaseLayout title="ACADEMIA — FORMA OPUS" bodyClass="fo-clean-body">
+  <CleanDirectory section="CAD" parentText="ACADEMIA" parentHref="/?scene=academia" entries={projectGroups.ACADEMIA.slice(1)}/>
+</BaseLayout>

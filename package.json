@@ -1,0 +1,19 @@
+{
+  "name": "forma-opus-architecture-v2",
+  "private": true,
+  "version": "2.0.0-rc.8",
+  "packageManager": "pnpm@10.15.1",
+  "scripts": {
+    "dev": "pnpm --filter @forma-opus/web dev",
+    "build": "pnpm --filter @forma-opus/web build",
+    "preview": "pnpm --filter @forma-opus/web preview",
+    "check:boundaries": "node scripts/check-boundaries.mjs",
+    "audit:legacy": "node scripts/audit-legacy.mjs",
+    "check": "pnpm check:boundaries && pnpm check:routes && pnpm check:legacy && pnpm check:migration && pnpm -r --if-present check",
+    "check:routes": "node scripts/check-routes.mjs",
+    "check:legacy": "node scripts/check-legacy-integrity.mjs",
+    "check:migration": "node scripts/check-migration-parity.mjs",
+    "verify:pre-deprecation": "node scripts/verify-pre-deprecation.mjs",
+    "check:components": "node scripts/check-component-parity.mjs"
+  }
+}

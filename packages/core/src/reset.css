@@ -1,0 +1,12 @@
+* { box-sizing: border-box; }
+html { background: var(--fo-black); color-scheme: dark; }
+body {
+  margin: 0;
+  background: var(--fo-black);
+  color: var(--fo-bone);
+  font-family: var(--fo-font-ko);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font: inherit; }
+:focus-visible { outline: var(--fo-focus); outline-offset: 4px; }

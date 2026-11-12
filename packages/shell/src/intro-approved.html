@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#050505" name="theme-color"/>
+<title>FORMA OPUS — Intro motion / WORKS handoff</title>
+<style>
+  /* ==============================================================
+     FORMA OPUS • TYPOGRAPHIC ENTRY 01
+     Self-contained, no fonts, JS libraries, images, or network calls.
+     WORKS route / integration: see CONFIG in script below.
+     ============================================================== */
+  :root { color-scheme: dark; --paper: #f4f4f2; --dark: #050505; --accent: rgba(242,242,240,.65); }
+  *,*::before,*::after { box-sizing: border-box; }
+  html,body { width:100%; height:100%; margin:0; overflow:hidden; background:var(--dark); }
+  html { -webkit-tap-highlight-color:transparent; }
+  body { color:var(--paper); font-family: Arial, Helvetica, sans-serif; user-select:none; -webkit-user-select:none; }
+  .scene { isolation:isolate; position:relative; width:100%; min-height:100svh; min-height:100dvh; background:#050505; overflow:hidden; }
+  .scene::before { content:""; pointer-events:none; position:absolute; inset:-35%; opacity:0; background:radial-gradient(circle at var(--glow-x, 50%) var(--glow-y, 50%), rgba(255,255,255,.041), transparent 30%); transition:opacity .65s ease; }
+  .scene[data-phase="ready"]::before { opacity:var(--glow-opacity,0); }
+  .center { position:absolute; left:50%; top:49%; width:max-content; max-width:100%; transform:translate(-50%,-50%); display:flex; flex-direction:column; align-items:center; }
+  .entry { display:block; cursor:default; appearance:none; border:0; padding:16px 8px 26px; background:transparent; color:inherit; outline:none; text-align:center; touch-action:manipulation; }
+  .wordmark-motion { display:block; transform:translate3d(var(--pointer-x,0px),var(--pointer-y,0px),0) scale(var(--pointer-s,1)); transition: transform .55s cubic-bezier(.18,.8,.24,1); will-change:transform; }
+  .wordmark { display:flex; justify-content:center; align-items:baseline; white-space:nowrap; gap:.27em; opacity:0; filter:blur(4px); transform:translateY(7px); animation:intro-appear 3000ms linear forwards; font-family: "Arial Black", "Arial", "Helvetica Neue", Helvetica, sans-serif; font-weight:900; font-size:clamp(52px, 10.1vw, 166px); letter-spacing:-.085em; line-height:1.03; }
+  @keyframes intro-appear { 0%{opacity:0; filter:blur(4px);transform:translateY(7px)} 25%{opacity:.12;filter:blur(2px);transform:translateY(5px)} 63%{opacity:.72;filter:blur(.25px);transform:translateY(1px)} 100%{opacity:1;filter:blur(0);transform:translateY(0)} }
+  .word { display:flex; align-items:baseline; }
+  .glyph { position:relative; display:inline-block; flex:none; transform:translate3d(0,0,0); transform-origin:50% 53%; will-change:transform; }
+  .glyph[data-float] { z-index:1; }
+  .wordmark .space { display:none; }
+  .wordmark-motion::after { content:""; position:relative; display:block; width:0%; height:1px; background:rgba(255,255,255,.65); left:50%; transform:translateX(-50%); margin-top:19px; transition:width .7s cubic-bezier(.16,1,.3,1), background .3s; }
+  .scene[data-phase="ready"] .wordmark-motion::after { width:100%; }
+  .scene[data-phase="ready"] .entry { cursor:pointer; }
+  .entry:focus-visible { outline:1px solid rgba(255,255,255,.6); outline-offset:9px; }
+  .entry:hover .wordmark-motion::after { background:rgba(255,255,255,.95); }
+  .metadata { height:14px; margin-top:24px; display:flex; align-items:center; justify-content:center; gap:13px; opacity:0; transition:opacity .55s ease; color:rgba(255,255,255,.38); font-family:Arial,Helvetica,sans-serif; font-size:10px; font-weight:600; letter-spacing:.27em; line-height:1; white-space:nowrap; }
+  .metadata .loading-indicator { width:32px; height:1px; background:rgba(255,255,255,.15); overflow:hidden; display:block; }
+  .metadata .loading-indicator::before { content:""; display:block; background:rgba(255,255,255,.8); height:100%; width:11px; animation:scan 1.5s cubic-bezier(.3,0,.7,1) infinite alternate; }
+  @keyframes scan { from{ transform:translateX(-12px); } to{transform:translateX(34px);} }
+  .metadata .ready-label { display:none; }
+  .scene[data-phase="loading"] .metadata, .scene[data-phase="settling"] .metadata { opacity:1; }
+  .scene[data-phase="ready"] .metadata { opacity:1; color:rgba(255,255,255,.57); }
+  .scene[data-phase="ready"] .metadata .loading-label, .scene[data-phase="ready"] .metadata .loading-indicator { display:none; }
+  .scene[data-phase="ready"] .metadata .ready-label { display:block; }
+  .ready-label .arrow { display:inline-block; margin-left:9px; transform:translateX(0); transition:transform .3s cubic-bezier(.2,.8,.2,1); font-weight:400; }
+  .entry:hover .ready-label .arrow { transform:translateX(7px); }
+  .scene[data-phase="ready"] .entry:hover .wordmark { text-shadow:0 0 34px rgba(255,255,255,.085); }
+  .scene[data-phase="exiting"] .center { animation:leave .65s cubic-bezier(.68,0,.31,1) both; }
+  @keyframes leave { from{opacity:1;filter:blur(0);transform:translate(-50%,-50%) scale(1)} to{opacity:0;filter:blur(11px);transform:translate(-50%,-50%) scale(1.055)} }
+  .works-handoff { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#080808; opacity:0; visibility:hidden; transition:opacity .8s ease, visibility .8s ease; }
+  .works-handoff h2 { font:900 clamp(70px,14vw,210px)/.9 "Arial Black",Arial,sans-serif; letter-spacing:-.082em; color:var(--paper); margin:0; }
+  .works-handoff small { margin-top:27px; color:rgba(255,255,255,.45); font-size:11px; font-weight:600; letter-spacing:.26em; }
+  .scene[data-phase="handoff"] .works-handoff { visibility:visible; opacity:1; }
+  .corner { position:absolute; bottom:27px; left:30px; pointer-events:none; color:rgba(255,255,255,.18); font-size:10px; letter-spacing:.2em; font-weight:700; opacity:0; transition:opacity 1s ease; }
+  .scene[data-phase="ready"] .corner {opacity:1;}
+  @media (max-width:600px) {
+    .center { top:48%; }
+    .entry { padding:10px 5px 20px; }
+    .wordmark {font-size:clamp(40px, 12.1vw, 70px);letter-spacing:-.079em;gap:.27em;}
+    .wordmark-motion::after {margin-top:14px;}
+    .metadata { font-size:9px; margin-top:22px; letter-spacing:.2em; }
+    .corner { left:19px; bottom:21px; font-size:9px; }
+  }
+  @media (prefers-reduced-motion:reduce) {
+    .wordmark {animation:none; opacity:1; filter:none; transform:none;}
+    .glyph[data-float] {transform:none !important; }
+    .wordmark-motion {transition:none;}
+    .metadata .loading-indicator::before {animation:none;}
+    .scene[data-phase="exiting"] .center {animation:none; opacity:0;}
+  }
+ .scene[data-phase="ready"] .entry:active .wordmark {text-shadow:0 0 42px rgba(255,255,255,.18)}
+</style>
+</head>
+<body>
+<main aria-label="FORMA OPUS 홈페이지 진입 화면" class="scene" data-phase="loading" id="fo-scene">
+<div class="center" id="fo-center">
+<button aria-disabled="true" aria-label="FORMA OPUS WORKS 진입" class="entry" disabled="" id="fo-enter" type="button">
+<span class="wordmark-motion" id="fo-wordmark-motion">
+<span aria-hidden="true" class="wordmark" id="fo-wordmark">
+<span class="word"><span class="glyph" data-float="f">F</span><span class="glyph">O</span><span class="glyph">R</span><span class="glyph">M</span><span class="glyph">A</span></span>
+<span class="word"><span class="glyph">O</span><span class="glyph">P</span><span class="glyph">U</span><span class="glyph" data-float="s">S</span></span>
+</span>
+</span>
+</button>
+<div aria-live="polite" class="metadata" id="fo-status">
+<span class="loading-label">LOADING</span>
+<span aria-hidden="true" class="loading-indicator"></span>
+<span class="ready-label">MOVE TO EXPLORE <span aria-hidden="true">·</span> ENTER WORKS<span aria-hidden="true" class="arrow">↗</span></span>
+</div>
+</div>
+<div aria-hidden="true" class="corner">FO / 001</div>
+<!-- Local demonstration only. Once connected to the actual WORKS route, this screen is never shown. -->
+
+</main>
+<script>
+(() => {
+  'use strict';
+  /* Integration configuration. Set href to your existing WORKS route,
+     OR register a transition handler from the actual FORMA OPUS site.
+     No source/site edits are performed by this standalone demo.
+  */
+  const CONFIG = {
+    fadeMs: 3000,         // complete white title fade-in
+    minIntroMs: 3000,     // no snapping before the first three seconds
+    snapMs: 690,          // brisk but natural convergence of F and S
+    worksHref: null,      // handoff: e.g. '/works'; null -> in-file preview
+    requireManualReady: true, // true: wait until FORMA_OPUS_INTRO.markReady()
+    maxWaitMs: 15000,     // failsafe if manual signal or browser loading hangs
+  };
+
+  const scene = document.getElementById('fo-scene');
+  const entry = document.getElementById('fo-enter');
+  const motion = document.getElementById('fo-wordmark-motion');
+  const f = document.querySelector('[data-float="f"]');
+  const s = document.querySelector('[data-float="s"]');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let started = performance.now(), browserLoaded = document.readyState === 'complete';
+  let manuallyReady = !CONFIG.requireManualReady;
+  let phase = 'loading', snapStart = 0, endHandler = null, queued = false, running = true;
+  const held = { f:null, s:null }, delay = {f:0,s:0};
+  const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi,n));
+  const mix = (a,b,t) => a+(b-a)*t;
+  const easeOut = t => 1 - Math.pow(1-t,4);
+
+  /* Superposed non-matching wave periods + slow drift.
+     Independent phase and amplitude for the two glyphs. No random jumps.
+     Units are pixels and degrees; motion is responsive to screen width. */
+  function floatAt(k, sec) {
+    const mul = Math.min(1,Math.max(.56,window.innerWidth/760));
+    const isF = k === 'f';
+    let x,y,r;
+    if (isF) {
+      x = -7 + 16*Math.sin(sec*.86+.3) + 9*Math.sin(sec*1.73+1.6) + 4*Math.sin(sec*.27+2.1);
+      y = -10 + 9*Math.cos(sec*.97+.7) + 8*Math.sin(sec*1.43+2.4);
+      r = -3 + 3.5*Math.sin(sec*.81+1.1) + 2.3*Math.sin(sec*1.67+2.2);
+    } else {
+      x = 11 + 18*Math.sin(sec*.73+2.3) + 9*Math.sin(sec*1.84+.9) + 4*Math.sin(sec*.34+1.1);
+      y = 8 + 10*Math.cos(sec*.86+1.9) + 7*Math.sin(sec*1.66+2.5);
+      r = 3 + 3.7*Math.sin(sec*.75+1.5) + 1.8*Math.sin(sec*1.61+.1);
+    }
+    return [x*mul, y*mul, r];
+  }
+  function draw(el, pose) {
+    el.style.transform = `translate3d(${pose[0].toFixed(3)}px,${pose[1].toFixed(3)}px,0) rotate(${pose[2].toFixed(3)}deg)`;
+  }
+  function nearlyZero(p) {return [Math.abs(p[0])<.05?0:p[0], Math.abs(p[1])<.05?0:p[1], Math.abs(p[2])<.01?0:p[2]];}
+  function startSnap(now) {
+    phase='settling'; scene.dataset.phase='settling'; snapStart=now;
+    const sec=(now-started)/1000;
+    held.f=floatAt('f',sec); held.s=floatAt('s',sec);
+  }
+  function complete() {
+    phase='ready'; scene.dataset.phase='ready';
+    draw(f,[0,0,0]); draw(s,[0,0,0]);
+    entry.disabled=false; entry.setAttribute('aria-disabled','false');
+    if (reduced) motion.style.transition='none';
+  }
+  function tick(now) {
+    if(!running) return;
+    const elapsed = now-started;
+    const sec=elapsed/1000;
+    if(phase==='loading') {
+      if(!reduced) {draw(f,floatAt('f',sec)); draw(s,floatAt('s',sec));}
+      if(elapsed>=CONFIG.minIntroMs && browserLoaded && manuallyReady) startSnap(now);
+    }
+    if(phase==='settling') {
+      const t=clamp((now-snapStart)/CONFIG.snapMs,0,1);
+      // critically damped start with a subtle underdamped tail and absolutely exact alignment
+      const snapEnvelope = Math.exp(-8.2*t) * (Math.cos(8.1*t)+.26*Math.sin(8.1*t));
+      const env = t>=1?0:snapEnvelope;
+      const endF=held.f.map(a=>a*env), endS=held.s.map(a=>a*env);
+      draw(f,nearlyZero(endF));draw(s,nearlyZero(endS));
+      if(t>=1) complete();
+    }
+    if(phase==='loading'||phase==='settling') requestAnimationFrame(tick);
+  }
+  if(reduced) {requestAnimationFrame(tick);} else {requestAnimationFrame(tick);}
+  window.addEventListener('load',()=>{browserLoaded=true;},{once:true});
+  if(document.readyState!=='loading') browserLoaded = document.readyState==='complete';
+
+  function enter() {
+    if (phase!=='ready'||queued) return;
+    queued=true; phase='exiting'; scene.dataset.phase='exiting'; entry.disabled=true;
+    scene.dispatchEvent(new CustomEvent('formaopus:enter-works', { bubbles: true, detail: { target:'WORKS' }}));
+    setTimeout(() => {
+      if (typeof endHandler === 'function') { endHandler(); return; }
+      if (CONFIG.worksHref) { window.location.assign(CONFIG.worksHref); return; }
+      scene.dataset.phase='handoff';
+      document.getElementById('fo-works-placeholder').setAttribute('aria-hidden','false');
+    }, reduced ? 30 : 560);
+  }
+  entry.addEventListener('click',enter);
+  entry.addEventListener('keydown',ev=>{if(ev.key==='Enter'||ev.key===' ') {ev.preventDefault();enter();}});
+
+  // Mouse and pen: very modest proximity response, only once settled.
+  let targetX=0,targetY=0, targetS=1, pointerFrame=0;
+  function updatePointer(e) {
+    if (phase !== 'ready' || e.pointerType === 'touch') return;
+    const r=entry.getBoundingClientRect();
+    const cx=r.left+r.width/2, cy=r.top+r.height/2;
+    const nx=(e.clientX-cx)/Math.max(1,r.width/2), ny=(e.clientY-cy)/Math.max(1,r.height/2);
+    const d=Math.hypot(nx*.7,ny*.85);
+    const proximity=1-clamp((d-.15)/1.7,0,1);
+    targetX=clamp(nx,-1,1)*4.2*proximity;
+    targetY=clamp(ny,-1,1)*3.0*proximity;
+    targetS=1+.009*proximity;
+    motion.style.setProperty('--pointer-x',`${targetX.toFixed(2)}px`);
+    motion.style.setProperty('--pointer-y',`${targetY.toFixed(2)}px`);
+    motion.style.setProperty('--pointer-s',targetS.toFixed(4));
+    scene.style.setProperty('--glow-x',`${clamp(e.clientX/window.innerWidth*100,0,100)}%`);
+    scene.style.setProperty('--glow-y',`${clamp(e.clientY/window.innerHeight*100,0,100)}%`);
+    scene.style.setProperty('--glow-opacity',`${(.2*proximity).toFixed(3)}`);
+  }
+  window.addEventListener('pointermove',updatePointer,{passive:true});
+  window.addEventListener('pointerleave',()=>{
+    motion.style.setProperty('--pointer-x','0px');motion.style.setProperty('--pointer-y','0px');motion.style.setProperty('--pointer-s','1');
+    scene.style.setProperty('--glow-opacity','0');
+  });
+  window.addEventListener('resize',()=>{if (phase==='ready') {draw(f,[0,0,0]);draw(s,[0,0,0]);}}, {passive:true});
+
+  // Public interface for integration with the WORKS page in another conversation.
+  window.FORMA_OPUS_INTRO = Object.freeze({
+    markReady() { manuallyReady = true; },
+    requireAppReady() { manuallyReady=false; },
+    setWorksHref(url) { if(typeof url === 'string' && url.trim()) CONFIG.worksHref=url.trim(); },
+    setEnterHandler(callback) { if(typeof callback==='function') endHandler=callback; },
+    getPhase() { return phase; }
+  });
+})();
+</script>
+</body>
+</html>

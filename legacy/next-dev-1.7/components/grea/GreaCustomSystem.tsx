@@ -1,0 +1,7 @@
+import Link from 'next/link';
+import GreaNav from './GreaNav';
+export default function GreaCustomSystem(){return <main className="greaV2Page greaCustomSystemPage"><GreaNav current="CUSTOM" />
+<section className="greaSubHero customSystemHero"><div><span>CAPABILITY / CROSS-LINE SYSTEM</span><h1>CUSTOM</h1><strong>MAKE IT<br/>YOURS.</strong></div><div><p>PRODUCT CUSTOMIZATION</p><em>제품별 커스터마이징</em><small>I WANT TO MAKE IT MINE.</small></div></section>
+<section className="customSystemMap"><article><span>EXERCITUS</span><h2>GRAPHIC CUSTOM</h2><p>UNIT / GRAPHIC / TYPOGRAPHY / CUSTOMER UPLOAD</p><strong>customType: GRAPHIC</strong><Link href="/grea/exercitus">OPEN EXERCITUS →</Link></article><article><span>FABER</span><h2>FUNCTIONAL CONFIGURATION</h2><p>BASE / CARRY / HOLD / INSIGNIA — FUTURE READY, STANDARD NOT YET DEFINED.</p><strong>customType: FUNCTIONAL / INSIGNIA</strong><Link href="/grea/faber">VIEW FABER →</Link></article><article><span>VESTIS</span><h2>SELECTED GRAPHIC OPTION</h2><p>제품별로 허용된 Variant/Graphic Option만 제공합니다.</p><strong>customType: VARIANT / PRODUCT-DEFINED</strong><Link href="/grea/vestis">VIEW VESTIS →</Link></article><article><span>INSIGNIA</span><h2>TEXT / SYMBOL / NAME</h2><p>실제 제공범위와 Position은 Base Product Data가 결정합니다.</p><strong>customType: INSIGNIA</strong><Link href="/grea/insignia">VIEW INSIGNIA →</Link></article></section>
+<section className="greaPrincipleStrip"><span>RULE</span><strong>CUSTOM IS A CAPABILITY. NOT THE BRAND.</strong><p>available=false인 Product에는 CONFIGURE / CUSTOM Action을 표시하지 않습니다.</p></section>
+</main>}

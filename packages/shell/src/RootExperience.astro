@@ -1,0 +1,90 @@
+---
+import SplitPanelScene from '@forma-opus/ui/SplitPanelScene.astro';
+import introHtml from './intro-approved.html?raw';
+import BreadcrumbTrail from '@forma-opus/ui/BreadcrumbTrail.astro';
+import SectionLabel from '@forma-opus/ui/SectionLabel.astro';
+
+export type SceneItem = {
+  id: string;
+  name: string;
+  href: string;
+  descriptor: string;
+  visualClass: string;
+  ariaLabel?: string;
+};
+export type RootScene = { id: 'works' | 'academia'; label: string; index: string; cue: string; items: SceneItem[] };
+interface Props { scenes: RootScene[] }
+const { scenes } = Astro.props;
+const works = scenes.find((scene) => scene.id === 'works')!;
+const academia = scenes.find((scene) => scene.id === 'academia')!;
+---
+<div class="rootExperience isEntry scene-works" data-root-experience data-root-state="entry" data-scene="works">
+  <main class="entry rootEntry" data-root-entry>
+    <button type="button" hidden data-enter-root aria-label="Enter WORKS"></button>
+  </main>
+  <div class="foIntroOverlay" data-fo-intro-overlay>
+    <iframe class="foIntroFrame" data-fo-intro-frame srcdoc={introHtml} title="FORMA OPUS Typography Intro" loading="eager"></iframe>
+  </div>
+
+  <main class="rootBrands" data-root-scenes aria-hidden="true">
+    <div class="utility rootSceneUtility">
+      <BreadcrumbTrail items={[{ label: 'FORMA OPUS', href: '/' }]} />
+      <nav class="utilityNav" aria-label="Secondary">
+        <a href="/about">About</a><a href="/projects">Projects</a><a href="/contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="sceneViewport" id="works-scene">
+      <div class="sceneTrack" data-scene-track aria-live="polite">
+        <div class="rootScene sceneWorks" data-scene-panel="works">
+          <SplitPanelScene sceneId="works" sceneLabel="SCENE 01 — WORKS" items={works.items} active={true} />
+          <SectionLabel class="sceneMeta sceneMetaWorks" index={works.index} title={works.label} cue={works.cue} />
+        </div>
+        <div class="rootScene sceneAcademia" data-scene-panel="academia">
+          <SplitPanelScene sceneId="academia" sceneLabel="SCENE 02 — ACADEMIA" items={academia.items} active={false} />
+          <SectionLabel class="sceneMeta sceneMetaAcademia" index={academia.index} title={academia.label} cue={academia.cue} />
+        </div>
+      </div>
+    </div>
+
+    <nav class="sceneRail" aria-label="Main scenes">
+      <button class="active" type="button" data-scene-target="works" aria-label="Go to WORKS"><span>01</span></button>
+      <button type="button" data-scene-target="academia" aria-label="Go to ACADEMIA"><span>02</span></button>
+    </nav>
+  </main>
+</div>
+
+<script>
+  import { mountRootSceneController } from './scene-controller';
+  const root = document.querySelector<HTMLElement>('[data-root-experience]');
+  if (root) {
+    mountRootSceneController(root);
+    const overlay = root.querySelector<HTMLElement>('[data-fo-intro-overlay]');
+    const frame = root.querySelector<HTMLIFrameElement>('[data-fo-intro-frame]');
+    if (root.dataset.rootState === 'brands') overlay?.remove();
+    else if (frame) {
+      const connectIntro = () => {
+        const api = (frame.contentWindow as any)?.FORMA_OPUS_INTRO;
+        if (!api) return;
+        api.setEnterHandler(() => {
+          root.querySelector<HTMLButtonElement>('[data-enter-root]')?.click();
+          overlay?.classList.add('isDone');
+          window.setTimeout(() => overlay?.remove(), 760);
+        });
+        Promise.resolve(document.fonts?.ready).then(() => {
+          if (document.readyState === 'complete') api.markReady();
+          else window.addEventListener('load', () => api.markReady(), { once:true });
+        });
+      };
+      if (frame.contentDocument?.readyState === 'complete') connectIntro();
+      else frame.addEventListener('load', connectIntro, { once:true });
+    }
+  }
+</script>
+
+<style>
+.foIntroOverlay{position:fixed;inset:0;z-index:99999;background:#050505;opacity:1;transition:opacity .72s cubic-bezier(.3,.7,.2,1)}
+.foIntroOverlay.isDone{opacity:0;pointer-events:none}
+.foIntroFrame{border:0;display:block;width:100%;height:100%;height:100dvh;background:#050505}
+@media(prefers-reduced-motion:reduce){.foIntroOverlay{transition:none}}
+</style>

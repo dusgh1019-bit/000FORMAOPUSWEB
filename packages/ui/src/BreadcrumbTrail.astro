@@ -1,0 +1,13 @@
+---
+export type BreadcrumbItem = { label: string; href?: string };
+interface Props { items: BreadcrumbItem[]; class?: string }
+const { items, class: className = '' } = Astro.props;
+---
+<nav class:list={["breadcrumbTrail", className]} aria-label="Hierarchy">
+  {items.map((item, index) => (
+    <>
+      {index > 0 && <span class="breadcrumbSeparator" aria-hidden="true">/</span>}
+      {item.href ? <a class="breadcrumbItem" href={item.href} data-root-aware-link={item.href.startsWith('/')}>{item.label}</a> : <span class="breadcrumbItem">{item.label}</span>}
+    </>
+  ))}
+</nav>
