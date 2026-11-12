@@ -1,0 +1,57 @@
+name: FORMA OPUS RC9 Build QA (no deployment)
+on:
+  push:
+    branches:
+      - sync/rc9-build-mesh-v10-20261112
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: '10.15.1'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install workspace dependencies
+        run: pnpm install --no-frozen-lockfile
+      - name: Check source boundaries, routes, legacy and parity
+        run: |
+          pnpm check:boundaries
+          pnpm check:routes
+          pnpm check:legacy
+          pnpm check:migration
+          pnpm check:components
+          pnpm verify:pre-deprecation
+      - name: Astro build
+        run: pnpm build
+      - name: Chromium PC and mobile smoke screenshots
+        if: success()
+        run: |
+          npx --yes playwright@1.56.1 install --with-deps chromium
+          pnpm --filter @forma-opus/web preview --host 127.0.0.1 --port 4321 > preview.log 2>&1 &
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4321/ > /dev/null; then break; fi
+            sleep 2
+          done
+          mkdir -p qa-screenshots
+          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="1440,900" --wait-for-timeout=2500 http://127.0.0.1:4321/ qa-screenshots/home-desktop.png
+          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="390,844" --wait-for-timeout=2500 http://127.0.0.1:4321/ qa-screenshots/home-mobile.png
+          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="1440,900" --wait-for-timeout=2500 'http://127.0.0.1:4321/#/parvus' qa-screenshots/parvus-desktop.png
+          npx --yes playwright@1.56.1 screenshot --browser=chromium --viewport-size="390,844" --wait-for-timeout=2500 'http://127.0.0.1:4321/#/parvus' qa-screenshots/parvus-mobile.png
+      - name: Attach QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: forma-opus-rc9-build-qa
+          path: |
+            qa-screenshots/
+            preview.log
+          if-no-files-found: ignore
